@@ -19,7 +19,7 @@ files directly, or serve the folder and browse to it.
 |---|---------|------|------------------|
 | 05 | [**Online Controlled Experiments**](experimentation/) | Experimentation · Stats | Notes and a small toolkit for A/B testing — a sample-size calculator, an honest test readout with confidence intervals and p-values, common pitfalls (peeking, multiple comparisons, CUPED), and a reading list. |
 | 04 | [**Automation Opportunity Mapping**](ops-automation/) | Operations · AI | An impact-vs-effort matrix and a phased rollout for deciding what to automate first. |
-| 02 | [**Account Health & Retention**](client-success/) | Client Success | How a composite health score can surface churn risk before renewal, and the play that tends to fit each signal. |
+| 02 | [**Account Health & Retention**](client-success/) | Client Success | How a composite health score surfaces churn risk before renewal — including a real automation I built that analyses client-call sentiment with AI to predict churn at ~92% accuracy. |
 | 01 | [**Email Triage Prototype**](ai-email-triage/) | Applied AI | An in-browser sketch of an LLM triage layer — reads a message, assigns priority/category/sentiment, routes it, drafts a reply. |
 | 03 | [**Reading a Marketing Funnel**](marketing-roi/) | Marketing analytics | ROAS, CAC, LTV:CAC and funnel conversion side by side, so budget talk starts from unit economics. |
 | 06 | [**Foil Right-of-Way Trainer**](fencing/) 🤺 | Just for fun | An interactive "who gets the touch?" quiz on foil right-of-way, a valid-target diagram, and a quick glossary. A fencing aside. |
