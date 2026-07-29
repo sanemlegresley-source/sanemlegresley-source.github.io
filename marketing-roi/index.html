@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marketing Performance Dashboard — Portfolio Project</title>
+  <meta name="description" content="A marketing performance dashboard tracking ROAS, CAC, LTV and funnel efficiency across channels — built by a growth-minded operations and marketing leader.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: "media", theme: { extend: {
+      fontFamily: { headline: ["Noto Serif","Georgia","serif"], body: ["Inter","system-ui","sans-serif"] },
+      borderRadius: { DEFAULT: "2px" }
+    } } };
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --surface-1:#ffffff; --surface-2:#f4f4f5; --line:#d6d6d8;
+      --text-primary:#161616; --text-secondary:#5f6062;
+      --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a; --s4:#eda100;
+      --good:#12805a; --warn:#b26b00; --crit:#c0392b;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --surface-1:#1c1c1e; --surface-2:#161618; --line:#37373a;
+        --text-primary:#f1f1f2; --text-secondary:#a6a6aa;
+        --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500;
+        --good:#3aa981; --warn:#d79a2b; --crit:#e57368;
+      }
+    }
+    body { background:var(--surface-2); color:var(--text-primary); }
+    .card { background:var(--surface-1); border:1px solid var(--line); }
+    .mono { font-variant-numeric: tabular-nums; }
+    .badge { font-size:.68rem; letter-spacing:.04em; text-transform:uppercase; font-weight:600; }
+    th,td { padding:.6rem .75rem; }
+    thead th { border-bottom:1px solid var(--line); text-align:left; }
+    tbody tr { border-bottom:1px solid var(--line); }
+  </style>
+</head>
+<body class="font-body antialiased">
+
+  <header class="border-b" style="border-color:var(--line); background:var(--surface-1);">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="../index.html" class="flex items-center gap-2 text-sm" style="color:var(--text-secondary)"><span aria-hidden="true">←</span> Portfolio</a>
+      <span class="badge px-2 py-1" style="background:var(--surface-2);border:1px solid var(--line);color:var(--text-secondary)">Marketing · Growth</span>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-6 py-12">
+
+    <section class="mb-12">
+      <p class="badge mb-3" style="color:var(--s2)">Project 03</p>
+      <h1 class="font-headline text-4xl md:text-5xl font-bold leading-tight mb-4">Reading a marketing funnel</h1>
+      <p class="text-lg max-w-2xl leading-relaxed" style="color:var(--text-secondary)">
+        The view I find most useful for channel economics: <strong style="color:var(--text-primary)">ROAS</strong>,
+        <strong style="color:var(--text-primary)">CAC</strong>, <strong style="color:var(--text-primary)">LTV:CAC</strong> and funnel
+        conversion side by side — so a budget conversation can start from unit economics rather than from whoever feels strongest about a channel.
+      </p>
+    </section>
+
+    <section class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+      <div class="card p-5"><p class="badge" style="color:var(--text-secondary)">Blended ROAS</p><p class="text-3xl font-headline font-bold mono mt-1" style="color:var(--s1)">3.8×</p><p class="text-xs mt-1" style="color:var(--text-secondary)">Illustrative · target ≥ 3.0×</p></div>
+      <div class="card p-5"><p class="badge" style="color:var(--text-secondary)">Blended CAC</p><p class="text-3xl font-headline font-bold mono mt-1">$190</p><p class="text-xs mt-1" style="color:var(--text-secondary)">Illustrative</p></div>
+      <div class="card p-5"><p class="badge" style="color:var(--text-secondary)">LTV : CAC</p><p class="text-3xl font-headline font-bold mono mt-1" style="color:var(--s3)">4.5 : 1</p><p class="text-xs mt-1" style="color:var(--text-secondary)">Illustrative · healthy &gt; 3:1</p></div>
+      <div class="card p-5"><p class="badge" style="color:var(--text-secondary)">CAC payback</p><p class="text-3xl font-headline font-bold mono mt-1" style="color:var(--s4)">6 mo</p><p class="text-xs mt-1" style="color:var(--text-secondary)">Illustrative</p></div>
+    </section>
+
+    <section class="grid lg:grid-cols-2 gap-6 mb-14">
+      <div class="card p-6">
+        <h2 class="font-headline text-xl font-semibold mb-1 flex items-center gap-3">Return on ad spend by channel <span class="badge px-2 py-0.5" style="background:var(--surface-2);border:1px solid var(--line);color:var(--text-secondary)">Sample</span></h2>
+        <p class="text-sm mb-4" style="color:var(--text-secondary)">Illustrative revenue per $1 spent. Dashed line is the 3.0× floor.</p>
+        <div id="roasChart"></div>
+      </div>
+      <div class="card p-6">
+        <h2 class="font-headline text-xl font-semibold mb-1 flex items-center gap-3">Acquisition funnel <span class="badge px-2 py-0.5" style="background:var(--surface-2);border:1px solid var(--line);color:var(--text-secondary)">Sample</span></h2>
+        <p class="text-sm mb-4" style="color:var(--text-secondary)">Illustrative 90-day funnel. Stage-to-stage conversion labelled.</p>
+        <div id="funnelChart"></div>
+      </div>
+    </section>
+
+    <section class="mb-14">
+      <h2 class="font-headline text-2xl font-semibold mb-1 flex items-center gap-3">Channel scorecard <span class="badge px-2 py-0.5" style="background:var(--surface-2);border:1px solid var(--line);color:var(--text-secondary)">Sample data</span></h2>
+      <p class="text-sm mb-4" style="color:var(--text-secondary)">Illustrative example of how I rank spend, efficiency, and where the next dollar should go.</p>
+      <div class="card overflow-x-auto">
+        <table class="w-full text-sm mono" style="min-width:680px">
+          <thead style="color:var(--text-secondary)">
+            <tr><th class="badge">Channel</th><th class="badge">Spend</th><th class="badge">Revenue</th><th class="badge">ROAS</th><th class="badge">CAC</th><th class="badge">Verdict</th></tr>
+          </thead>
+          <tbody id="chanBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="font-headline text-2xl font-semibold mb-6">The way I like to approach it</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="card p-6"><p class="badge mb-2" style="color:var(--s1)">Measure honestly</p><p class="text-sm leading-relaxed" style="color:var(--text-secondary)">Each channel carries its fully-loaded CAC and a payback period, so the comparison is like-for-like and a click that never becomes revenue doesn't get credit for the ones that do.</p></div>
+        <div class="card p-6"><p class="badge mb-2" style="color:var(--s2)">Reallocate steadily</p><p class="text-sm leading-relaxed" style="color:var(--text-secondary)">Budget drifts toward the channels clearing the ROAS floor and away from those that don't — ideally validated with a proper test rather than a hunch. Cheap creative iteration keeps the top of funnel fed.</p></div>
+        <div class="card p-6"><p class="badge mb-2" style="color:var(--s3)">Close the loop</p><p class="text-sm leading-relaxed" style="color:var(--text-secondary)">Handing client success a scored, well-fit lead — not just a signup — lets acquisition and retention be tuned together, which tends to work better than optimising either team in isolation.</p></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t mt-12" style="border-color:var(--line)">
+    <div class="max-w-6xl mx-auto px-6 py-8 text-sm flex flex-wrap gap-2 justify-between" style="color:var(--text-secondary)">
+      <span>Portfolio project — marketing performance &amp; growth</span>
+      <span class="flex gap-4"><a href="https://www.linkedin.com/in/sanemlegresley/" target="_blank" rel="noopener" class="underline">Sanem Le Gresley · LinkedIn</a><a href="../index.html" class="underline">Back to all projects</a></span>
+    </div>
+  </footer>
+
+  <script>
+  // ---- Channel table -------------------------------------------------------
+  const CHAN = [
+    { name:"Paid search", spend:"$14.2k", rev:"$71k", roas:5.0, cac:"$188", verdict:"Scale", vc:"var(--good)" },
+    { name:"Referral / word-of-mouth", spend:"$2.1k", rev:"$18k", roas:8.6, cac:"$96", verdict:"Scale", vc:"var(--good)" },
+    { name:"Content / SEO", spend:"$6.0k", rev:"$27k", roas:4.5, cac:"$142", verdict:"Scale", vc:"var(--good)" },
+    { name:"Paid social", spend:"$9.4k", rev:"$29k", roas:3.1, cac:"$264", verdict:"Hold", vc:"var(--warn)" },
+    { name:"Events / sponsorship", spend:"$7.8k", rev:"$14k", roas:1.8, cac:"$520", verdict:"Cut", vc:"var(--crit)" },
+  ];
+  document.getElementById("chanBody").innerHTML = CHAN.map(c=>`<tr>
+    <td class="font-semibold" style="font-family:Inter">${c.name}</td>
+    <td>${c.spend}</td><td>${c.rev}</td>
+    <td style="color:${c.roas>=3?'var(--good)':'var(--crit)'}">${c.roas.toFixed(1)}×</td>
+    <td>${c.cac}</td>
+    <td><span class="badge" style="color:${c.vc}">${c.verdict}</span></td>
+  </tr>`).join("");
+
+  // ---- ROAS bars -----------------------------------------------------------
+  (function(){
+    const data=[
+      {l:"Referral",v:8.6,c:"var(--s3)"},{l:"Paid search",v:5.0,c:"var(--s1)"},
+      {l:"Content / SEO",v:4.5,c:"var(--s4)"},{l:"Paid social",v:3.1,c:"var(--s2)"},
+      {l:"Events",v:1.8,c:"var(--text-secondary)"}
+    ];
+    const max=9, W=560,rowH=44,padL=110,padR=52,top=6,H=top*2+data.length*rowH,bw=W-padL-padR;
+    const floor=padL+(3/max)*bw;
+    let bars="";
+    data.forEach((d,i)=>{const yy=top+i*rowH+8,w=Math.max(4,(d.v/max)*bw);
+      bars+=`<text x="${padL-12}" y="${yy+16}" text-anchor="end" font-size="12" fill="var(--text-secondary)">${d.l}</text>
+        <rect x="${padL}" y="${yy}" width="${w}" height="24" rx="4" fill="${d.c}"/>
+        <text x="${padL+w+8}" y="${yy+17}" font-size="13" font-weight="700" fill="var(--text-primary)" class="mono">${d.v.toFixed(1)}×</text>`;});
+    const line=`<line x1="${floor}" y1="${top}" x2="${floor}" y2="${H-top}" stroke="var(--crit)" stroke-width="1.5" stroke-dasharray="4 3"/><text x="${floor}" y="${H-2}" text-anchor="middle" font-size="10" fill="var(--crit)">3.0× floor</text>`;
+    document.getElementById("roasChart").innerHTML=`<svg viewBox="0 0 ${W} ${H+8}" width="100%" role="img" aria-label="ROAS by channel">${line}${bars}</svg>`;
+  })();
+
+  // ---- Funnel --------------------------------------------------------------
+  (function(){
+    const stages=[
+      {l:"Visitors",v:42000,c:"var(--s1)"},{l:"Leads",v:5900,c:"var(--s1)"},
+      {l:"Qualified",v:1450,c:"var(--s3)"},{l:"Opportunities",v:520,c:"var(--s3)"},
+      {l:"Customers",v:188,c:"var(--s4)"}
+    ];
+    const W=560,rowH=48,padT=6,padX=20,H=padT*2+stages.length*rowH,maxW=W-padX*2;
+    const max=stages[0].v;
+    let out="";
+    stages.forEach((s,i)=>{
+      const w=Math.max(60,(s.v/max)*maxW), x=(W-w)/2, y=padT+i*rowH+6;
+      const conv = i>0 ? ((s.v/stages[i-1].v)*100).toFixed(1)+"%" : "";
+      out+=`<rect x="${x}" y="${y}" width="${w}" height="32" rx="3" fill="${s.c}"/>
+        <text x="${W/2}" y="${y+21}" text-anchor="middle" font-size="12" font-weight="600" fill="#fff" class="mono">${s.l} · ${s.v.toLocaleString()}</text>`;
+      if(conv) out+=`<text x="${W-6}" y="${y-2}" text-anchor="end" font-size="11" fill="var(--text-secondary)" class="mono">${conv} ↓</text>`;
+    });
+    document.getElementById("funnelChart").innerHTML=`<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="Acquisition funnel from visitors to customers">${out}</svg>`;
+  })();
+  </script>
+</body>
+</html>

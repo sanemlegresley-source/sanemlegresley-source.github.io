@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sanem Le Gresley — a working notebook of methods &amp; prototypes</title>
+  <meta name="description" content="Notes and small interactive prototypes on how I approach operations, experimentation, client success and applied AI — from A/B testing to automation mapping. Worked examples on edited data.">
+  <meta property="og:title" content="Sanem Le Gresley — a working notebook of methods &amp; prototypes">
+  <meta property="og:description" content="Notes and interactive prototypes on experimentation (A/B testing), operations automation, account health, and reading a marketing funnel. Worked examples on edited data.">
+  <meta property="og:type" content="website">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: "media", theme: { extend: {
+      fontFamily: { headline: ["Noto Serif","Georgia","serif"], body: ["Inter","system-ui","sans-serif"] },
+      borderRadius: { DEFAULT: "2px" }
+    } } };
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --surface-1:#ffffff; --surface-2:#f4f4f5; --line:#d6d6d8;
+      --text-primary:#161616; --text-secondary:#5f6062; --gold:#a31f34;
+      --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a; --s4:#eda100;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --surface-1:#1c1c1e; --surface-2:#161618; --line:#37373a;
+        --text-primary:#f1f1f2; --text-secondary:#a6a6aa; --gold:#e2566a;
+        --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500;
+      }
+    }
+    body { background:var(--surface-2); color:var(--text-primary); }
+    .card { background:var(--surface-1); border:1px solid var(--line); transition:transform .18s ease, box-shadow .18s ease; }
+    .card:hover { transform:translateY(-3px); box-shadow:0 12px 30px -18px rgba(0,0,0,.5); }
+    .badge { font-size:.68rem; letter-spacing:.05em; text-transform:uppercase; font-weight:600; }
+    .mono { font-variant-numeric: tabular-nums; }
+  </style>
+</head>
+<body class="font-body antialiased">
+
+  <header class="border-b" style="border-color:var(--line); background:var(--surface-1);">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <span class="font-headline font-bold text-lg">Sanem&nbsp;Le&nbsp;Gresley</span>
+      <nav class="text-sm flex gap-5 items-center" style="color:var(--text-secondary)">
+        <a href="#projects" class="hover:opacity-70">Projects</a>
+        <a href="https://www.linkedin.com/in/sanemlegresley/" target="_blank" rel="noopener" class="hover:opacity-70">LinkedIn ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="max-w-6xl mx-auto px-6 pt-20 pb-14">
+      <p class="badge mb-4" style="color:var(--gold)">Operations · Experimentation · Marketing · Client Success · Applied AI</p>
+      <h1 class="font-headline text-4xl md:text-6xl font-bold leading-[1.08] mb-6 max-w-3xl">
+        A working notebook of <span class="italic">methods and prototypes</span>.
+      </h1>
+      <p class="text-base mb-6 flex flex-wrap items-center gap-x-3 gap-y-1" style="color:var(--text-primary)">
+        <span class="font-semibold">Sanem Le Gresley</span>
+        <span style="color:var(--text-secondary)">· Operations, experimentation &amp; applied AI</span>
+        <span class="badge px-2 py-0.5" style="background:var(--surface-1);border:1px solid var(--gold);color:var(--gold)">MIT</span>
+        <a href="https://www.linkedin.com/in/sanemlegresley/" target="_blank" rel="noopener" class="underline" style="color:var(--s1)">LinkedIn ↗</a>
+      </p>
+      <p class="text-lg max-w-2xl leading-relaxed mb-8" style="color:var(--text-secondary)">
+        A place to think out loud about how I approach the work: sizing an experiment, automating a routine, scoring account
+        health, reading a marketing funnel. Each piece is a small, self-contained prototype you can open and poke at. They're
+        studies of method, built on edited data; none of it is any employer's or client's information.
+      </p>
+      <a href="#projects" class="inline-block px-6 py-3 text-sm font-semibold" style="background:var(--gold);color:#ffffff">See what's here ↓</a>
+    </section>
+
+    <!-- What's here strip -->
+    <section class="border-y" style="border-color:var(--line); background:var(--surface-1)">
+      <div class="max-w-6xl mx-auto px-6 py-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-sm">
+        <div><p class="font-semibold mb-1" style="color:var(--s1)">Experimentation</p><p style="color:var(--text-secondary)">A/B testing, power &amp; sample size, honest readouts</p></div>
+        <div><p class="font-semibold mb-1" style="color:var(--s3)">Operations &amp; AI</p><p style="color:var(--text-secondary)">Automation triage and where it's worth the effort</p></div>
+        <div><p class="font-semibold mb-1" style="color:var(--s4)">Client success</p><p style="color:var(--text-secondary)">Health scoring and acting on risk early</p></div>
+        <div><p class="font-semibold mb-1" style="color:var(--s2)">Marketing analytics</p><p style="color:var(--text-secondary)">Reading a funnel and channel economics</p></div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="max-w-6xl mx-auto px-6 py-16">
+      <h2 class="font-headline text-3xl font-bold mb-2">What's here</h2>
+      <p class="text-sm mb-10" style="color:var(--text-secondary)">Each piece is self-contained and interactive, and runs on edited data. Think of them as annotated worked examples rather than case studies.</p>
+
+      <div class="grid md:grid-cols-2 gap-6">
+
+        <a href="experimentation/index.html" class="card p-7 block">
+          <div class="flex items-center justify-between mb-4">
+            <span class="badge" style="color:var(--s1)">05 · Experimentation</span>
+            <span aria-hidden="true" style="color:var(--text-secondary)">→</span>
+          </div>
+          <h3 class="font-headline text-2xl font-semibold mb-2">Online Controlled Experiments</h3>
+          <p class="text-sm leading-relaxed" style="color:var(--text-secondary)">Notes and a small toolkit on A/B testing — a working sample-size calculator, an honest test readout with confidence intervals, and the traps worth knowing. With a short reading list.</p>
+        </a>
+
+        <a href="ops-automation/index.html" class="card p-7 block">
+          <div class="flex items-center justify-between mb-4">
+            <span class="badge" style="color:var(--s4)">04 · Operations &amp; AI</span>
+            <span aria-hidden="true" style="color:var(--text-secondary)">→</span>
+          </div>
+          <h3 class="font-headline text-2xl font-semibold mb-2">Automation Opportunity Mapping</h3>
+          <p class="text-sm leading-relaxed" style="color:var(--text-secondary)">A way to decide what to automate first — an impact-vs-effort matrix and a phased rollout — so "we should use AI" turns into a short, honest list rather than a wish.</p>
+        </a>
+
+        <a href="client-success/index.html" class="card p-7 block">
+          <div class="flex items-center justify-between mb-4">
+            <span class="badge" style="color:var(--s3)">02 · Client Success</span>
+            <span aria-hidden="true" style="color:var(--text-secondary)">→</span>
+          </div>
+          <h3 class="font-headline text-2xl font-semibold mb-2">Account Health &amp; Retention</h3>
+          <p class="text-sm leading-relaxed" style="color:var(--text-secondary)">How a composite health score can surface churn risk before renewal, and what play tends to go with each signal. A worked example on an edited book of accounts.</p>
+        </a>
+
+        <a href="ai-email-triage/index.html" class="card p-7 block">
+          <div class="flex items-center justify-between mb-4">
+            <span class="badge" style="color:var(--s2)">01 · Applied AI</span>
+            <span aria-hidden="true" style="color:var(--text-secondary)">→</span>
+          </div>
+          <h3 class="font-headline text-2xl font-semibold mb-2">Email Triage Prototype</h3>
+          <p class="text-sm leading-relaxed" style="color:var(--text-secondary)">An in-browser sketch of an LLM triage layer — it reads a message, assigns priority and category, routes it, and drafts a reply. Try it with your own text.</p>
+        </a>
+
+        <a href="marketing-roi/index.html" class="card p-7 block">
+          <div class="flex items-center justify-between mb-4">
+            <span class="badge" style="color:var(--s1)">03 · Marketing analytics</span>
+            <span aria-hidden="true" style="color:var(--text-secondary)">→</span>
+          </div>
+          <h3 class="font-headline text-2xl font-semibold mb-2">Reading a Marketing Funnel</h3>
+          <p class="text-sm leading-relaxed" style="color:var(--text-secondary)">The view I like for channel economics — ROAS, CAC, payback and funnel conversion side by side — so budget conversations start from unit economics. Edited example.</p>
+        </a>
+
+        <a href="fencing/index.html" class="card p-7 block">
+          <div class="flex items-center justify-between mb-4">
+            <span class="badge" style="color:var(--gold)">06 · Just for fun 🤺</span>
+            <span aria-hidden="true" style="color:var(--text-secondary)">→</span>
+          </div>
+          <h3 class="font-headline text-2xl font-semibold mb-2">Foil Right-of-Way Trainer</h3>
+          <p class="text-sm leading-relaxed" style="color:var(--text-secondary)">A foilist's aside: read the exchange, call the touch, and learn foil's most argued-about rule. With a valid-target diagram and a little French. Both lights are on — who scores?</p>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- Approach -->
+    <section class="border-t" style="border-color:var(--line); background:var(--surface-1)">
+      <div class="max-w-6xl mx-auto px-6 py-16">
+        <h2 class="font-headline text-3xl font-bold mb-8">A few things I believe about this work</h2>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div>
+            <p class="font-headline text-xl font-semibold mb-2">It's one loop, shared</p>
+            <p class="text-sm leading-relaxed" style="color:var(--text-secondary)">Acquisition, onboarding, support and retention belong to different teams but move together. Instrumenting the whole loop tends to be a collaboration, not a solo act.</p>
+          </div>
+          <div>
+            <p class="font-headline text-xl font-semibold mb-2">Automation needs guardrails</p>
+            <p class="text-sm leading-relaxed" style="color:var(--text-secondary)">A useful automation comes with a human-in-the-loop checkpoint, a way to measure whether it's working, a rollback, and a clear owner. Adoption and trust matter more than cleverness.</p>
+          </div>
+          <div>
+            <p class="font-headline text-xl font-semibold mb-2">Let the test decide</p>
+            <p class="text-sm leading-relaxed" style="color:var(--text-secondary)">Where it's practical, an experiment settles a debate better than seniority does — and a well-run one is honest about uncertainty rather than hiding it.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t" style="border-color:var(--line)">
+    <div class="max-w-6xl mx-auto px-6 py-10 text-sm flex flex-wrap gap-3 justify-between" style="color:var(--text-secondary)">
+      <span>Sanem Le Gresley — built to be read and run.</span>
+      <span class="flex gap-4">
+        <a href="https://www.linkedin.com/in/sanemlegresley/" target="_blank" rel="noopener" class="underline">LinkedIn</a>
+      </span>
+    </div>
+  </footer>
+</body>
+</html>

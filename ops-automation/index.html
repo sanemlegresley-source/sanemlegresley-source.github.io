@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Operations Automation Roadmap — Portfolio Project</title>
+  <meta name="description" content="An AI automation opportunity map and roadmap: which operational processes to automate first, the hours reclaimed, and a staged rollout — from an AI &amp; innovation operations leader.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: "media", theme: { extend: {
+      fontFamily: { headline: ["Noto Serif","Georgia","serif"], body: ["Inter","system-ui","sans-serif"] },
+      borderRadius: { DEFAULT: "2px" }
+    } } };
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --surface-1:#ffffff; --surface-2:#f4f4f5; --line:#d6d6d8;
+      --text-primary:#161616; --text-secondary:#5f6062;
+      --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a; --s4:#eda100;
+      --good:#12805a; --warn:#b26b00; --crit:#c0392b;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --surface-1:#1c1c1e; --surface-2:#161618; --line:#37373a;
+        --text-primary:#f1f1f2; --text-secondary:#a6a6aa;
+        --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500;
+        --good:#3aa981; --warn:#d79a2b; --crit:#e57368;
+      }
+    }
+    body { background:var(--surface-2); color:var(--text-primary); }
+    .card { background:var(--surface-1); border:1px solid var(--line); }
+    .mono { font-variant-numeric: tabular-nums; }
+    .badge { font-size:.68rem; letter-spacing:.04em; text-transform:uppercase; font-weight:600; }
+  </style>
+</head>
+<body class="font-body antialiased">
+
+  <header class="border-b" style="border-color:var(--line); background:var(--surface-1);">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="../index.html" class="flex items-center gap-2 text-sm" style="color:var(--text-secondary)"><span aria-hidden="true">←</span> Portfolio</a>
+      <span class="badge px-2 py-1" style="background:var(--surface-2);border:1px solid var(--line);color:var(--text-secondary)">Operations · AI &amp; Innovation</span>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-6 py-12">
+
+    <section class="mb-12">
+      <p class="badge mb-3" style="color:var(--s4)">Project 04</p>
+      <h1 class="font-headline text-4xl md:text-5xl font-bold leading-tight mb-4">Automation opportunity mapping</h1>
+      <p class="text-lg max-w-2xl leading-relaxed" style="color:var(--text-secondary)">
+        A simple way to decide <strong style="color:var(--text-primary)">what to automate first</strong>. Each recurring process is
+        scored on effort and impact; the ones worth doing land on a phased plan with the hours they'd give back. It's how a team can
+        turn "we should use AI" into a short, honest list instead of a wish.
+      </p>
+    </section>
+
+    <section class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-14">
+      <div class="card p-5"><p class="text-3xl font-headline font-bold mono" style="color:var(--s3)">~150h</p><p class="text-sm mt-1" style="color:var(--text-secondary)">Monthly hours saved in this worked example</p></div>
+      <div class="card p-5"><p class="text-3xl font-headline font-bold mono" style="color:var(--s1)">11</p><p class="text-sm mt-1" style="color:var(--text-secondary)">Processes mapped &amp; scored below</p></div>
+      <div class="card p-5"><p class="text-3xl font-headline font-bold mono" style="color:var(--s4)">3</p><p class="text-sm mt-1" style="color:var(--text-secondary)">Phases in the rollout</p></div>
+      <div class="card p-5"><p class="text-3xl font-headline font-bold mono" style="color:var(--s2)">Weeks</p><p class="text-sm mt-1" style="color:var(--text-secondary)">Typical time to first value, not quarters</p></div>
+    </section>
+
+    <!-- Opportunity matrix -->
+    <section class="mb-16">
+      <h2 class="font-headline text-2xl font-semibold mb-1 flex items-center gap-3">Opportunity matrix <span class="badge px-2 py-0.5" style="background:var(--surface-2);border:1px solid var(--line);color:var(--text-secondary)">Illustrative</span></h2>
+      <p class="text-sm mb-6" style="color:var(--text-secondary)">The scoring framework I use — impact (hours saved) vs. effort to implement. Top-left is where you start: big win, low lift. Example processes shown.</p>
+      <div class="card p-6 overflow-x-auto">
+        <div id="matrix"></div>
+        <div class="flex flex-wrap gap-x-6 gap-y-2 mt-4 text-xs" style="color:var(--text-secondary)">
+          <span class="inline-flex items-center gap-2"><span style="width:10px;height:10px;border-radius:50%;background:var(--s3);display:inline-block"></span>Quick win — do now</span>
+          <span class="inline-flex items-center gap-2"><span style="width:10px;height:10px;border-radius:50%;background:var(--s1);display:inline-block"></span>Strategic — plan for</span>
+          <span class="inline-flex items-center gap-2"><span style="width:10px;height:10px;border-radius:50%;background:var(--text-secondary);display:inline-block"></span>Low priority</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hours reclaimed -->
+    <section class="mb-16">
+      <h2 class="font-headline text-2xl font-semibold mb-1 flex items-center gap-3">Hours reclaimed per process <span class="badge px-2 py-0.5" style="background:var(--surface-2);border:1px solid var(--line);color:var(--text-secondary)">Illustrative</span></h2>
+      <p class="text-sm mb-6" style="color:var(--text-secondary)">Example breakdown of monthly operator hours returned once automated (~150/mo in total here). Direct-labelled.</p>
+      <div class="card p-6 overflow-x-auto"><div id="hoursChart"></div></div>
+    </section>
+
+    <!-- Roadmap -->
+    <section class="mb-8">
+      <h2 class="font-headline text-2xl font-semibold mb-1">Staged rollout</h2>
+      <p class="text-sm mb-6" style="color:var(--text-secondary)">Sequenced in three phases — often runnable in weeks rather than quarters when the early wins are low-risk.</p>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="card p-6">
+          <p class="badge mb-2" style="color:var(--s3)">Phase 1 · Prove it</p>
+          <ul class="text-sm space-y-2" style="color:var(--text-secondary)">
+            <li>• Email triage &amp; routing (live)</li>
+            <li>• Client intake &amp; onboarding forms</li>
+            <li>• Meeting notes → action items</li>
+          </ul>
+          <p class="text-sm mt-4 font-semibold" style="color:var(--text-primary)">Lowest risk · fastest to value</p>
+        </div>
+        <div class="card p-6">
+          <p class="badge mb-2" style="color:var(--s1)">Phase 2 · Scale it</p>
+          <ul class="text-sm space-y-2" style="color:var(--text-secondary)">
+            <li>• Proposal &amp; quote drafting</li>
+            <li>• Invoice reconciliation</li>
+            <li>• Weekly reporting rollups</li>
+          </ul>
+          <p class="text-sm mt-4 font-semibold" style="color:var(--text-primary)">Needs system integrations</p>
+        </div>
+        <div class="card p-6">
+          <p class="badge mb-2" style="color:var(--s2)">Phase 3 · Compound it</p>
+          <ul class="text-sm space-y-2" style="color:var(--text-secondary)">
+            <li>• Knowledge-base assistant</li>
+            <li>• Churn-signal monitoring</li>
+            <li>• Forecast &amp; capacity planning</li>
+          </ul>
+          <p class="text-sm mt-4 font-semibold" style="color:var(--text-primary)">Highest leverage</p>
+        </div>
+      </div>
+      <div class="mt-6 text-sm p-4" style="background:var(--surface-1);border:1px solid var(--line);color:var(--text-secondary)">
+        <strong style="color:var(--text-primary)">Governance:</strong> each automation ships with a human-in-the-loop checkpoint, a rollback path, an accuracy metric, and a named owner. Change management is treated as part of the build, not an afterthought — adoption is the ROI.
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t mt-8" style="border-color:var(--line)">
+    <div class="max-w-6xl mx-auto px-6 py-8 text-sm flex flex-wrap gap-2 justify-between" style="color:var(--text-secondary)">
+      <span>Portfolio project — operations automation strategy</span>
+      <span class="flex gap-4"><a href="https://www.linkedin.com/in/sanemlegresley/" target="_blank" rel="noopener" class="underline">Sanem Le Gresley · LinkedIn</a><a href="../index.html" class="underline">Back to all projects</a></span>
+    </div>
+  </footer>
+
+  <script>
+  const PROC = [
+    { n:"Email triage", effort:2, hours:22, tier:"win" },
+    { n:"Client intake", effort:3, hours:20, tier:"win" },
+    { n:"Meeting notes", effort:2, hours:14, tier:"win" },
+    { n:"Proposal drafting", effort:5, hours:18, tier:"strat" },
+    { n:"Invoice reconciliation", effort:6, hours:20, tier:"strat" },
+    { n:"Weekly reporting", effort:4, hours:14, tier:"strat" },
+    { n:"KB assistant", effort:7, hours:12, tier:"strat" },
+    { n:"Churn monitoring", effort:6, hours:10, tier:"strat" },
+    { n:"Expense coding", effort:3, hours:6, tier:"low" },
+    { n:"Social scheduling", effort:2, hours:5, tier:"low" },
+    { n:"Forecasting", effort:8, hours:8, tier:"strat" },
+  ];
+  const TIER = { win:"var(--s3)", strat:"var(--s1)", low:"var(--text-secondary)" };
+
+  // ---- Scatter matrix ------------------------------------------------------
+  (function(){
+    const W=720,H=360,padL=56,padR=120,padT=16,padB=44, iw=W-padL-padR, ih=H-padT-padB;
+    const maxE=9,maxH=24;
+    const x=e=>padL+(e/maxE)*iw, y=h=>padT+(1-h/maxH)*ih;
+    let grid="";
+    [6,12,18,24].forEach(h=>{grid+=`<line x1="${padL}" y1="${y(h)}" x2="${W-padR}" y2="${y(h)}" stroke="var(--line)" stroke-width="1"/><text x="${padL-8}" y="${y(h)+4}" text-anchor="end" font-size="11" fill="var(--text-secondary)">${h}h</text>`;});
+    [2,4,6,8].forEach(e=>{grid+=`<text x="${x(e)}" y="${H-24}" text-anchor="middle" font-size="11" fill="var(--text-secondary)">${e}</text>`;});
+    // quadrant hint
+    grid+=`<text x="${padL}" y="${H-6}" font-size="11" fill="var(--text-secondary)">← easier to build      effort      harder →</text>`;
+    grid+=`<text x="14" y="${padT+8}" font-size="11" fill="var(--text-secondary)" transform="rotate(-90 14 ${padT+8})">hours saved / mo →</text>`;
+    let dots="";
+    PROC.forEach(p=>{
+      const cx=x(p.effort), cy=y(p.hours), r=6+p.hours/6;
+      dots+=`<circle cx="${cx}" cy="${cy}" r="${r}" fill="${TIER[p.tier]}" opacity="0.85" stroke="var(--surface-1)" stroke-width="2"><title>${p.n}: ${p.hours}h/mo, effort ${p.effort}/9</title></circle>`;
+      dots+=`<text x="${cx}" y="${cy - r - 4}" text-anchor="middle" font-size="10.5" fill="var(--text-primary)">${p.n}</text>`;
+    });
+    document.getElementById("matrix").innerHTML=`<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="Automation opportunity matrix, impact vs effort">${grid}${dots}</svg>`;
+  })();
+
+  // ---- Hours bar chart -----------------------------------------------------
+  (function(){
+    const data=[...PROC].sort((a,b)=>b.hours-a.hours).slice(0,8);
+    const max=Math.max(...data.map(d=>d.hours)), W=720,rowH=40,padL=170,padR=52,top=6,H=top*2+data.length*rowH,bw=W-padL-padR;
+    let bars="";
+    data.forEach((d,i)=>{const yy=top+i*rowH+7,w=Math.max(4,(d.hours/max)*bw);
+      bars+=`<text x="${padL-12}" y="${yy+15}" text-anchor="end" font-size="12" fill="var(--text-secondary)">${d.n}</text>
+        <rect x="${padL}" y="${yy}" width="${w}" height="22" rx="4" fill="${TIER[d.tier]}"/>
+        <text x="${padL+w+8}" y="${yy+16}" font-size="13" font-weight="700" fill="var(--text-primary)" class="mono">${d.hours}h</text>`;});
+    document.getElementById("hoursChart").innerHTML=`<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="Hours reclaimed per process">${bars}</svg>`;
+  })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Email Triage Console — Portfolio Project</title>
+  <meta name="description" content="An interactive AI email triage console that classifies, prioritises, and drafts replies to inbound mail — reclaiming operator hours. Built by an AI &amp; innovation operations leader.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "media",
+      theme: { extend: {
+        colors: { gold: "#f2c019", "gold-deep": "#755b00", ink: "#1f1b11", parchment: "#f4f4f5" },
+        fontFamily: { headline: ["Noto Serif", "Georgia", "serif"], body: ["Inter", "system-ui", "sans-serif"] },
+        borderRadius: { DEFAULT: "2px" }
+      } }
+    };
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --surface-1: #ffffff; --surface-2: #f4f4f5; --line: #d6d6d8;
+      --text-primary:#161616; --text-secondary:#5f6062; --gold:#a31f34;
+      --s1: #2a78d6; --s2: #eb6834; --s3: #1baf7a; --s4: #eda100;
+      --good: #12805a; --warn: #b26b00; --crit: #c0392b;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --surface-1: #1c1c1e; --surface-2: #161618; --line: #37373a;
+        --text-primary:#f1f1f2; --text-secondary:#a6a6aa; --gold:#e2566a;
+        --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500;
+        --good: #3aa981; --warn: #d79a2b; --crit: #e57368;
+      }
+    }
+    body { background: var(--surface-2); color: var(--text-primary); }
+    .card { background: var(--surface-1); border: 1px solid var(--line); }
+    .mono { font-variant-numeric: tabular-nums; }
+    .badge { font-size: .68rem; letter-spacing: .04em; text-transform: uppercase; font-weight: 600; }
+    .fade-in { animation: fade .35s ease; }
+    @keyframes fade { from { opacity: 0; transform: translateY(4px);} to { opacity: 1; transform: none; } }
+  </style>
+</head>
+<body class="font-body antialiased">
+
+  <!-- Top bar -->
+  <header class="border-b" style="border-color:var(--line); background:var(--surface-1);">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="../index.html" class="flex items-center gap-2 text-sm" style="color:var(--text-secondary)">
+        <span aria-hidden="true">←</span> Portfolio
+      </a>
+      <span class="badge px-2 py-1" style="background:var(--surface-2);border:1px solid var(--line);color:var(--text-secondary)">AI &amp; Innovation · Operations</span>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-6 py-12">
+
+    <!-- Hero -->
+    <section class="mb-12">
+      <p class="badge mb-3" style="color:var(--s2)">Project 01</p>
+      <h1 class="font-headline text-4xl md:text-5xl font-bold leading-tight mb-4">Email triage prototype</h1>
+      <p class="text-lg max-w-2xl leading-relaxed" style="color:var(--text-secondary)">
+        A small in-browser sketch of an LLM-assisted triage layer: it reads a message, assigns
+        <strong style="color:var(--text-primary)">priority</strong>, <strong style="color:var(--text-primary)">category</strong> and
+        <strong style="color:var(--text-primary)">sentiment</strong>, routes it to the right queue, and drafts a first-pass reply —
+        the idea being that a team touches only what genuinely needs a person. It runs entirely in your browser.
+      </p>
+    </section>
+
+    <!-- Impact tiles -->
+    <section class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-14">
+      <div class="card p-5">
+        <p class="text-3xl font-headline font-bold mono" style="color:var(--s3)">~70%</p>
+        <p class="text-sm mt-1" style="color:var(--text-secondary)">Mail that can be auto-routed without a human read</p>
+      </div>
+      <div class="card p-5">
+        <p class="text-3xl font-headline font-bold mono" style="color:var(--s1)">Hours</p>
+        <p class="text-sm mt-1" style="color:var(--text-secondary)">Of manual sorting the pattern is meant to save each week</p>
+      </div>
+      <div class="card p-5">
+        <p class="text-3xl font-headline font-bold mono" style="color:var(--s4)">Minutes</p>
+        <p class="text-sm mt-1" style="color:var(--text-secondary)">First acknowledgement on urgent mail, instead of hours</p>
+      </div>
+      <div class="card p-5">
+        <p class="text-3xl font-headline font-bold mono" style="color:var(--s2)">Schema</p>
+        <p class="text-sm mt-1" style="color:var(--text-secondary)">Validated JSON output, so downstream routing can trust it</p>
+      </div>
+    </section>
+
+    <!-- Interactive console -->
+    <section class="mb-16">
+      <h2 class="font-headline text-2xl font-semibold mb-1">Live triage console</h2>
+      <p class="text-sm mb-6" style="color:var(--text-secondary)">Select a message to see how the model classifies and routes it. Try composing your own at the bottom.</p>
+
+      <div class="grid lg:grid-cols-5 gap-6">
+        <!-- Inbox -->
+        <div class="lg:col-span-2 card overflow-hidden">
+          <div class="px-4 py-3 border-b flex items-center justify-between" style="border-color:var(--line)">
+            <span class="badge" style="color:var(--text-secondary)">Inbox — 6 unread</span>
+          </div>
+          <ul id="inbox" class="divide-y" style="border-color:var(--line)"></ul>
+        </div>
+
+        <!-- Detail -->
+        <div class="lg:col-span-3 card p-6" id="detail" aria-live="polite">
+          <p class="text-sm" style="color:var(--text-secondary)">← Pick a message to triage it.</p>
+        </div>
+      </div>
+
+      <!-- Composer -->
+      <div class="card p-5 mt-6">
+        <label for="composer" class="badge block mb-2" style="color:var(--text-secondary)">Try your own message</label>
+        <textarea id="composer" rows="3" class="w-full p-3 text-sm bg-transparent border" style="border-color:var(--line);color:var(--text-primary)" placeholder="e.g. Our whole team is locked out and we have a client demo in an hour — please help!"></textarea>
+        <button id="triageBtn" class="mt-3 px-5 py-2 text-sm font-semibold" style="background:var(--gold,#a31f34);color:#ffffff">Triage message</button>
+      </div>
+    </section>
+
+    <!-- Volume chart -->
+    <section class="mb-16">
+      <h2 class="font-headline text-2xl font-semibold mb-1 flex items-center gap-3">Where the volume goes <span class="badge px-2 py-0.5" style="background:var(--surface-2);border:1px solid var(--line);color:var(--text-secondary)">Sample data</span></h2>
+      <p class="text-sm mb-6" style="color:var(--text-secondary)">Illustrative 30-day distribution of triaged mail by routed category. Direct-labelled — the model's routing at a glance.</p>
+      <div class="card p-6 overflow-x-auto">
+        <div id="volChart"></div>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section class="mb-8">
+      <h2 class="font-headline text-2xl font-semibold mb-6">How it works in production</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="card p-6">
+          <p class="badge mb-2" style="color:var(--s1)">1 · Classify</p>
+          <p class="text-sm leading-relaxed" style="color:var(--text-secondary)">A structured prompt sends each message to an LLM that returns strict JSON — category, priority, sentiment, entities, and a confidence score — validated against a schema before anything downstream trusts it.</p>
+        </div>
+        <div class="card p-6">
+          <p class="badge mb-2" style="color:var(--s2)">2 · Route</p>
+          <p class="text-sm leading-relaxed" style="color:var(--text-secondary)">Deterministic rules act on the model's output: high-confidence, low-risk mail is auto-routed and acknowledged; anything ambiguous or high-stakes is escalated to a human with the model's reasoning attached.</p>
+        </div>
+        <div class="card p-6">
+          <p class="badge mb-2" style="color:var(--s3)">3 · Draft &amp; learn</p>
+          <p class="text-sm leading-relaxed" style="color:var(--text-secondary)">The model drafts a reply grounded in a knowledge base; agents edit rather than write. Every human correction is logged and folded back into evaluation sets, so accuracy compounds.</p>
+        </div>
+      </div>
+      <div class="mt-6 text-sm p-4" style="background:var(--surface-1);border:1px solid var(--line);color:var(--text-secondary)">
+        <strong style="color:var(--text-primary)">Stack &amp; principles:</strong> LLM classification with schema-validated JSON output · human-in-the-loop escalation on low confidence · offline-deterministic demo (the classifier on this page is a transparent rule model so it runs with no API key) · privacy-first: content never leaves the browser here.
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t mt-8" style="border-color:var(--line)">
+    <div class="max-w-6xl mx-auto px-6 py-8 text-sm flex flex-wrap gap-2 justify-between" style="color:var(--text-secondary)">
+      <span>Portfolio project — AI &amp; innovation in operations</span>
+      <span class="flex gap-4"><a href="https://www.linkedin.com/in/sanemlegresley/" target="_blank" rel="noopener" class="underline">Sanem Le Gresley · LinkedIn</a><a href="../index.html" class="underline">Back to all projects</a></span>
+    </div>
+  </footer>
+
+  <script>
+  // ---- Sample inbox --------------------------------------------------------
+  const MESSAGES = [
+    { from: "Dana R. — Meridian Legal", subj: "URGENT: firm-wide login failure before 2pm filing", body: "None of our paralegals can log in and we have a court filing deadline at 2pm. This is an emergency, please call me.", t: "8m" },
+    { from: "billing@stripe", subj: "Your invoice #4821 payment failed", body: "We were unable to process your payment of $499. Please update your card to avoid interruption.", t: "26m" },
+    { from: "Priya M.", subj: "Loving the new automation — quick question", body: "The intake automation is fantastic, saved us a whole afternoon. One question: can we add a Spanish template?", t: "1h" },
+    { from: "noreply@newsletter", subj: "10 AI trends you can't ignore in 2026", body: "Read our latest roundup of the AI tools reshaping professional services this year. Sponsored content inside.", t: "2h" },
+    { from: "Tomás V. — Harborview Clinic", subj: "Considering cancelling our plan", body: "We are not seeing the value we expected and are thinking about cancelling before renewal next month. Can we talk?", t: "3h" },
+    { from: "Recruiter", subj: "Exciting opportunity for a Director of Operations", body: "I came across your profile and think you'd be perfect for a role I'm hiring for. Are you open to a chat?", t: "5h" },
+  ];
+
+  // ---- Transparent rule classifier (stands in for the LLM offline) ---------
+  function classify(text) {
+    const t = text.toLowerCase();
+    const has = (...w) => w.some(k => t.includes(k));
+    let category = "General", priority = "Normal", sentiment = "Neutral", action = "Route to shared queue", reply = "";
+
+    if (has("cancel", "cancelling", "churn", "not seeing the value", "refund")) {
+      category = "Churn risk"; priority = "High"; sentiment = "Negative";
+      action = "Escalate to Client Success owner within 1 hour";
+      reply = "Thank you for the honest note — I don't want you leaving before we've shown the value you signed up for. I'm blocking 20 minutes this week to walk through your goals and what's getting in the way. Would tomorrow at 10am work?";
+    } else if (has("urgent", "emergency", "asap", "locked out", "can't log", "cannot log", "login failure", "deadline", "immediately")) {
+      category = "Critical support"; priority = "Urgent"; sentiment = "Negative";
+      action = "Page on-call now · auto-acknowledge in <30s";
+      reply = "I'm on this right now and treating it as urgent. I've flagged our on-call engineer and will have an update to you within 15 minutes — replying here so you have it in writing.";
+    } else if (has("invoice", "payment failed", "billing", "card", "charge", "receipt")) {
+      category = "Billing"; priority = "High"; sentiment = "Neutral";
+      action = "Route to Finance queue · attach account record";
+      reply = "Thanks for the heads-up. I've routed this to our billing team and asked them to confirm the account is in good standing. You'll have a resolution note shortly — no service interruption in the meantime.";
+    } else if (has("question", "how do", "can we", "can you add", "help with", "feature")) {
+      category = "Product question"; priority = "Normal"; sentiment = has("love", "loving", "fantastic", "great", "thank") ? "Positive" : "Neutral";
+      action = "Route to Support · draft grounded reply for agent review";
+      reply = "Great question — and thank you for the kind words. Yes, that's supported: I'll send over the steps and a template you can drop in. Let me know if you'd like me to set the first one up with you.";
+    } else if (has("opportunity", "hiring", "recruiter", "role", "position")) {
+      category = "Recruiting"; priority = "Low"; sentiment = "Neutral";
+      action = "Route to personal folder · no auto-reply";
+      reply = "";
+    } else if (has("newsletter", "sponsored", "unsubscribe", "roundup", "trends you")) {
+      category = "Newsletter / noise"; priority = "Low"; sentiment = "Neutral";
+      action = "Archive · no human touch";
+      reply = "";
+    } else {
+      reply = "Thanks for reaching out — I've received your message and routed it to the right person. You'll hear back shortly.";
+    }
+    // sentiment sweeteners
+    if (has("love", "loving", "fantastic", "amazing", "great", "thank you so much")) sentiment = "Positive";
+    const confidence = Math.min(0.98, 0.62 + (text.length > 40 ? 0.2 : 0) + (category !== "General" ? 0.14 : 0));
+    return { category, priority, sentiment, action, reply, confidence };
+  }
+
+  // ---- Rendering -----------------------------------------------------------
+  const P_COLOR = { Urgent: "var(--crit)", High: "var(--warn)", Normal: "var(--s1)", Low: "var(--text-secondary)" };
+  const S_COLOR = { Negative: "var(--crit)", Neutral: "var(--text-secondary)", Positive: "var(--good)" };
+
+  function detailHTML(m, r) {
+    const bar = Math.round(r.confidence * 100);
+    return `<div class="fade-in">
+      <div class="flex items-start justify-between gap-4 mb-4">
+        <div>
+          <p class="font-semibold">${m ? m.subj : "Your message"}</p>
+          <p class="text-sm" style="color:var(--text-secondary)">${m ? m.from : "you@composer"}</p>
+        </div>
+        <span class="badge px-2 py-1" style="background:var(--surface-2);border:1px solid var(--line);color:${P_COLOR[r.priority]}">${r.priority}</span>
+      </div>
+      <div class="grid grid-cols-3 gap-3 mb-5">
+        <div class="p-3" style="background:var(--surface-2)"><p class="badge" style="color:var(--text-secondary)">Category</p><p class="text-sm font-semibold mt-1">${r.category}</p></div>
+        <div class="p-3" style="background:var(--surface-2)"><p class="badge" style="color:var(--text-secondary)">Sentiment</p><p class="text-sm font-semibold mt-1" style="color:${S_COLOR[r.sentiment]}">${r.sentiment}</p></div>
+        <div class="p-3" style="background:var(--surface-2)"><p class="badge" style="color:var(--text-secondary)">Confidence</p><p class="text-sm font-semibold mt-1 mono">${bar}%</p></div>
+      </div>
+      <div class="mb-5">
+        <p class="badge mb-2" style="color:var(--text-secondary)">Routing decision</p>
+        <p class="text-sm p-3" style="background:var(--surface-2);border-left:3px solid ${P_COLOR[r.priority]}">${r.action}</p>
+      </div>
+      ${r.reply ? `<div>
+        <p class="badge mb-2" style="color:var(--text-secondary)">Suggested reply (agent edits before send)</p>
+        <p class="text-sm leading-relaxed p-3" style="background:var(--surface-2);border:1px dashed var(--line)">${r.reply}</p>
+      </div>` : `<p class="text-sm italic" style="color:var(--text-secondary)">No auto-reply — routed for human attention only.</p>`}
+    </div>`;
+  }
+
+  const inbox = document.getElementById("inbox");
+  MESSAGES.forEach((m, i) => {
+    const li = document.createElement("li");
+    li.className = "px-4 py-3 cursor-pointer transition-colors";
+    li.tabIndex = 0; li.setAttribute("role", "button");
+    li.innerHTML = `<div class="flex justify-between gap-2"><p class="text-sm font-semibold truncate">${m.from}</p><span class="text-xs mono" style="color:var(--text-secondary)">${m.t}</span></div>
+      <p class="text-sm truncate" style="color:var(--text-secondary)">${m.subj}</p>`;
+    const open = () => {
+      document.querySelectorAll("#inbox li").forEach(x => x.style.background = "");
+      li.style.background = "var(--surface-2)";
+      document.getElementById("detail").innerHTML = detailHTML(m, classify(m.subj + " " + m.body));
+    };
+    li.addEventListener("click", open);
+    li.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(); } });
+    inbox.appendChild(li);
+  });
+
+  document.getElementById("triageBtn").addEventListener("click", () => {
+    const v = document.getElementById("composer").value.trim();
+    if (!v) return;
+    document.querySelectorAll("#inbox li").forEach(x => x.style.background = "");
+    document.getElementById("detail").innerHTML = detailHTML(null, classify(v));
+    document.getElementById("detail").scrollIntoView({ behavior: "smooth", block: "nearest" });
+  });
+
+  // ---- Volume bar chart (hand-built SVG, direct-labelled) ------------------
+  (function () {
+    const data = [
+      { label: "Product question", value: 312, c: "var(--s1)" },
+      { label: "Billing", value: 188, c: "var(--s2)" },
+      { label: "Critical support", value: 96, c: "var(--s3)" },
+      { label: "Churn risk", value: 41, c: "var(--s4)" },
+      { label: "Newsletter / noise", value: 260, c: "var(--text-secondary)" },
+    ];
+    const max = Math.max(...data.map(d => d.value));
+    const W = 720, rowH = 46, padL = 150, padR = 60, top = 8;
+    const H = top * 2 + data.length * rowH;
+    const bw = W - padL - padR;
+    let bars = "";
+    data.forEach((d, i) => {
+      const y = top + i * rowH + 8, w = Math.max(4, (d.value / max) * bw);
+      bars += `<text x="${padL - 12}" y="${y + 15}" text-anchor="end" font-size="13" fill="var(--text-secondary)">${d.label}</text>
+        <rect x="${padL}" y="${y}" width="${w}" height="22" rx="4" fill="${d.c}"></rect>
+        <text x="${padL + w + 8}" y="${y + 16}" font-size="13" font-weight="600" fill="var(--text-primary)" class="mono">${d.value}</text>`;
+    });
+    document.getElementById("volChart").innerHTML =
+      `<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="Triaged mail by category">${bars}</svg>`;
+  })();
+  </script>
+</body>
+</html>

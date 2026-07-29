@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Client Success Command Center — Portfolio Project</title>
+  <meta name="description" content="A client health &amp; retention command center — health scoring, churn-risk detection, and renewal pipeline — built by an operations, marketing and client success leader.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: "media", theme: { extend: {
+      fontFamily: { headline: ["Noto Serif","Georgia","serif"], body: ["Inter","system-ui","sans-serif"] },
+      borderRadius: { DEFAULT: "2px" }
+    } } };
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --surface-1:#ffffff; --surface-2:#f4f4f5; --line:#d6d6d8;
+      --text-primary:#161616; --text-secondary:#5f6062;
+      --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a; --s4:#eda100;
+      --good:#12805a; --warn:#b26b00; --crit:#c0392b;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --surface-1:#1c1c1e; --surface-2:#161618; --line:#37373a;
+        --text-primary:#f1f1f2; --text-secondary:#a6a6aa;
+        --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500;
+        --good:#3aa981; --warn:#d79a2b; --crit:#e57368;
+      }
+    }
+    body { background:var(--surface-2); color:var(--text-primary); }
+    .card { background:var(--surface-1); border:1px solid var(--line); }
+    .mono { font-variant-numeric: tabular-nums; }
+    .badge { font-size:.68rem; letter-spacing:.04em; text-transform:uppercase; font-weight:600; }
+    th,td { padding:.6rem .75rem; }
+    thead th { border-bottom:1px solid var(--line); text-align:left; }
+    tbody tr { border-bottom:1px solid var(--line); }
+  </style>
+</head>
+<body class="font-body antialiased">
+
+  <header class="border-b" style="border-color:var(--line); background:var(--surface-1);">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="../index.html" class="flex items-center gap-2 text-sm" style="color:var(--text-secondary)"><span aria-hidden="true">←</span> Portfolio</a>
+      <span class="badge px-2 py-1" style="background:var(--surface-2);border:1px solid var(--line);color:var(--text-secondary)">Client Success · Operations</span>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-6 py-12">
+
+    <section class="mb-12">
+      <p class="badge mb-3" style="color:var(--s3)">Project 02</p>
+      <h1 class="font-headline text-4xl md:text-5xl font-bold leading-tight mb-4">Account health &amp; retention</h1>
+      <p class="text-lg max-w-2xl leading-relaxed" style="color:var(--text-secondary)">
+        A worked example of the view I like for managing a book of accounts: a composite <strong style="color:var(--text-primary)">health score</strong>
+        per client, churn signals surfaced before renewal, and the retention play that tends to go with each one — so a slide shows up
+        as a trend the team can act on, not a surprise at renewal.
+      </p>
+    </section>
+
+    <!-- KPI row -->
+    <section class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+      <div class="card p-5"><p class="badge" style="color:var(--text-secondary)">Net revenue retention</p><p class="text-3xl font-headline font-bold mono mt-1" style="color:var(--s1)">106%</p><p class="text-xs mt-1" style="color:var(--text-secondary)">Illustrative · trailing 12 mo</p></div>
+      <div class="card p-5"><p class="badge" style="color:var(--text-secondary)">Gross retention</p><p class="text-3xl font-headline font-bold mono mt-1">93%</p><p class="text-xs mt-1" style="color:var(--text-secondary)">Illustrative</p></div>
+      <div class="card p-5"><p class="badge" style="color:var(--text-secondary)">Accounts at risk</p><p class="text-3xl font-headline font-bold mono mt-1" style="color:var(--warn)">4</p><p class="text-xs mt-1" style="color:var(--text-secondary)">of 42 · illustrative</p></div>
+      <div class="card p-5"><p class="badge" style="color:var(--text-secondary)">Avg. health score</p><p class="text-3xl font-headline font-bold mono mt-1" style="color:var(--s3)">7.8<span class="text-xl">/10</span></p><p class="text-xs mt-1" style="color:var(--text-secondary)">Portfolio average</p></div>
+    </section>
+
+    <!-- Charts row -->
+    <section class="grid lg:grid-cols-2 gap-6 mb-14">
+      <div class="card p-6 flex flex-col justify-center">
+        <h2 class="font-headline text-xl font-semibold mb-1">Net revenue retention</h2>
+        <p class="text-sm mb-4" style="color:var(--text-secondary)">The number I treat as the North Star for a book of accounts — it captures expansion, contraction and churn in one figure.</p>
+        <p class="text-6xl font-headline font-bold mono" style="color:var(--s1)">106%</p>
+        <p class="text-sm mt-3" style="color:var(--text-secondary)">Illustrative. Above 100% means the book is growing even before new logos; below is the early warning worth chasing.</p>
+      </div>
+      <div class="card p-6">
+        <h2 class="font-headline text-xl font-semibold mb-1 flex items-center gap-3">Portfolio by health band <span class="badge px-2 py-0.5" style="background:var(--surface-2);border:1px solid var(--line);color:var(--text-secondary)">Sample data</span></h2>
+        <p class="text-sm mb-4" style="color:var(--text-secondary)">Illustrative distribution, direct-labelled by count (0–10 health scale).</p>
+        <div id="healthChart"></div>
+      </div>
+    </section>
+
+    <!-- Account table -->
+    <section class="mb-14">
+      <div class="flex items-end justify-between mb-4 flex-wrap gap-2">
+        <div>
+          <h2 class="font-headline text-2xl font-semibold flex items-center gap-3">Account health board <span class="badge px-2 py-0.5" style="background:var(--surface-2);border:1px solid var(--line);color:var(--text-secondary)">Sample data</span></h2>
+          <p class="text-sm" style="color:var(--text-secondary)">Illustrative accounts (names anonymised) sorted by risk. Health (0–10) blends product usage, sentiment, support load, and payment reliability.</p>
+        </div>
+        <div class="flex gap-2 text-xs">
+          <button class="filter-btn px-3 py-1.5 badge" data-f="all" style="background:var(--surface-1);border:1px solid var(--line)">All</button>
+          <button class="filter-btn px-3 py-1.5 badge" data-f="risk" style="background:var(--surface-1);border:1px solid var(--line);color:var(--text-secondary)">At risk</button>
+        </div>
+      </div>
+      <div class="card overflow-x-auto">
+        <table class="w-full text-sm mono" style="min-width:640px">
+          <thead style="color:var(--text-secondary)">
+            <tr>
+              <th class="badge">Account</th><th class="badge">ARR</th><th class="badge">Health</th>
+              <th class="badge">Trend</th><th class="badge">Renewal</th><th class="badge">Next play</th>
+            </tr>
+          </thead>
+          <tbody id="acctBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Methodology -->
+    <section>
+      <h2 class="font-headline text-2xl font-semibold mb-6">How the approach fits together</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="card p-6"><p class="badge mb-2" style="color:var(--s1)">Score</p><p class="text-sm leading-relaxed" style="color:var(--text-secondary)">A weighted health score per account — usage depth, feature adoption, NPS/sentiment, support burden, and on-time payment — recomputed regularly so a decline shows up as a trend, not a surprise.</p></div>
+        <div class="card p-6"><p class="badge mb-2" style="color:var(--s2)">Signal</p><p class="text-sm leading-relaxed" style="color:var(--text-secondary)">Thresholds trigger plays: a sustained usage drop opens a check-in; a negative ticket streak routes to the account owner; an approaching renewal on a red account gets a senior touch well before the date.</p></div>
+        <div class="card p-6"><p class="badge mb-2" style="color:var(--s3)">Learn</p><p class="text-sm leading-relaxed" style="color:var(--text-secondary)">Interventions get logged with their outcome, so over time the team can see which plays actually help which kinds of accounts — and lean on evidence rather than instinct.</p></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t mt-12" style="border-color:var(--line)">
+    <div class="max-w-6xl mx-auto px-6 py-8 text-sm flex flex-wrap gap-2 justify-between" style="color:var(--text-secondary)">
+      <span>Portfolio project — client success &amp; retention</span>
+      <span class="flex gap-4"><a href="https://www.linkedin.com/in/sanemlegresley/" target="_blank" rel="noopener" class="underline">Sanem Le Gresley · LinkedIn</a><a href="../index.html" class="underline">Back to all projects</a></span>
+    </div>
+  </footer>
+
+  <script>
+  // ---- Accounts ------------------------------------------------------------
+  const ACCTS = [
+    { name:"Account A — Health clinic", arr:"$28k", health:3.4, trend:-0.9, renew:"32d", play:"Exec save call booked", risk:true },
+    { name:"Account B — Prof. services", arr:"$19k", health:4.1, trend:-0.5, renew:"54d", play:"Re-onboarding workshop", risk:true },
+    { name:"Account C — Physio group", arr:"$9k", health:4.8, trend:-0.3, renew:"71d", play:"Adoption nudge sequence", risk:true },
+    { name:"Account D — Legal firm", arr:"$46k", health:5.2, trend:-0.2, renew:"120d", play:"Champion re-engagement", risk:true },
+    { name:"Account E — Dental", arr:"$14k", health:6.9, trend:+0.2, renew:"88d", play:"Feature deep-dive", risk:false },
+    { name:"Account F — Advisory", arr:"$33k", health:8.1, trend:+0.4, renew:"210d", play:"Expansion: add seats", risk:false },
+    { name:"Account G — Wellness", arr:"$11k", health:8.6, trend:+0.1, renew:"150d", play:"Ask for referral", risk:false },
+    { name:"Account H — Accounting", arr:"$52k", health:9.2, trend:+0.3, renew:"305d", play:"Case study candidate", risk:false },
+  ];
+  function band(h){ return h<5.0 ? {t:"At risk",c:"var(--crit)"} : h<7.5 ? {t:"Watch",c:"var(--warn)"} : {t:"Healthy",c:"var(--good)"}; }
+  function renderTable(filter){
+    const rows = ACCTS.filter(a => filter==="all" || a.risk).map(a=>{
+      const b = band(a.health);
+      const tr = a.trend>=0 ? `<span style="color:var(--good)">▲ ${a.trend}</span>` : `<span style="color:var(--crit)">▼ ${Math.abs(a.trend)}</span>`;
+      return `<tr>
+        <td class="font-semibold" style="font-family:Inter">${a.name}</td>
+        <td>${a.arr}</td>
+        <td><span class="inline-flex items-center gap-2"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:${b.c}"></span>${a.health}</span></td>
+        <td>${tr}</td>
+        <td>${a.renew}</td>
+        <td style="font-family:Inter;color:var(--text-secondary)">${a.play}</td>
+      </tr>`;
+    }).join("");
+    document.getElementById("acctBody").innerHTML = rows;
+  }
+  renderTable("all");
+  document.querySelectorAll(".filter-btn").forEach(btn=>btn.addEventListener("click",()=>{
+    document.querySelectorAll(".filter-btn").forEach(b=>{b.style.color="var(--text-secondary)";b.style.background="var(--surface-1)";});
+    btn.style.color="var(--text-primary)"; btn.style.background="var(--surface-2)";
+    renderTable(btn.dataset.f);
+  }));
+
+  // ---- Health band bars ----------------------------------------------------
+  (function(){
+    const data=[{l:"Healthy (7.5+)",v:24,c:"var(--good)"},{l:"Watch (5.0–7.4)",v:14,c:"var(--warn)"},{l:"At risk (<5.0)",v:4,c:"var(--crit)"}];
+    const max=Math.max(...data.map(d=>d.v)), W=520,rowH=54,padL=130,padR=48,top=6,H=top*2+data.length*rowH,bw=W-padL-padR;
+    let bars="";
+    data.forEach((d,i)=>{const yy=top+i*rowH+10,w=Math.max(4,(d.v/max)*bw);
+      bars+=`<text x="${padL-12}" y="${yy+17}" text-anchor="end" font-size="12" fill="var(--text-secondary)">${d.l}</text>
+        <rect x="${padL}" y="${yy}" width="${w}" height="26" rx="4" fill="${d.c}"/>
+        <text x="${padL+w+8}" y="${yy+18}" font-size="14" font-weight="700" fill="var(--text-primary)" class="mono">${d.v}</text>`;});
+    document.getElementById("healthChart").innerHTML=`<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="Accounts by health band">${bars}</svg>`;
+  })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Controlled Experiments — Notes &amp; Tools</title>
+  <meta name="description" content="Working notes and a small interactive toolkit for online controlled experiments (A/B tests): power and sample size, reading a result honestly, and the pitfalls worth knowing. Edited examples only.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: "media", theme: { extend: {
+      fontFamily: { headline: ["Noto Serif","Georgia","serif"], body: ["Inter","system-ui","sans-serif"] },
+      borderRadius: { DEFAULT: "2px" }
+    } } };
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --surface-1:#ffffff; --surface-2:#f4f4f5; --line:#d6d6d8;
+      --text-primary:#161616; --text-secondary:#5f6062;
+      --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a; --s4:#eda100;
+      --good:#12805a; --warn:#b26b00; --crit:#c0392b;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --surface-1:#1c1c1e; --surface-2:#161618; --line:#37373a;
+        --text-primary:#f1f1f2; --text-secondary:#a6a6aa;
+        --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500;
+        --good:#3aa981; --warn:#d79a2b; --crit:#e57368;
+      }
+    }
+    body { background:var(--surface-2); color:var(--text-primary); }
+    .card { background:var(--surface-1); border:1px solid var(--line); }
+    .mono { font-variant-numeric: tabular-nums; }
+    .badge { font-size:.68rem; letter-spacing:.04em; text-transform:uppercase; font-weight:600; }
+    label.f { display:block; font-size:.8rem; color:var(--text-secondary); margin-bottom:.25rem; }
+    input.f, select.f { width:100%; padding:.5rem .6rem; background:transparent; border:1px solid var(--line); color:var(--text-primary); font-size:.9rem; }
+  </style>
+</head>
+<body class="font-body antialiased">
+
+  <header class="border-b" style="border-color:var(--line); background:var(--surface-1);">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="../index.html" class="flex items-center gap-2 text-sm" style="color:var(--text-secondary)"><span aria-hidden="true">←</span> Portfolio</a>
+      <span class="badge px-2 py-1" style="background:var(--surface-2);border:1px solid var(--line);color:var(--text-secondary)">Experimentation · Applied statistics</span>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-6 py-12">
+
+    <section class="mb-8">
+      <p class="badge mb-3" style="color:var(--s1)">Project 05</p>
+      <h1 class="font-headline text-4xl md:text-5xl font-bold leading-tight mb-4">Online controlled experiments</h1>
+      <p class="text-lg max-w-2xl leading-relaxed" style="color:var(--text-secondary)">
+        Working notes and a small toolkit on A/B testing — the method a team reaches for when it wants to know whether a
+        change <em>actually</em> helped, rather than argue about it. This page collects the parts I find myself explaining most:
+        how to size a test, how to read a result without fooling yourself, and the traps that quietly invalidate one.
+      </p>
+    </section>
+
+
+    <!-- Why experiment -->
+    <section class="mb-14">
+      <h2 class="font-headline text-2xl font-semibold mb-4">Why bother with a controlled experiment?</h2>
+      <div class="grid md:grid-cols-2 gap-6 text-sm leading-relaxed" style="color:var(--text-secondary)">
+        <p>Ship a change and watch the metric move, and you can never fully separate the change from everything else that moved that week — a campaign, a season, a press mention. Randomly assigning users to a control and a treatment group holds all of that constant <em>on average</em>, so a difference between the groups is attributable to the change itself. That's the whole reason experiments earn trust: they estimate a <strong style="color:var(--text-primary)">causal</strong> effect, not a correlation.</p>
+        <p>The discipline is less about running the test and more about the decisions around it — picking a metric that reflects real value, sizing the test so it can actually detect a meaningful effect, agreeing on the call <em>before</em> the data arrives, and knowing which results not to trust. The tools below are for those decisions.</p>
+      </div>
+    </section>
+
+    <!-- Anatomy -->
+    <section class="mb-14">
+      <h2 class="font-headline text-2xl font-semibold mb-6">Anatomy of a trustworthy test</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="card p-6"><p class="badge mb-2" style="color:var(--s1)">Design</p><p class="text-sm leading-relaxed" style="color:var(--text-secondary)">One clear hypothesis, a randomisation unit (usually the user), a single <strong style="color:var(--text-primary)">primary metric</strong>, and a short list of <strong style="color:var(--text-primary)">guardrails</strong> — metrics that must not get worse (latency, unsubscribes, refunds). Decide the success rule before launch.</p></div>
+        <div class="card p-6"><p class="badge mb-2" style="color:var(--s3)">Power</p><p class="text-sm leading-relaxed" style="color:var(--text-secondary)">Fix the smallest effect worth acting on — the <strong style="color:var(--text-primary)">minimum detectable effect</strong> — then size the test so it has a real chance (usually 80%) of catching an effect that big. Underpowered tests waste time and mislead.</p></div>
+        <div class="card p-6"><p class="badge mb-2" style="color:var(--s4)">Readout</p><p class="text-sm leading-relaxed" style="color:var(--text-secondary)">Report the effect with a <strong style="color:var(--text-primary)">confidence interval</strong>, not just a p-value and an arrow. Check the guardrails and a couple of key segments, then make the pre-agreed call. "Flat" is a legitimate, useful outcome.</p></div>
+      </div>
+    </section>
+
+    <!-- Tool 1: sample size -->
+    <section class="mb-14">
+      <h2 class="font-headline text-2xl font-semibold mb-1">Tool · How big does the test need to be?</h2>
+      <p class="text-sm mb-6" style="color:var(--text-secondary)">Two-proportion, two-sided test. Enter a baseline rate and the smallest lift worth detecting.</p>
+      <div class="grid lg:grid-cols-2 gap-6">
+        <div class="card p-6">
+          <div class="grid grid-cols-2 gap-4">
+            <div><label class="f" for="baseline">Baseline conversion (%)</label><input class="f mono" id="baseline" type="number" value="4.0" step="0.1" min="0.1" max="99"></div>
+            <div><label class="f" for="mde">Min. detectable lift (relative %)</label><input class="f mono" id="mde" type="number" value="10" step="1" min="1"></div>
+            <div><label class="f" for="alpha">Significance (α)</label><select class="f" id="alpha"><option value="0.05">0.05 (95%)</option><option value="0.01">0.01 (99%)</option><option value="0.10">0.10 (90%)</option></select></div>
+            <div><label class="f" for="power">Power</label><select class="f" id="power"><option value="0.8">80%</option><option value="0.9">90%</option><option value="0.95">95%</option></select></div>
+          </div>
+          <div class="mt-5 p-4" style="background:var(--surface-2)">
+            <p class="badge mb-1" style="color:var(--text-secondary)">Needed per variant</p>
+            <p class="text-3xl font-headline font-bold mono" id="nOut" style="color:var(--s1)">—</p>
+            <p class="text-sm mt-1" id="nDetail" style="color:var(--text-secondary)"></p>
+          </div>
+        </div>
+        <div class="card p-6">
+          <h3 class="text-sm font-semibold mb-1">Sample size vs. the effect you want to catch</h3>
+          <p class="text-xs mb-4" style="color:var(--text-secondary)">Smaller effects cost disproportionately more traffic — the curve is roughly 1/effect².</p>
+          <div id="powerChart"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tool 2: readout -->
+    <section class="mb-14">
+      <h2 class="font-headline text-2xl font-semibold mb-1">Tool · Reading a finished test</h2>
+      <p class="text-sm mb-6" style="color:var(--text-secondary)">Enter each arm's visitors and conversions for an honest readout — effect, 95% interval, and significance.</p>
+      <div class="card p-6">
+        <div class="grid sm:grid-cols-2 gap-6">
+          <div>
+            <p class="badge mb-2" style="color:var(--s1)">Control</p>
+            <div class="grid grid-cols-2 gap-3">
+              <div><label class="f" for="cN">Visitors</label><input class="f mono" id="cN" type="number" value="12000"></div>
+              <div><label class="f" for="cX">Conversions</label><input class="f mono" id="cX" type="number" value="480"></div>
+            </div>
+          </div>
+          <div>
+            <p class="badge mb-2" style="color:var(--s2)">Treatment</p>
+            <div class="grid grid-cols-2 gap-3">
+              <div><label class="f" for="tN">Visitors</label><input class="f mono" id="tN" type="number" value="12000"></div>
+              <div><label class="f" for="tX">Conversions</label><input class="f mono" id="tX" type="number" value="540"></div>
+            </div>
+          </div>
+        </div>
+        <div class="grid md:grid-cols-2 gap-6 mt-6 items-center">
+          <div id="readChart"></div>
+          <div id="readOut" class="text-sm" style="color:var(--text-secondary)"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pitfalls -->
+    <section class="mb-14">
+      <h2 class="font-headline text-2xl font-semibold mb-6">Traps worth knowing</h2>
+      <div class="grid md:grid-cols-2 gap-x-8 gap-y-5 text-sm leading-relaxed" style="color:var(--text-secondary)">
+        <p><strong style="color:var(--text-primary)">Peeking.</strong> Stopping the moment a result crosses significance inflates false positives badly. Either fix the sample size in advance, or use a sequential method built for continuous monitoring.</p>
+        <p><strong style="color:var(--text-primary)">Multiple comparisons.</strong> Test twenty metrics at 95% and roughly one will look "significant" by chance. Pre-register a primary metric; correct the rest.</p>
+        <p><strong style="color:var(--text-primary)">Novelty &amp; primacy.</strong> Regulars react to <em>any</em> change at first. An effect that fades over the test — or only appears late — needs a longer look before you believe it.</p>
+        <p><strong style="color:var(--text-primary)">Interference (SUTVA).</strong> In marketplaces and social products, treating one user can spill over to a control user, biasing the estimate. Cluster or switchback designs help.</p>
+        <p><strong style="color:var(--text-primary)">Simpson's paradox.</strong> A pooled result can reverse inside every segment if the mix shifted. Always check the primary metric by key segment.</p>
+        <p><strong style="color:var(--text-primary)">Variance reduction (CUPED).</strong> Using pre-experiment data to remove predictable variance can cut the sample size needed for the same power — often substantially, for free.</p>
+      </div>
+    </section>
+
+    <!-- Reading -->
+    <section>
+      <h2 class="font-headline text-2xl font-semibold mb-4">A short shelf</h2>
+      <ul class="text-sm space-y-2" style="color:var(--text-secondary)">
+        <li>• Kohavi, Tang &amp; Xu — <em>Trustworthy Online Controlled Experiments</em> (2020). The practitioner's reference.</li>
+        <li>• Deng, Xu, Kohavi &amp; Walker — <em>Improving the Sensitivity of Online Experiments by Utilizing Pre-Experiment Data</em> (CUPED, 2013).</li>
+        <li>• Johari, Pekelis &amp; Walsh — <em>Always Valid Inference / sequential testing</em> — the maths behind honest continuous monitoring.</li>
+        <li>• Gelman &amp; Loken — <em>The Garden of Forking Paths</em> — why analyst degrees of freedom quietly manufacture significance.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="border-t mt-12" style="border-color:var(--line)">
+    <div class="max-w-6xl mx-auto px-6 py-8 text-sm flex flex-wrap gap-2 justify-between" style="color:var(--text-secondary)">
+      <span>Portfolio project — experimentation &amp; applied statistics</span>
+      <span class="flex gap-4"><a href="https://www.linkedin.com/in/sanemlegresley/" target="_blank" rel="noopener" class="underline">Sanem Le Gresley · LinkedIn</a><a href="../index.html" class="underline">Back to all projects</a></span>
+    </div>
+  </footer>
+
+  <script>
+  // ---- normal helpers ------------------------------------------------------
+  function erf(x){ const s=x<0?-1:1; x=Math.abs(x);
+    const a1=0.254829592,a2=-0.284496736,a3=1.421413741,a4=-1.453152027,a5=1.061405429,p=0.3275911;
+    const t=1/(1+p*x); const y=1-((((a5*t+a4)*t+a3)*t+a2)*t+a1)*t*Math.exp(-x*x); return s*y; }
+  function normCdf(z){ return 0.5*(1+erf(z/Math.SQRT2)); }
+  const Z_ALPHA={ "0.05":1.959964,"0.01":2.575829,"0.10":1.644854 };
+  const Z_POWER={ "0.8":0.841621,"0.9":1.281552,"0.95":1.644854 };
+
+  function sampleSize(p1, relLift, alpha, power){
+    const p2=p1*(1+relLift); if(p2<=0||p2>=1||p1<=0||p1>=1) return null;
+    const za=Z_ALPHA[alpha], zb=Z_POWER[power];
+    const n=Math.pow(za+zb,2)*(p1*(1-p1)+p2*(1-p2))/Math.pow(p2-p1,2);
+    return Math.ceil(n);
+  }
+
+  // ---- Tool 1 wiring -------------------------------------------------------
+  const $=id=>document.getElementById(id);
+  function updateSize(){
+    const p1=parseFloat($("baseline").value)/100, rl=parseFloat($("mde").value)/100;
+    const alpha=$("alpha").value, power=$("power").value;
+    const n=sampleSize(p1,rl,alpha,power);
+    if(!n||!isFinite(n)){ $("nOut").textContent="—"; $("nDetail").textContent="Check the inputs."; drawPower(p1,alpha,power,rl); return; }
+    $("nOut").textContent=n.toLocaleString();
+    const days4k=Math.ceil((n*2)/4000);
+    $("nDetail").innerHTML=`≈ ${(n*2).toLocaleString()} total across both arms · detecting ${p1*100}% → ${(p1*(1+rl)*100).toFixed(2)}% · ~${days4k} days at 4k visitors/day`;
+    drawPower(p1,alpha,power,rl);
+  }
+  ["baseline","mde","alpha","power"].forEach(id=>$(id).addEventListener("input",updateSize));
+
+  // ---- Power curve ---------------------------------------------------------
+  function drawPower(p1,alpha,power,curRel){
+    const lifts=[]; for(let l=5;l<=40;l+=2.5) lifts.push(l/100);
+    const ns=lifts.map(l=>sampleSize(p1,l,alpha,power)||0);
+    const W=520,H=240,padL=54,padR=14,padT=14,padB=34,iw=W-padL-padR,ih=H-padT-padB;
+    const maxN=Math.max(...ns), minL=lifts[0],maxL=lifts[lifts.length-1];
+    const x=l=>padL+((l-minL)/(maxL-minL))*iw, y=n=>padT+(1-n/maxN)*ih;
+    let grid="";
+    for(let k=0;k<=4;k++){ const gv=maxN*k/4, gy=padT+(1-k/4)*ih;
+      grid+=`<line x1="${padL}" y1="${gy}" x2="${W-padR}" y2="${gy}" stroke="var(--line)"/><text x="${padL-8}" y="${gy+4}" text-anchor="end" font-size="10" fill="var(--text-secondary)">${Math.round(gv/1000)}k</text>`; }
+    [10,20,30,40].forEach(l=>{ grid+=`<text x="${x(l/100)}" y="${H-16}" text-anchor="middle" font-size="10" fill="var(--text-secondary)">${l}%</text>`; });
+    grid+=`<text x="${(padL+W-padR)/2}" y="${H-2}" text-anchor="middle" font-size="10" fill="var(--text-secondary)">relative lift to detect</text>`;
+    const pts=lifts.map((l,i)=>`${x(l)},${y(ns[i])}`).join(" ");
+    const line=`<polyline points="${pts}" fill="none" stroke="var(--s1)" stroke-width="2.5" stroke-linejoin="round"/>`;
+    let marker="";
+    if(curRel>=minL&&curRel<=maxL){ const nn=sampleSize(p1,curRel,alpha,power)||0;
+      marker=`<circle cx="${x(curRel)}" cy="${y(nn)}" r="5" fill="var(--surface-1)" stroke="var(--s2)" stroke-width="2.5"/><text x="${x(curRel)}" y="${y(nn)-10}" text-anchor="middle" font-size="11" font-weight="700" fill="var(--text-primary)" class="mono">${(nn/1000).toFixed(1)}k</text>`; }
+    $("powerChart").innerHTML=`<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="Sample size versus detectable lift">${grid}${line}${marker}</svg>`;
+  }
+
+  // ---- Tool 2: readout -----------------------------------------------------
+  function updateRead(){
+    const cN=+$("cN").value, cX=+$("cX").value, tN=+$("tN").value, tX=+$("tX").value;
+    if(cN<=0||tN<=0||cX<0||tX<0||cX>cN||tX>tN){ $("readOut").innerHTML="Check the inputs."; $("readChart").innerHTML=""; return; }
+    const p1=cX/cN, p2=tX/tN, diff=p2-p1, rel=diff/p1;
+    const se=Math.sqrt(p1*(1-p1)/cN + p2*(1-p2)/tN);
+    const pooled=(cX+tX)/(cN+tN), sePool=Math.sqrt(pooled*(1-pooled)*(1/cN+1/tN));
+    const z=diff/sePool, pval=2*(1-normCdf(Math.abs(z)));
+    const lo=diff-1.959964*se, hi=diff+1.959964*se;
+    const sig=pval<0.05, dirUp=diff>0;
+    const verdict = sig ? (dirUp?"Significant improvement":"Significant decline") : "No significant difference";
+    const vc = !sig?"var(--text-secondary)":(dirUp?"var(--good)":"var(--crit)");
+    $("readOut").innerHTML=`
+      <p class="text-lg font-semibold mb-3" style="color:${vc}">${verdict}</p>
+      <table class="w-full mono" style="border-collapse:collapse">
+        <tr><td class="py-1">Control rate</td><td class="py-1 text-right" style="color:var(--text-primary)">${(p1*100).toFixed(2)}%</td></tr>
+        <tr><td class="py-1">Treatment rate</td><td class="py-1 text-right" style="color:var(--text-primary)">${(p2*100).toFixed(2)}%</td></tr>
+        <tr><td class="py-1">Absolute effect</td><td class="py-1 text-right" style="color:var(--text-primary)">${diff>=0?"+":""}${(diff*100).toFixed(2)} pts</td></tr>
+        <tr><td class="py-1">Relative effect</td><td class="py-1 text-right" style="color:var(--text-primary)">${rel>=0?"+":""}${(rel*100).toFixed(1)}%</td></tr>
+        <tr><td class="py-1">95% CI (absolute)</td><td class="py-1 text-right" style="color:var(--text-primary)">[${(lo*100).toFixed(2)}, ${(hi*100).toFixed(2)}] pts</td></tr>
+        <tr><td class="py-1">p-value (two-sided)</td><td class="py-1 text-right" style="color:var(--text-primary)">${pval<0.001?"<0.001":pval.toFixed(3)}</td></tr>
+      </table>
+      <p class="text-xs mt-3">${sig?"The interval excludes zero — the effect is unlikely to be noise at α=0.05.":"The interval spans zero — consistent with no real effect at this sample size."}</p>`;
+    // chart: two rate bars + CI note
+    const W=360,H=200,padL=70,padR=16,top=16,rowH=52,bw=W-padL-padR;
+    const mx=Math.max(p1,p2)*1.25;
+    const bar=(y,rate,color,label)=>{ const w=Math.max(3,(rate/mx)*bw);
+      return `<text x="${padL-10}" y="${y+18}" text-anchor="end" font-size="12" fill="var(--text-secondary)">${label}</text>
+        <rect x="${padL}" y="${y}" width="${w}" height="26" rx="4" fill="${color}"/>
+        <text x="${padL+w+8}" y="${y+18}" font-size="12" font-weight="700" fill="var(--text-primary)" class="mono">${(rate*100).toFixed(2)}%</text>`; };
+    $("readChart").innerHTML=`<svg viewBox="0 0 ${W} ${top*2+rowH*2}" width="100%" role="img" aria-label="Control versus treatment conversion rate">
+      ${bar(top,p1,"var(--s1)","Control")}${bar(top+rowH,p2,"var(--s2)","Treatment")}</svg>`;
+  }
+  ["cN","cX","tN","tX"].forEach(id=>$(id).addEventListener("input",updateRead));
+
+  updateSize(); updateRead();
+  </script>
+</body>
+</html>
