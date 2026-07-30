@@ -165,17 +165,30 @@
     { from: "Recruiter", subj: "Exciting opportunity for a Director of Operations", body: "I came across your profile and think you'd be perfect for a role I'm hiring for. Are you open to a chat?", t: "5h" },
   ];
 
+  // ---- Sentiment (read independently, so distress is caught in any category) --
+  const NEG_WORDS = ["broken","not working","doesn't work","won't work","not loading","down","outage","error","crash","fail","failing","failed","freaking out","panic","frustrat","angry","upset","unacceptable","terrible","awful","horrible","useless","disappoint","worst","hate","ridiculous","not happy","unhappy","stuck","urgent","emergency"];
+  const POS_WORDS = ["love","loving","fantastic","amazing","great","awesome","thank","thanks","excellent","wonderful","happy","pleased","perfect","brilliant","appreciate"];
+  function sentimentOf(t) {
+    let neg = 0, pos = 0;
+    NEG_WORDS.forEach(w => { if (t.includes(w)) neg++; });
+    POS_WORDS.forEach(w => { if (t.includes(w)) pos++; });
+    if ((t.match(/!/g) || []).length >= 2 && neg > 0) neg++;   // shouting adds heat
+    if (pos > neg) return "Positive";
+    if (neg > pos) return "Negative";
+    return "Neutral";
+  }
+
   // ---- Transparent rule classifier (stands in for the LLM offline) ---------
   function classify(text) {
     const t = text.toLowerCase();
     const has = (...w) => w.some(k => t.includes(k));
-    let category = "General", priority = "Normal", sentiment = "Neutral", action = "Route to shared queue", reply = "";
+    let category = "General", priority = "Normal", sentiment = sentimentOf(t), action = "Route to shared queue", reply = "";
 
     if (has("cancel", "cancelling", "churn", "not seeing the value", "refund")) {
       category = "Churn risk"; priority = "High"; sentiment = "Negative";
       action = "Escalate to Client Success owner within 1 hour";
       reply = "Thank you for the honest note — I don't want you leaving before we've shown the value you signed up for. I'm blocking 20 minutes this week to walk through your goals and what's getting in the way. Would tomorrow at 10am work?";
-    } else if (has("urgent", "emergency", "asap", "locked out", "can't log", "cannot log", "login failure", "deadline", "immediately")) {
+    } else if (has("urgent", "emergency", "asap", "locked out", "can't log", "cannot log", "login failure", "deadline", "immediately", "broken", "not working", "doesn't work", "not loading", "down", "outage", "error", "crash", "freaking out", "panic")) {
       category = "Critical support"; priority = "Urgent"; sentiment = "Negative";
       action = "Page on-call now · auto-acknowledge in <30s";
       reply = "I'm on this right now and treating it as urgent. I've flagged our on-call engineer and will have an update to you within 15 minutes — replying here so you have it in writing.";
@@ -184,7 +197,7 @@
       action = "Route to Finance queue · attach account record";
       reply = "Thanks for the heads-up. I've routed this to our billing team and asked them to confirm the account is in good standing. You'll have a resolution note shortly — no service interruption in the meantime.";
     } else if (has("question", "how do", "can we", "can you add", "help with", "feature")) {
-      category = "Product question"; priority = "Normal"; sentiment = has("love", "loving", "fantastic", "great", "thank") ? "Positive" : "Neutral";
+      category = "Product question"; priority = "Normal";
       action = "Route to Support · draft grounded reply for agent review";
       reply = "Great question — and thank you for the kind words. Yes, that's supported: I'll send over the steps and a template you can drop in. Let me know if you'd like me to set the first one up with you.";
     } else if (has("opportunity", "hiring", "recruiter", "role", "position")) {
@@ -198,8 +211,6 @@
     } else {
       reply = "Thanks for reaching out — I've received your message and routed it to the right person. You'll hear back shortly.";
     }
-    // sentiment sweeteners
-    if (has("love", "loving", "fantastic", "amazing", "great", "thank you so much")) sentiment = "Positive";
     const confidence = Math.min(0.98, 0.62 + (text.length > 40 ? 0.2 : 0) + (category !== "General" ? 0.14 : 0));
     return { category, priority, sentiment, action, reply, confidence };
   }
