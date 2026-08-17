@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agentic CX Concierge — a Product &amp; Experience Design case study</title>
+  <meta name="description" content="An end-to-end product &amp; experience design case study for an agentic customer-experience concierge: discovery, personas, journey mapping, IA, wireframes, PRD, acceptance criteria, design system, accessibility, and roadmap.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: "media", theme: { extend: {
+      fontFamily: { headline: ["Noto Serif","Georgia","serif"], body: ["Inter","system-ui","sans-serif"] },
+      borderRadius: { DEFAULT: "2px" }
+    } } };
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --surface-1:#ffffff; --surface-2:#f4f4f5; --line:#d6d6d8;
+      --text-primary:#161616; --text-secondary:#5f6062; --gold:#a31f34;
+      --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a; --s4:#eda100;
+      --good:#12805a; --warn:#b26b00; --crit:#c0392b; --wire:#e7e7e9;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --surface-1:#1c1c1e; --surface-2:#161618; --line:#37373a;
+        --text-primary:#f1f1f2; --text-secondary:#a6a6aa; --gold:#e2566a;
+        --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500;
+        --good:#3aa981; --warn:#d79a2b; --crit:#e57368; --wire:#2b2b2e;
+      }
+    }
+    body { background:var(--surface-2); color:var(--text-primary); }
+    .card { background:var(--surface-1); border:1px solid var(--line); }
+    .mono { font-variant-numeric: tabular-nums; }
+    .badge { font-size:.68rem; letter-spacing:.04em; text-transform:uppercase; font-weight:600; }
+    .eyebrow { font-size:.72rem; letter-spacing:.08em; text-transform:uppercase; font-weight:700; color:var(--gold); }
+    h2.sec { font-family:"Noto Serif",Georgia,serif; font-weight:700; }
+    /* wireframe primitives */
+    .wire { background:var(--surface-2); border:1px solid var(--line); border-radius:8px; }
+    .ln { background:var(--wire); border-radius:4px; height:9px; }
+    .blk { background:var(--wire); border-radius:6px; }
+    .pill { border:1px solid var(--line); border-radius:999px; padding:.15rem .6rem; font-size:.72rem; }
+    pre.gherkin { background:var(--surface-2); border:1px solid var(--line); border-left:3px solid var(--gold); padding:1rem; overflow-x:auto; font-size:.82rem; line-height:1.55; }
+    .kw { color:var(--gold); font-weight:700; }
+    table.grid { width:100%; border-collapse:collapse; font-size:.86rem; }
+    table.grid th, table.grid td { border:1px solid var(--line); padding:.55rem .7rem; vertical-align:top; text-align:left; }
+    table.grid th { background:var(--surface-2); font-weight:600; }
+    .tick::before { content:"✓ "; color:var(--good); font-weight:700; }
+    .cross::before { content:"✕ "; color:var(--crit); font-weight:700; }
+  </style>
+</head>
+<body class="font-body antialiased">
+
+  <header class="border-b" style="border-color:var(--line); background:var(--surface-1);">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="../index.html" class="flex items-center gap-2 text-sm" style="color:var(--text-secondary)"><span aria-hidden="true">←</span> Portfolio</a>
+      <span class="badge px-2 py-1" style="background:var(--surface-2);border:1px solid var(--line);color:var(--text-secondary)">Product · Experience Design</span>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-6 py-12">
+
+    <!-- Hero -->
+    <section class="mb-14">
+      <p class="eyebrow mb-3">Featured case study · Product &amp; Experience Design</p>
+      <h1 class="font-headline text-4xl md:text-5xl font-bold leading-tight mb-4">Designing an agentic CX concierge, end to end</h1>
+      <p class="text-lg max-w-3xl leading-relaxed" style="color:var(--text-secondary)">
+        A self-directed case study taking an <strong style="color:var(--text-primary)">agentic customer experience</strong> from discovery to
+        hand-off for <em>Northwind Outfitters</em> — a fictional premium outdoor-apparel brand standing in for the retail/CPG work I care
+        about. It's here to <strong style="color:var(--text-primary)">show the craft</strong>: the product thinking and the experience-design
+        deliverables, and how agentic AI reshapes both. Brand and data are invented; the method is the real thing.
+      </p>
+      <div class="flex flex-wrap gap-2 mt-6">
+        <span class="pill" style="color:var(--text-secondary)">Discovery &amp; site audit</span>
+        <span class="pill" style="color:var(--text-secondary)">Personas</span>
+        <span class="pill" style="color:var(--text-secondary)">Journey mapping</span>
+        <span class="pill" style="color:var(--text-secondary)">Information architecture</span>
+        <span class="pill" style="color:var(--text-secondary)">Wireframes</span>
+        <span class="pill" style="color:var(--text-secondary)">PRD</span>
+        <span class="pill" style="color:var(--text-secondary)">Acceptance criteria</span>
+        <span class="pill" style="color:var(--text-secondary)">Design system</span>
+        <span class="pill" style="color:var(--text-secondary)">Accessibility (WCAG 2.2)</span>
+        <span class="pill" style="color:var(--text-secondary)">Roadmap</span>
+      </div>
+    </section>
+
+    <!-- 01 Brief / discovery -->
+    <section class="mb-16">
+      <p class="eyebrow mb-2">01 · Discovery</p>
+      <h2 class="sec text-2xl font-semibold mb-4">The brief, and what a quick audit surfaced</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="text-sm leading-relaxed" style="color:var(--text-secondary)">
+          <p class="mb-3"><strong style="color:var(--text-primary)">Ask:</strong> Northwind's e-commerce converts well on intent-led visits but leaks
+          badly everywhere else — fit uncertainty, product overload, and a support queue that treats pre-sale questions like tickets.
+          They want an <strong style="color:var(--text-primary)">agentic concierge</strong> that guides shoppers, resolves post-purchase issues,
+          and does it in the brand's voice.</p>
+          <p><strong style="color:var(--text-primary)">My frame:</strong> don't bolt a chatbot onto the funnel. Treat the agent as a new layer of the
+          experience with its own IA, guardrails, and hand-offs — measured on outcomes (fit confidence, deflection, revenue per session), not
+          on containment.</p>
+        </div>
+        <div class="card p-5">
+          <p class="badge mb-3" style="color:var(--text-secondary)">Site-audit findings (heuristic + analytics)</p>
+          <ul class="text-sm space-y-2" style="color:var(--text-secondary)">
+            <li class="cross">Fit &amp; sizing answers buried 3 taps deep; 22% of PDP exits touch the size chart first.</li>
+            <li class="cross">Search returns 180+ results for "rain jacket" with no guided narrowing.</li>
+            <li class="cross">Post-purchase help is a generic form; median first response &gt; 8 hours.</li>
+            <li class="cross">No consistent component library — 4 button styles across 6 templates.</li>
+            <li class="tick">Strong brand photography and a loyal, values-driven customer base to build on.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 Personas -->
+    <section class="mb-16">
+      <p class="eyebrow mb-2">02 · Who we're designing for</p>
+      <h2 class="sec text-2xl font-semibold mb-6">Three personas, one shared anxiety: "will this be right for me?"</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="card p-6">
+          <p class="font-headline text-lg font-semibold">Maya · The considered first-timer</p>
+          <p class="text-xs mb-3" style="color:var(--text-secondary)">New to technical gear · high research, low confidence</p>
+          <p class="text-sm" style="color:var(--text-primary)"><b>Goal</b></p>
+          <p class="text-sm mb-2" style="color:var(--text-secondary)">One jacket that's genuinely right for wet coastal hikes.</p>
+          <p class="text-sm" style="color:var(--text-primary)"><b>Frustration</b></p>
+          <p class="text-sm mb-2" style="color:var(--text-secondary)">Jargon (GORE-TEX vs. membranes), sizing dread, fear of returns.</p>
+          <p class="text-sm" style="color:var(--text-primary)"><b>Wants from an agent</b></p>
+          <p class="text-sm" style="color:var(--text-secondary)">Plain-language guidance and a confident "this one, this size."</p>
+        </div>
+        <div class="card p-6">
+          <p class="font-headline text-lg font-semibold">Dev · The loyal replenisher</p>
+          <p class="text-xs mb-3" style="color:var(--text-secondary)">Owns the brand · time-poor, knows what he likes</p>
+          <p class="text-sm" style="color:var(--text-primary)"><b>Goal</b></p>
+          <p class="text-sm mb-2" style="color:var(--text-secondary)">Re-buy or upgrade fast, without re-deciding everything.</p>
+          <p class="text-sm" style="color:var(--text-primary)"><b>Frustration</b></p>
+          <p class="text-sm mb-2" style="color:var(--text-secondary)">Re-navigating the catalogue; unclear what's changed model-to-model.</p>
+          <p class="text-sm" style="color:var(--text-primary)"><b>Wants from an agent</b></p>
+          <p class="text-sm" style="color:var(--text-secondary)">"Same fit, newer model" and a one-tap reorder.</p>
+        </div>
+        <div class="card p-6">
+          <p class="font-headline text-lg font-semibold">Priya · The post-purchase problem-solver</p>
+          <p class="text-xs mb-3" style="color:var(--text-secondary)">Recent buyer · something's wrong, patience thinning</p>
+          <p class="text-sm" style="color:var(--text-primary)"><b>Goal</b></p>
+          <p class="text-sm mb-2" style="color:var(--text-secondary)">Resolve a warranty/return question without a ticket black hole.</p>
+          <p class="text-sm" style="color:var(--text-primary)"><b>Frustration</b></p>
+          <p class="text-sm mb-2" style="color:var(--text-secondary)">Repeating context; slow, templated replies.</p>
+          <p class="text-sm" style="color:var(--text-primary)"><b>Wants from an agent</b></p>
+          <p class="text-sm" style="color:var(--text-secondary)">Immediate, accurate resolution — and a human when it matters.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 Journey map -->
+    <section class="mb-16">
+      <p class="eyebrow mb-2">03 · Journey map</p>
+      <h2 class="sec text-2xl font-semibold mb-1">The journey today, and where the agent earns its place</h2>
+      <p class="text-sm mb-6" style="color:var(--text-secondary)">Maya's path. The line is her confidence; the red band marks where the experience currently drops her.</p>
+      <div class="card p-6 overflow-x-auto">
+        <div style="min-width:720px">
+          <div id="emotion"></div>
+          <table class="grid mt-4">
+            <thead>
+              <tr><th style="width:120px">Stage</th><th>Discover</th><th>Consider</th><th>Decide</th><th>Purchase</th><th>Own &amp; support</th></tr>
+            </thead>
+            <tbody>
+              <tr><th>Doing</th><td>Searches "rain jacket"</td><td>Compares 6 similar shells</td><td>Stuck on size &amp; features</td><td>Checks out, hesitant</td><td>Wears it; a seam question</td></tr>
+              <tr><th>Feeling</th><td>Curious</td><td style="color:var(--warn)">Overwhelmed</td><td style="color:var(--crit)">Anxious</td><td style="color:var(--warn)">Uncertain</td><td style="color:var(--crit)">Frustrated</td></tr>
+              <tr><th>Pain</th><td>No guided narrowing</td><td>Jargon, choice overload</td><td>Fit dread → cart abandon</td><td>Return anxiety</td><td>Slow, templated support</td></tr>
+              <tr><th style="color:var(--gold)">Agent intervenes</th>
+                <td>Asks 2 questions, narrows to 3</td>
+                <td>Explains trade-offs in plain terms</td>
+                <td>Recommends size w/ confidence &amp; return terms</td>
+                <td>Reassures; sets expectations</td>
+                <td>Resolves or routes to a human with context</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 IA -->
+    <section class="mb-16">
+      <p class="eyebrow mb-2">04 · Information architecture</p>
+      <h2 class="sec text-2xl font-semibold mb-1">Where the agent lives in the IA</h2>
+      <p class="text-sm mb-6" style="color:var(--text-secondary)">The concierge is a persistent layer, not a buried page — reachable from anywhere, with its own sub-flows and a clean CMS-authored knowledge source.</p>
+      <div class="card p-6 overflow-x-auto">
+        <ul class="text-sm mono" style="color:var(--text-secondary); line-height:1.9; min-width:560px">
+          <li>Home</li>
+          <li>├─ Shop <span style="color:var(--text-secondary)">(category → subcategory → PDP)</span></li>
+          <li>├─ Guides &amp; Fit <span style="color:var(--text-secondary)">(CMS-authored, agent-readable)</span></li>
+          <li>├─ Account <span style="color:var(--text-secondary)">(orders, returns, warranty)</span></li>
+          <li>└─ <span style="color:var(--gold);font-weight:700">Concierge (persistent layer)</span>
+            <ul style="margin-left:1.4rem">
+              <li>├─ Guided shopping <span style="color:var(--text-secondary)">→ fit finder → recommendation</span></li>
+              <li>├─ Reorder &amp; upgrade <span style="color:var(--text-secondary)">→ "same fit, newer model"</span></li>
+              <li>├─ Support &amp; warranty <span style="color:var(--text-secondary)">→ resolve → human hand-off</span></li>
+              <li>└─ Knowledge source <span style="color:var(--text-secondary)">= Guides + PDP data + policy (single source of truth)</span></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 05 Wireframes -->
+    <section class="mb-16">
+      <p class="eyebrow mb-2">05 · Wireframes</p>
+      <h2 class="sec text-2xl font-semibold mb-1">Two key screens, low-fidelity</h2>
+      <p class="text-sm mb-6" style="color:var(--text-secondary)">Deliberately greyscale — structure and hierarchy before visual design.</p>
+      <div class="grid md:grid-cols-2 gap-6">
+        <!-- Wireframe A: guided shopping -->
+        <div class="card p-5">
+          <p class="badge mb-3" style="color:var(--text-secondary)">A · Guided shopping (concierge open)</p>
+          <div class="wire p-4">
+            <div class="flex justify-between items-center mb-4">
+              <div class="blk" style="width:90px;height:16px"></div>
+              <div class="flex gap-2"><div class="blk" style="width:16px;height:16px;border-radius:50%"></div><div class="blk" style="width:16px;height:16px;border-radius:50%"></div></div>
+            </div>
+            <div class="grid grid-cols-3 gap-3">
+              <div class="col-span-2 space-y-2">
+                <div class="blk" style="height:96px"></div>
+                <div class="ln" style="width:80%"></div><div class="ln" style="width:55%"></div>
+                <div class="grid grid-cols-3 gap-2 mt-2">
+                  <div class="blk" style="height:52px"></div><div class="blk" style="height:52px"></div><div class="blk" style="height:52px"></div>
+                </div>
+              </div>
+              <div class="rounded-lg p-2" style="border:1.5px solid var(--gold)">
+                <div class="ln mb-2" style="width:70%;background:var(--gold);opacity:.5"></div>
+                <div class="ln mb-1"></div><div class="ln mb-1" style="width:85%"></div>
+                <div class="ln mb-3" style="width:60%"></div>
+                <div class="blk mb-2" style="height:22px;background:var(--gold);opacity:.35"></div>
+                <div class="blk" style="height:22px"></div>
+              </div>
+            </div>
+          </div>
+          <p class="text-xs mt-3" style="color:var(--text-secondary)">Agent panel (right) asks 2 clarifying questions, then narrows the grid to 3 confident picks with reasons.</p>
+        </div>
+        <!-- Wireframe B: fit recommendation -->
+        <div class="card p-5">
+          <p class="badge mb-3" style="color:var(--text-secondary)">B · Fit recommendation &amp; add-to-cart</p>
+          <div class="wire p-4">
+            <div class="grid grid-cols-2 gap-3">
+              <div class="blk" style="height:150px"></div>
+              <div class="space-y-2">
+                <div class="ln" style="width:75%"></div><div class="ln" style="width:40%"></div>
+                <div class="rounded-md p-2 mt-1" style="background:var(--surface-1);border:1px solid var(--line)">
+                  <div class="flex items-center gap-2 mb-1"><div class="blk" style="width:14px;height:14px;border-radius:50%;background:var(--good);opacity:.5"></div><div class="ln" style="width:60%"></div></div>
+                  <div class="ln mb-1" style="width:90%"></div><div class="ln" style="width:70%"></div>
+                </div>
+                <div class="flex gap-2 mt-1">
+                  <div class="blk" style="width:34px;height:26px"></div><div class="blk" style="width:34px;height:26px;border:1.5px solid var(--gold)"></div><div class="blk" style="width:34px;height:26px"></div>
+                </div>
+                <div class="blk mt-2" style="height:30px;background:var(--gold);opacity:.35"></div>
+                <div class="ln mt-1" style="width:50%"></div>
+              </div>
+            </div>
+          </div>
+          <p class="text-xs mt-3" style="color:var(--text-secondary)">Agent's size call sits inline (green marker), with the reasoning and the return window stated up front to defuse fit anxiety.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 PRD -->
+    <section class="mb-16">
+      <p class="eyebrow mb-2">06 · Product requirements</p>
+      <h2 class="sec text-2xl font-semibold mb-6">PRD, in brief</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="card p-6 text-sm leading-relaxed" style="color:var(--text-secondary)">
+          <p class="badge mb-2" style="color:var(--gold)">Problem</p>
+          <p class="mb-4">High-intent shoppers convert; everyone else churns on uncertainty. Support treats pre-sale questions like tickets, adding cost and friction.</p>
+          <p class="badge mb-2" style="color:var(--gold)">Goals</p>
+          <ul class="mb-4 space-y-1">
+            <li class="tick">Lift assisted-session conversion and average order value.</li>
+            <li class="tick">Cut fit-related returns via confident, explained sizing.</li>
+            <li class="tick">Deflect routine support with accurate self-resolution + clean hand-off.</li>
+          </ul>
+          <p class="badge mb-2" style="color:var(--gold)">Non-goals</p>
+          <ul class="space-y-1">
+            <li class="cross">Replacing human support for complex or emotional cases.</li>
+            <li class="cross">A general-purpose chatbot untethered from brand &amp; policy.</li>
+            <li class="cross">Dark-pattern upselling that erodes trust.</li>
+          </ul>
+        </div>
+        <div class="card p-6">
+          <p class="badge mb-3" style="color:var(--gold)">Success metrics &amp; guardrails</p>
+          <table class="grid">
+            <thead><tr><th>Metric</th><th>Type</th><th>Target</th></tr></thead>
+            <tbody>
+              <tr><td>Assisted-session conversion</td><td>Primary</td><td>▲ vs. holdout</td></tr>
+              <tr><td>Fit-related return rate</td><td>Primary</td><td>▼ meaningfully</td></tr>
+              <tr><td>Support self-resolution</td><td>Primary</td><td>Deflect routine, keep CSAT</td></tr>
+              <tr><td>CSAT / trust</td><td>Guardrail</td><td>No decline</td></tr>
+              <tr><td>Hallucinated / off-policy answers</td><td>Guardrail</td><td>≈ 0 (evaluated set)</td></tr>
+              <tr><td>Time-to-human on escalation</td><td>Guardrail</td><td>Fast, with context</td></tr>
+            </tbody>
+          </table>
+          <p class="text-xs mt-3" style="color:var(--text-secondary)">Measured against a randomised holdout — see the experimentation project for how the readout is kept honest.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07 Stories / AC -->
+    <section class="mb-16">
+      <p class="eyebrow mb-2">07 · Stories &amp; acceptance criteria</p>
+      <h2 class="sec text-2xl font-semibold mb-1">Ticket-ready, with acceptance criteria a QA can run</h2>
+      <p class="text-sm mb-6" style="color:var(--text-secondary)">Given/When/Then keeps intent, edge cases, and the hand-off explicit — so estimates hold and nothing is "implied".</p>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div>
+          <p class="text-sm font-semibold mb-2">Story: guided fit recommendation</p>
+          <pre class="gherkin"><span style="color:var(--text-secondary)"># As Maya, I want a confident size call so I don't fear a return.</span>
+<span class="kw">Scenario:</span> Agent recommends a size
+  <span class="kw">Given</span> I've shared my usual size and use case
+  <span class="kw">When</span> I ask "what size should I get?"
+  <span class="kw">Then</span> the agent names one size
+  <span class="kw">And</span> gives a one-line reason grounded in fit data
+  <span class="kw">And</span> states the return window before I add to cart
+
+<span class="kw">Scenario:</span> Low confidence
+  <span class="kw">Given</span> the fit data is ambiguous
+  <span class="kw">When</span> I ask for a size
+  <span class="kw">Then</span> the agent says it isn't sure
+  <span class="kw">And</span> offers two options with the trade-off
+  <span class="kw">And</span> never fabricates a measurement</pre>
+        </div>
+        <div>
+          <p class="text-sm font-semibold mb-2">Story: support resolution &amp; hand-off</p>
+          <pre class="gherkin"><span style="color:var(--text-secondary)"># As Priya, I want a fast, accurate answer — or a human.</span>
+<span class="kw">Scenario:</span> Resolves within policy
+  <span class="kw">Given</span> my question is covered by policy
+  <span class="kw">When</span> I ask about a warranty claim
+  <span class="kw">Then</span> the agent answers from the policy source
+  <span class="kw">And</span> cites what it's basing that on
+  <span class="kw">And</span> logs the interaction to my account
+
+<span class="kw">Scenario:</span> Escalation with context
+  <span class="kw">Given</span> the case is out of policy or emotional
+  <span class="kw">When</span> resolution isn't possible
+  <span class="kw">Then</span> the agent routes me to a human
+  <span class="kw">And</span> passes the full transcript + order context
+  <span class="kw">And</span> tells me what happens next and when</pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- 08 Design system -->
+    <section class="mb-16">
+      <p class="eyebrow mb-2">08 · Design system</p>
+      <h2 class="sec text-2xl font-semibold mb-1">Tokens and components, so quality scales</h2>
+      <p class="text-sm mb-6" style="color:var(--text-secondary)">One source of truth kills the "4 button styles across 6 templates" problem and lets AI generate on-brand output instead of drifting.</p>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="card p-6">
+          <p class="badge mb-3" style="color:var(--text-secondary)">Colour tokens</p>
+          <div class="space-y-2 text-sm">
+            <div class="flex items-center gap-3"><span style="width:26px;height:26px;border-radius:5px;background:var(--gold);display:inline-block"></span><span class="mono" style="color:var(--text-secondary)">accent / brand</span></div>
+            <div class="flex items-center gap-3"><span style="width:26px;height:26px;border-radius:5px;background:var(--good);display:inline-block"></span><span class="mono" style="color:var(--text-secondary)">success</span></div>
+            <div class="flex items-center gap-3"><span style="width:26px;height:26px;border-radius:5px;background:var(--warn);display:inline-block"></span><span class="mono" style="color:var(--text-secondary)">warning</span></div>
+            <div class="flex items-center gap-3"><span style="width:26px;height:26px;border-radius:5px;background:var(--crit);display:inline-block"></span><span class="mono" style="color:var(--text-secondary)">critical</span></div>
+            <div class="flex items-center gap-3"><span style="width:26px;height:26px;border-radius:5px;background:var(--surface-2);border:1px solid var(--line);display:inline-block"></span><span class="mono" style="color:var(--text-secondary)">surface</span></div>
+          </div>
+          <p class="text-xs mt-3" style="color:var(--text-secondary)">Every pair meets WCAG AA contrast; status colours ship with an icon + label, never colour alone.</p>
+        </div>
+        <div class="card p-6">
+          <p class="badge mb-3" style="color:var(--text-secondary)">Type &amp; spacing scale</p>
+          <p class="font-headline" style="font-size:1.6rem;line-height:1.1">Display 28</p>
+          <p class="font-semibold" style="font-size:1.1rem">Heading 18</p>
+          <p style="font-size:.95rem">Body 15 · 1.6 line-height</p>
+          <p class="text-xs" style="color:var(--text-secondary)">Caption 12</p>
+          <div class="flex items-end gap-1 mt-3">
+            <div class="blk" style="width:4px;height:8px"></div><div class="blk" style="width:8px;height:8px"></div><div class="blk" style="width:12px;height:8px"></div><div class="blk" style="width:16px;height:8px"></div><div class="blk" style="width:24px;height:8px"></div>
+          </div>
+          <p class="text-xs mt-1" style="color:var(--text-secondary)">4 · 8 · 12 · 16 · 24 px — an 8px base grid.</p>
+        </div>
+        <div class="card p-6">
+          <p class="badge mb-3" style="color:var(--text-secondary)">Components (with states)</p>
+          <button class="w-full mb-2 px-4 py-2 text-sm font-semibold" style="background:var(--gold);color:#fff;border-radius:4px">Primary action</button>
+          <button class="w-full mb-2 px-4 py-2 text-sm font-semibold" style="background:transparent;color:var(--gold);border:1px solid var(--gold);border-radius:4px">Secondary</button>
+          <div class="mb-2"><input aria-label="Sample input" placeholder="Input · with visible label" class="w-full px-3 py-2 text-sm" style="background:transparent;border:1px solid var(--line);border-radius:4px;color:var(--text-primary)"></div>
+          <p class="text-xs" style="color:var(--text-secondary)">Focus ring ≥ 3:1, hit target ≥ 24px, disabled/loading/error states specified — not left to interpretation.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 09 Accessibility -->
+    <section class="mb-16">
+      <p class="eyebrow mb-2">09 · Accessibility, annotated</p>
+      <h2 class="sec text-2xl font-semibold mb-1">Accessibility designed in, and handed off</h2>
+      <p class="text-sm mb-6" style="color:var(--text-secondary)">Annotations travel with the design so engineering inherits intent, not guesswork. Mapped to WCAG 2.2 AA.</p>
+      <div class="grid md:grid-cols-2 gap-6 items-start">
+        <div class="card p-5">
+          <div class="wire p-4">
+            <div class="flex items-center gap-2 mb-3"><span class="mono text-xs" style="background:var(--gold);color:#fff;border-radius:50%;width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center">1</span><div class="ln" style="width:55%"></div></div>
+            <div class="rounded-md p-2 mb-3" style="border:1px solid var(--line)">
+              <div class="flex items-center gap-2 mb-1"><span class="mono text-xs" style="background:var(--gold);color:#fff;border-radius:50%;width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center">2</span><div class="ln" style="width:70%"></div></div>
+              <div class="ln" style="width:88%"></div>
+            </div>
+            <div class="flex items-center gap-2 mb-3"><span class="mono text-xs" style="background:var(--gold);color:#fff;border-radius:50%;width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center">3</span><div class="blk" style="width:120px;height:26px"></div></div>
+            <div class="flex items-center gap-2"><span class="mono text-xs" style="background:var(--gold);color:#fff;border-radius:50%;width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center">4</span><div class="ln" style="width:40%;background:var(--crit);opacity:.5"></div></div>
+          </div>
+        </div>
+        <div>
+          <table class="grid">
+            <thead><tr><th style="width:30px">#</th><th>Annotation</th><th style="width:90px">WCAG</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>Agent messages in a labelled live region; announced without stealing focus.</td><td>4.1.3</td></tr>
+              <tr><td>2</td><td>Recommendation states its reason in text — never conveyed by colour alone.</td><td>1.4.1</td></tr>
+              <tr><td>3</td><td>Primary action ≥ 24×24px target, visible focus ring ≥ 3:1.</td><td>2.5.8 · 2.4.11</td></tr>
+              <tr><td>4</td><td>Errors identified in text with a fix suggestion; not colour-only.</td><td>3.3.1</td></tr>
+            </tbody>
+          </table>
+          <p class="text-xs mt-3" style="color:var(--text-secondary)"><b>Technical hand-off:</b> each component ships with semantics (role, name, state), keyboard order, and the ARIA pattern named — so the build matches the design without a second discovery.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10 Roadmap -->
+    <section class="mb-16">
+      <p class="eyebrow mb-2">10 · Roadmap</p>
+      <h2 class="sec text-2xl font-semibold mb-6">Now / Next / Later</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="card p-6">
+          <p class="badge mb-2" style="color:var(--good)">Now · prove the core</p>
+          <ul class="text-sm space-y-2" style="color:var(--text-secondary)">
+            <li>• Guided fit finder on top categories</li>
+            <li>• Policy-grounded support resolution + hand-off</li>
+            <li>• Design-system v1 (tokens + core components)</li>
+            <li>• Eval set &amp; holdout wired in</li>
+          </ul>
+        </div>
+        <div class="card p-6">
+          <p class="badge mb-2" style="color:var(--s1)">Next · deepen &amp; scale</p>
+          <ul class="text-sm space-y-2" style="color:var(--text-secondary)">
+            <li>• "Same fit, newer model" reorder flow</li>
+            <li>• Catalogue-wide guided shopping</li>
+            <li>• CMS knowledge source as single truth</li>
+            <li>• Accessibility conformance audit (AA)</li>
+          </ul>
+        </div>
+        <div class="card p-6">
+          <p class="badge mb-2" style="color:var(--s2)">Later · differentiate</p>
+          <ul class="text-sm space-y-2" style="color:var(--text-secondary)">
+            <li>• Proactive post-purchase care</li>
+            <li>• Personalised, brand-voiced merchandising</li>
+            <li>• Localisation / translation management</li>
+            <li>• Packaged offering for other brands</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11 POV -->
+    <section>
+      <p class="eyebrow mb-2">11 · Point of view</p>
+      <h2 class="sec text-2xl font-semibold mb-4">What agentic AI changes about this discipline</h2>
+      <div class="grid md:grid-cols-2 gap-6 text-sm leading-relaxed" style="color:var(--text-secondary)">
+        <p>Agentic AI doesn't retire experience design — it moves the work <em>up a layer</em>. When an agent can generate a screen, the scarce skill is no longer producing artefacts; it's <strong style="color:var(--text-primary)">deciding what's right</strong>: the IA the agent reasons over, the guardrails that keep it on-brand and on-policy, the hand-offs that protect trust, and the metrics that separate a helpful experience from a containment tactic. The design system becomes the substrate the AI generates against — which is exactly why component libraries and accessibility stop being hygiene and become leverage.</p>
+        <p>The economics shift too. If AI absorbs the repetitive, a team's value concentrates in <strong style="color:var(--text-primary)">judgement, taste, and rigour</strong> — the discovery that prevents rework, the acceptance criteria that hold an estimate, the audit that catches a margin leak before it ships. My take: the durable experiences won't be the ones that added an agent, but the ones that redesigned the journey <em>around</em> one, with a clear point of view about where a human should still show up. That's the work I want to lead.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t mt-14" style="border-color:var(--line)">
+    <div class="max-w-6xl mx-auto px-6 py-8 text-sm flex flex-wrap gap-2 justify-between" style="color:var(--text-secondary)">
+      <span>Portfolio project — product &amp; experience design case study</span>
+      <span class="flex gap-4"><a href="https://www.linkedin.com/in/sanemlegresley/" target="_blank" rel="noopener" class="underline">Sanem Le Gresley · LinkedIn</a><a href="../index.html" class="underline">Back to all projects</a></span>
+    </div>
+  </footer>
+
+  <script>
+  // ---- emotion / confidence curve for the journey map ----------------------
+  (function(){
+    const pts=[0.72,0.42,0.22,0.40,0.30]; // confidence per stage (0..1)
+    const W=720,H=120,padL=8,padR=8,padT=14,padB=10,iw=W-padL-padR,ih=H-padT-padB;
+    const x=i=>padL+(i/(pts.length-1))*iw, y=v=>padT+(1-v)*ih;
+    // low-confidence band
+    let band=`<rect x="${x(1)}" y="${padT}" width="${x(3)-x(1)}" height="${ih}" fill="var(--crit)" opacity="0.06"/>`;
+    const d=pts.map((v,i)=>`${x(i)},${y(v)}`).join(" ");
+    const area=`<polygon points="${padL},${y(0)} ${d} ${W-padR},${y(0)}" fill="var(--gold)" opacity="0.06"/>`;
+    const line=`<polyline points="${d}" fill="none" stroke="var(--gold)" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>`;
+    let dots=""; pts.forEach((v,i)=>{ dots+=`<circle cx="${x(i)}" cy="${y(v)}" r="4" fill="var(--surface-1)" stroke="var(--gold)" stroke-width="2"/>`; });
+    document.getElementById("emotion").innerHTML=`<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="Confidence curve: high at discover, dropping through consider and decide, partially recovering">${band}${area}${line}${dots}</svg>`;
+  })();
+  </script>
+</body>
+</html>

@@ -17,6 +17,7 @@ files directly, or serve the folder and browse to it.
 
 | # | Project | Area | What it explores |
 |---|---------|------|------------------|
+| ★ | [**Agentic CX Concierge — case study**](product-experience-design/) | Product & Experience Design | A full, end-to-end case study for a retail/CPG agentic concierge: discovery & site audit, personas, journey map, information architecture, wireframes, PRD, user stories with acceptance criteria, a design system, WCAG accessibility annotations, roadmap, and an agentic-AI POV. |
 | 05 | [**Online Controlled Experiments**](experimentation/) | Experimentation · Stats | Notes and a small toolkit for A/B testing — a sample-size calculator, an honest test readout with confidence intervals and p-values, common pitfalls (peeking, multiple comparisons, CUPED), and a reading list. |
 | 04 | [**Automation Opportunity Mapping**](ops-automation/) | Operations · AI | An impact-vs-effort matrix and a phased rollout for deciding what to automate first. |
 | 02 | [**Account Health & Retention**](client-success/) | Client Success | How a composite health score surfaces churn risk before renewal — including a real automation I built that analyses client-call sentiment with AI to predict churn at ~92% accuracy. |
