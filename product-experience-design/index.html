@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Agentic CX Concierge — a Product &amp; Experience Design case study</title>
-  <meta name="description" content="An end-to-end product &amp; experience design case study for an agentic customer-experience concierge: discovery, personas, journey mapping, IA, wireframes, PRD, acceptance criteria, design system, accessibility, and roadmap.">
+  <title>Agentic CX Concierge, a Product &amp; Experience Design case study</title>
+  <meta name="description" content="An end-to-end product &amp; experience design case study for an agentic customer-experience concierge: discovery, personas, journey mapping, IA, wireframes, PRD, acceptance criteria, design system, accessibility and roadmap.">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = { darkMode: "media", theme: { extend: {
@@ -65,10 +65,10 @@
       <p class="eyebrow mb-3">Featured case study · Product &amp; Experience Design</p>
       <h1 class="font-headline text-4xl md:text-5xl font-bold leading-tight mb-4">Designing an agentic CX concierge, end to end</h1>
       <p class="text-lg max-w-3xl leading-relaxed" style="color:var(--text-secondary)">
-        A self-directed case study taking an <strong style="color:var(--text-primary)">agentic customer experience</strong> from discovery to
-        hand-off for <em>Northwind Outfitters</em> — a fictional premium outdoor-apparel brand standing in for the retail/CPG work I care
-        about. It's here to <strong style="color:var(--text-primary)">show the craft</strong>: the product thinking and the experience-design
-        deliverables, and how agentic AI reshapes both. Brand and data are invented; the method is the real thing.
+        A case study taking an <strong style="color:var(--text-primary)">agentic customer experience</strong> from discovery to hand-off for a
+        <strong style="color:var(--text-primary)">confidential premium retail/CPG brand</strong>. It shows the craft end-to-end, the product
+        thinking and the experience-design deliverables and how agentic AI reshapes both.
+        <span class="block mt-2 text-sm">Client details are anonymised under NDA; the specifics shown are representative, the method and thinking are the real thing.</span>
       </p>
       <div class="flex flex-wrap gap-2 mt-6">
         <span class="pill" style="color:var(--text-secondary)">Discovery &amp; site audit</span>
@@ -84,18 +84,37 @@
       </div>
     </section>
 
+    <!-- Approach: design thinking / IDEO -->
+    <section class="mb-16">
+      <div class="card p-6 md:p-8" style="border-color:var(--gold)">
+        <p class="eyebrow mb-2">Approach · Design thinking</p>
+        <h2 class="sec text-2xl font-semibold mb-3">The lens: human-centered design and what I take from my friends at IDEO</h2>
+        <p class="text-sm leading-relaxed mb-6 max-w-3xl" style="color:var(--text-secondary)">
+          My grounding is in design thinking. I've been lucky to learn a great deal from friends and mentors at IDEO and that
+          human-centered instinct shaped every decision on this project. Concretely, here is where it showed up.
+        </p>
+        <div class="grid md:grid-cols-3 gap-5">
+          <div><p class="text-sm font-semibold mb-1" style="color:var(--gold)">Start from empathy, not features</p><p class="text-sm" style="color:var(--text-secondary)">I began with the customer's emotional state, not a spec. The personas and the confidence curve came before any screen, because the real problem was an anxiety ("will this be right for me?") not a missing feature.</p></div>
+          <div><p class="text-sm font-semibold mb-1" style="color:var(--gold)">Reframe with "How might we"</p><p class="text-sm" style="color:var(--text-secondary)">The brief said "add an agent." I reframed it as "how might we make Maya confident enough to buy without fear of a return?" That reframing turned the agent into a confidence layer in the IA rather than a deflection tool.</p></div>
+          <div><p class="text-sm font-semibold mb-1" style="color:var(--gold)">Desirability, feasibility, viability</p><p class="text-sm" style="color:var(--text-secondary)">IDEO's three lenses run through the PRD: desirability (customer confidence and trust guardrails), feasibility (grounded answers, clean hand-offs, a design system to build against) and viability (revenue per session, a monetisable offering). A solution has to clear all three.</p></div>
+          <div><p class="text-sm font-semibold mb-1" style="color:var(--gold)">Build to think</p><p class="text-sm" style="color:var(--text-secondary)">The wireframes are deliberately greyscale and rough. Prototyping low-fidelity keeps the conversation on structure and lets us kill weak ideas cheaply, long before anyone falls in love with a pixel.</p></div>
+          <div><p class="text-sm font-semibold mb-1" style="color:var(--gold)">Test and let evidence win</p><p class="text-sm" style="color:var(--text-secondary)">Acceptance criteria are written as hypotheses a QA can actually run and the holdout keeps the readout honest. Treating "flat" as a valid, useful outcome is design-thinking humility: you learn as much from what didn't move.</p></div>
+          <div><p class="text-sm font-semibold mb-1" style="color:var(--gold)">Radical collaboration</p><p class="text-sm" style="color:var(--text-secondary)">The accessibility annotations and the technical hand-off exist because durable experiences are built <em>with</em> engineering, not thrown over a wall. Design thinking is a team sport and the artefacts are built to travel.</p></div>
+        </div>
+      </div>
+    </section>
+
     <!-- 01 Brief / discovery -->
     <section class="mb-16">
       <p class="eyebrow mb-2">01 · Discovery</p>
-      <h2 class="sec text-2xl font-semibold mb-4">The brief, and what a quick audit surfaced</h2>
+      <h2 class="sec text-2xl font-semibold mb-4">The brief and what a quick audit surfaced</h2>
       <div class="grid md:grid-cols-2 gap-6">
         <div class="text-sm leading-relaxed" style="color:var(--text-secondary)">
-          <p class="mb-3"><strong style="color:var(--text-primary)">Ask:</strong> Northwind's e-commerce converts well on intent-led visits but leaks
-          badly everywhere else — fit uncertainty, product overload, and a support queue that treats pre-sale questions like tickets.
-          They want an <strong style="color:var(--text-primary)">agentic concierge</strong> that guides shoppers, resolves post-purchase issues,
-          and does it in the brand's voice.</p>
+          <p class="mb-3"><strong style="color:var(--text-primary)">Ask:</strong> The brand's e-commerce converts well on intent-led visits but leaks
+          badly everywhere else, fit uncertainty, product overload and a support queue that treats pre-sale questions like tickets.
+          They want an <strong style="color:var(--text-primary)">agentic concierge</strong> that guides shoppers, resolves post-purchase issues and does it in the brand's voice.</p>
           <p><strong style="color:var(--text-primary)">My frame:</strong> don't bolt a chatbot onto the funnel. Treat the agent as a new layer of the
-          experience with its own IA, guardrails, and hand-offs — measured on outcomes (fit confidence, deflection, revenue per session), not
+          experience with its own IA, guardrails and hand-offs, measured on outcomes (fit confidence, deflection, revenue per session), not
           on containment.</p>
         </div>
         <div class="card p-5">
@@ -104,7 +123,7 @@
             <li class="cross">Fit &amp; sizing answers buried 3 taps deep; 22% of PDP exits touch the size chart first.</li>
             <li class="cross">Search returns 180+ results for "rain jacket" with no guided narrowing.</li>
             <li class="cross">Post-purchase help is a generic form; median first response &gt; 8 hours.</li>
-            <li class="cross">No consistent component library — 4 button styles across 6 templates.</li>
+            <li class="cross">No consistent component library, 4 button styles across 6 templates.</li>
             <li class="tick">Strong brand photography and a loyal, values-driven customer base to build on.</li>
           </ul>
         </div>
@@ -144,7 +163,7 @@
           <p class="text-sm" style="color:var(--text-primary)"><b>Frustration</b></p>
           <p class="text-sm mb-2" style="color:var(--text-secondary)">Repeating context; slow, templated replies.</p>
           <p class="text-sm" style="color:var(--text-primary)"><b>Wants from an agent</b></p>
-          <p class="text-sm" style="color:var(--text-secondary)">Immediate, accurate resolution — and a human when it matters.</p>
+          <p class="text-sm" style="color:var(--text-secondary)">Immediate, accurate resolution and a human when it matters.</p>
         </div>
       </div>
     </section>
@@ -152,7 +171,7 @@
     <!-- 03 Journey map -->
     <section class="mb-16">
       <p class="eyebrow mb-2">03 · Journey map</p>
-      <h2 class="sec text-2xl font-semibold mb-1">The journey today, and where the agent earns its place</h2>
+      <h2 class="sec text-2xl font-semibold mb-1">The journey today and where the agent earns its place</h2>
       <p class="text-sm mb-6" style="color:var(--text-secondary)">Maya's path. The line is her confidence; the red band marks where the experience currently drops her.</p>
       <div class="card p-6 overflow-x-auto">
         <div style="min-width:720px">
@@ -181,7 +200,7 @@
     <section class="mb-16">
       <p class="eyebrow mb-2">04 · Information architecture</p>
       <h2 class="sec text-2xl font-semibold mb-1">Where the agent lives in the IA</h2>
-      <p class="text-sm mb-6" style="color:var(--text-secondary)">The concierge is a persistent layer, not a buried page — reachable from anywhere, with its own sub-flows and a clean CMS-authored knowledge source.</p>
+      <p class="text-sm mb-6" style="color:var(--text-secondary)">The concierge is a persistent layer, not a buried page, reachable from anywhere, with its own sub-flows and a clean CMS-authored knowledge source.</p>
       <div class="card p-6 overflow-x-auto">
         <ul class="text-sm mono" style="color:var(--text-secondary); line-height:1.9; min-width:560px">
           <li>Home</li>
@@ -204,7 +223,7 @@
     <section class="mb-16">
       <p class="eyebrow mb-2">05 · Wireframes</p>
       <h2 class="sec text-2xl font-semibold mb-1">Two key screens, low-fidelity</h2>
-      <p class="text-sm mb-6" style="color:var(--text-secondary)">Deliberately greyscale — structure and hierarchy before visual design.</p>
+      <p class="text-sm mb-6" style="color:var(--text-secondary)">Deliberately greyscale, structure and hierarchy before visual design.</p>
       <div class="grid md:grid-cols-2 gap-6">
         <!-- Wireframe A: guided shopping -->
         <div class="card p-5">
@@ -292,7 +311,7 @@
               <tr><td>Time-to-human on escalation</td><td>Guardrail</td><td>Fast, with context</td></tr>
             </tbody>
           </table>
-          <p class="text-xs mt-3" style="color:var(--text-secondary)">Measured against a randomised holdout — see the experimentation project for how the readout is kept honest.</p>
+          <p class="text-xs mt-3" style="color:var(--text-secondary)">Measured against a randomised holdout, see the experimentation project for how the readout is kept honest.</p>
         </div>
       </div>
     </section>
@@ -301,7 +320,7 @@
     <section class="mb-16">
       <p class="eyebrow mb-2">07 · Stories &amp; acceptance criteria</p>
       <h2 class="sec text-2xl font-semibold mb-1">Ticket-ready, with acceptance criteria a QA can run</h2>
-      <p class="text-sm mb-6" style="color:var(--text-secondary)">Given/When/Then keeps intent, edge cases, and the hand-off explicit — so estimates hold and nothing is "implied".</p>
+      <p class="text-sm mb-6" style="color:var(--text-secondary)">Given/When/Then keeps intent, edge cases and the hand-off explicit, so estimates hold and nothing is "implied".</p>
       <div class="grid md:grid-cols-2 gap-6">
         <div>
           <p class="text-sm font-semibold mb-2">Story: guided fit recommendation</p>
@@ -322,7 +341,7 @@
         </div>
         <div>
           <p class="text-sm font-semibold mb-2">Story: support resolution &amp; hand-off</p>
-          <pre class="gherkin"><span style="color:var(--text-secondary)"># As Priya, I want a fast, accurate answer — or a human.</span>
+          <pre class="gherkin"><span style="color:var(--text-secondary)"># As Priya, I want a fast, accurate answer, or a human.</span>
 <span class="kw">Scenario:</span> Resolves within policy
   <span class="kw">Given</span> my question is covered by policy
   <span class="kw">When</span> I ask about a warranty claim
@@ -366,14 +385,14 @@
           <div class="flex items-end gap-1 mt-3">
             <div class="blk" style="width:4px;height:8px"></div><div class="blk" style="width:8px;height:8px"></div><div class="blk" style="width:12px;height:8px"></div><div class="blk" style="width:16px;height:8px"></div><div class="blk" style="width:24px;height:8px"></div>
           </div>
-          <p class="text-xs mt-1" style="color:var(--text-secondary)">4 · 8 · 12 · 16 · 24 px — an 8px base grid.</p>
+          <p class="text-xs mt-1" style="color:var(--text-secondary)">4 · 8 · 12 · 16 · 24 px, an 8px base grid.</p>
         </div>
         <div class="card p-6">
           <p class="badge mb-3" style="color:var(--text-secondary)">Components (with states)</p>
           <button class="w-full mb-2 px-4 py-2 text-sm font-semibold" style="background:var(--gold);color:#fff;border-radius:4px">Primary action</button>
           <button class="w-full mb-2 px-4 py-2 text-sm font-semibold" style="background:transparent;color:var(--gold);border:1px solid var(--gold);border-radius:4px">Secondary</button>
           <div class="mb-2"><input aria-label="Sample input" placeholder="Input · with visible label" class="w-full px-3 py-2 text-sm" style="background:transparent;border:1px solid var(--line);border-radius:4px;color:var(--text-primary)"></div>
-          <p class="text-xs" style="color:var(--text-secondary)">Focus ring ≥ 3:1, hit target ≥ 24px, disabled/loading/error states specified — not left to interpretation.</p>
+          <p class="text-xs" style="color:var(--text-secondary)">Focus ring ≥ 3:1, hit target ≥ 24px, disabled/loading/error states specified, not left to interpretation.</p>
         </div>
       </div>
     </section>
@@ -381,7 +400,7 @@
     <!-- 09 Accessibility -->
     <section class="mb-16">
       <p class="eyebrow mb-2">09 · Accessibility, annotated</p>
-      <h2 class="sec text-2xl font-semibold mb-1">Accessibility designed in, and handed off</h2>
+      <h2 class="sec text-2xl font-semibold mb-1">Accessibility designed in and handed off</h2>
       <p class="text-sm mb-6" style="color:var(--text-secondary)">Annotations travel with the design so engineering inherits intent, not guesswork. Mapped to WCAG 2.2 AA.</p>
       <div class="grid md:grid-cols-2 gap-6 items-start">
         <div class="card p-5">
@@ -400,12 +419,12 @@
             <thead><tr><th style="width:30px">#</th><th>Annotation</th><th style="width:90px">WCAG</th></tr></thead>
             <tbody>
               <tr><td>1</td><td>Agent messages in a labelled live region; announced without stealing focus.</td><td>4.1.3</td></tr>
-              <tr><td>2</td><td>Recommendation states its reason in text — never conveyed by colour alone.</td><td>1.4.1</td></tr>
+              <tr><td>2</td><td>Recommendation states its reason in text, never conveyed by colour alone.</td><td>1.4.1</td></tr>
               <tr><td>3</td><td>Primary action ≥ 24×24px target, visible focus ring ≥ 3:1.</td><td>2.5.8 · 2.4.11</td></tr>
               <tr><td>4</td><td>Errors identified in text with a fix suggestion; not colour-only.</td><td>3.3.1</td></tr>
             </tbody>
           </table>
-          <p class="text-xs mt-3" style="color:var(--text-secondary)"><b>Technical hand-off:</b> each component ships with semantics (role, name, state), keyboard order, and the ARIA pattern named — so the build matches the design without a second discovery.</p>
+          <p class="text-xs mt-3" style="color:var(--text-secondary)"><b>Technical hand-off:</b> each component ships with semantics (role, name, state), keyboard order and the ARIA pattern named, so the build matches the design without a second discovery.</p>
         </div>
       </div>
     </section>
@@ -450,15 +469,15 @@
       <p class="eyebrow mb-2">11 · Point of view</p>
       <h2 class="sec text-2xl font-semibold mb-4">What agentic AI changes about this discipline</h2>
       <div class="grid md:grid-cols-2 gap-6 text-sm leading-relaxed" style="color:var(--text-secondary)">
-        <p>Agentic AI doesn't retire experience design — it moves the work <em>up a layer</em>. When an agent can generate a screen, the scarce skill is no longer producing artefacts; it's <strong style="color:var(--text-primary)">deciding what's right</strong>: the IA the agent reasons over, the guardrails that keep it on-brand and on-policy, the hand-offs that protect trust, and the metrics that separate a helpful experience from a containment tactic. The design system becomes the substrate the AI generates against — which is exactly why component libraries and accessibility stop being hygiene and become leverage.</p>
-        <p>The economics shift too. If AI absorbs the repetitive, a team's value concentrates in <strong style="color:var(--text-primary)">judgement, taste, and rigour</strong> — the discovery that prevents rework, the acceptance criteria that hold an estimate, the audit that catches a margin leak before it ships. My take: the durable experiences won't be the ones that added an agent, but the ones that redesigned the journey <em>around</em> one, with a clear point of view about where a human should still show up. That's the work I want to lead.</p>
+        <p>Agentic AI doesn't retire experience design, it moves the work <em>up a layer</em>. When an agent can generate a screen, the scarce skill is no longer producing artefacts; it's <strong style="color:var(--text-primary)">deciding what's right</strong>: the IA the agent reasons over, the guardrails that keep it on-brand and on-policy, the hand-offs that protect trust and the metrics that separate a helpful experience from a containment tactic. The design system becomes the substrate the AI generates against, which is exactly why component libraries and accessibility stop being hygiene and become leverage.</p>
+        <p>The economics shift too. If AI absorbs the repetitive, a team's value concentrates in <strong style="color:var(--text-primary)">judgement, taste and rigour</strong>, the discovery that prevents rework, the acceptance criteria that hold an estimate, the audit that catches a margin leak before it ships. My take: the durable experiences won't be the ones that added an agent, but the ones that redesigned the journey <em>around</em> one, with a clear point of view about where a human should still show up. That's the work I want to lead.</p>
       </div>
     </section>
   </main>
 
   <footer class="border-t mt-14" style="border-color:var(--line)">
     <div class="max-w-6xl mx-auto px-6 py-8 text-sm flex flex-wrap gap-2 justify-between" style="color:var(--text-secondary)">
-      <span>Portfolio project — product &amp; experience design case study</span>
+      <span>Portfolio project, product &amp; experience design case study</span>
       <span class="flex gap-4"><a href="https://www.linkedin.com/in/sanemlegresley/" target="_blank" rel="noopener" class="underline">Sanem Le Gresley · LinkedIn</a><a href="../index.html" class="underline">Back to all projects</a></span>
     </div>
   </footer>

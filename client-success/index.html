@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Client Success Command Center — Portfolio Project</title>
-  <meta name="description" content="A client health &amp; retention command center — health scoring, churn-risk detection, and renewal pipeline — built by an operations, marketing and client success leader.">
+  <title>Client Success Command Center, Portfolio Project</title>
+  <meta name="description" content="A client health &amp; retention command center, health scoring, churn-risk detection and renewal pipeline, built by an operations, marketing and client success leader.">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = { darkMode: "media", theme: { extend: {
@@ -54,7 +54,7 @@
       <h1 class="font-headline text-4xl md:text-5xl font-bold leading-tight mb-4">Account health &amp; retention</h1>
       <p class="text-lg max-w-2xl leading-relaxed" style="color:var(--text-secondary)">
         A worked example of the view I like for managing a book of accounts: a composite <strong style="color:var(--text-primary)">health score</strong>
-        per client, churn signals surfaced before renewal, and the retention play that tends to go with each one — so a slide shows up
+        per client, churn signals surfaced before renewal and the retention play that tends to go with each one, so a slide shows up
         as a trend the team can act on, not a surprise at renewal.
       </p>
     </section>
@@ -71,7 +71,7 @@
     <section class="grid lg:grid-cols-2 gap-6 mb-14">
       <div class="card p-6 flex flex-col justify-center">
         <h2 class="font-headline text-xl font-semibold mb-1">Net revenue retention</h2>
-        <p class="text-sm mb-4" style="color:var(--text-secondary)">The number I treat as the North Star for a book of accounts — it captures expansion, contraction and churn in one figure.</p>
+        <p class="text-sm mb-4" style="color:var(--text-secondary)">The number I treat as the North Star for a book of accounts, it captures expansion, contraction and churn in one figure.</p>
         <p class="text-6xl font-headline font-bold mono" style="color:var(--s1)">106%</p>
         <p class="text-sm mt-3" style="color:var(--text-secondary)">Illustrative. Above 100% means the book is growing even before new logos; below is the early warning worth chasing.</p>
       </div>
@@ -87,7 +87,7 @@
       <div class="flex items-end justify-between mb-4 flex-wrap gap-2">
         <div>
           <h2 class="font-headline text-2xl font-semibold flex items-center gap-3">Account health board <span class="badge px-2 py-0.5" style="background:var(--surface-2);border:1px solid var(--line);color:var(--text-secondary)">Sample data</span></h2>
-          <p class="text-sm" style="color:var(--text-secondary)">Illustrative accounts (names anonymised) sorted by risk. Health (0–10) blends product usage, sentiment, support load, and payment reliability.</p>
+          <p class="text-sm" style="color:var(--text-secondary)">Illustrative accounts (names anonymised) sorted by risk. Health (0–10) blends product usage, sentiment, support load and payment reliability.</p>
         </div>
         <div class="flex gap-2 text-xs">
           <button class="filter-btn px-3 py-1.5 badge" data-f="all" style="background:var(--surface-1);border:1px solid var(--line)">All</button>
@@ -116,12 +116,12 @@
         </div>
         <div class="grid md:grid-cols-3 gap-6 items-center">
           <div class="md:col-span-2 text-sm leading-relaxed" style="color:var(--text-secondary)">
-            <p class="mb-3">Health scoring doesn't have to wait for a survey. I built an automation that pulls every client call into an AI pipeline: it transcribes the conversation, scores sentiment, and extracts risk signals — frustration, unmet expectations, competitor mentions, thinning engagement — then folds them into the account's health score.</p>
-            <p>On held-out accounts it flags the ones that go on to churn with about <strong style="color:var(--text-primary)">92% accuracy</strong> — a live figure that drifts a little as the model retrains — early enough to act before renewal instead of hearing about it at one.</p>
+            <p class="mb-3">Health scoring doesn't have to wait for a survey. I built an automation that pulls every client call into an AI pipeline: it transcribes the conversation, scores sentiment and extracts risk signals, frustration, unmet expectations, competitor mentions, thinning engagement, then folds them into the account's health score.</p>
+            <p>On held-out accounts it flags the ones that go on to churn with about <strong style="color:var(--text-primary)">92% accuracy</strong>, a live figure that drifts a little as the model retrains, early enough to act before renewal instead of hearing about it at one.</p>
           </div>
           <div class="p-5 text-center" style="background:var(--surface-2)">
             <p class="text-5xl font-headline font-bold mono" style="color:var(--gold)">~92%</p>
-            <p class="text-sm mt-2" style="color:var(--text-secondary)">accuracy predicting which accounts churn — an ongoing metric</p>
+            <p class="text-sm mt-2" style="color:var(--text-secondary)">accuracy predicting which accounts churn, an ongoing metric</p>
           </div>
         </div>
         <div class="flex flex-wrap items-center gap-2 mt-6 text-sm">
@@ -135,7 +135,7 @@
           <span style="color:var(--text-secondary)">→</span>
           <span class="px-3 py-2" style="background:color-mix(in srgb, var(--gold) 12%, transparent);border:1px solid var(--gold)">Health board &amp; play</span>
         </div>
-        <p class="text-xs mt-5" style="color:var(--text-secondary)">Calls are analysed with consent; transcripts are access-controlled, and a person reviews every high-risk flag before it drives outreach. The account board above is an illustrative example — this pipeline is a system I actually built and run.</p>
+        <p class="text-xs mt-5" style="color:var(--text-secondary)">Calls are analysed with consent; transcripts are access-controlled and a person reviews every high-risk flag before it drives outreach. The account board above is an illustrative example, this pipeline is a system I actually built and run.</p>
       </div>
     </section>
 
@@ -143,16 +143,16 @@
     <section>
       <h2 class="font-headline text-2xl font-semibold mb-6">How the approach fits together</h2>
       <div class="grid md:grid-cols-3 gap-6">
-        <div class="card p-6"><p class="badge mb-2" style="color:var(--s1)">Score</p><p class="text-sm leading-relaxed" style="color:var(--text-secondary)">A weighted health score per account — usage depth, feature adoption, NPS/sentiment, support burden, and on-time payment — recomputed regularly so a decline shows up as a trend, not a surprise.</p></div>
+        <div class="card p-6"><p class="badge mb-2" style="color:var(--s1)">Score</p><p class="text-sm leading-relaxed" style="color:var(--text-secondary)">A weighted health score per account, usage depth, feature adoption, NPS/sentiment, support burden and on-time payment, recomputed regularly so a decline shows up as a trend, not a surprise.</p></div>
         <div class="card p-6"><p class="badge mb-2" style="color:var(--s2)">Signal</p><p class="text-sm leading-relaxed" style="color:var(--text-secondary)">Thresholds trigger plays: a sustained usage drop opens a check-in; a negative ticket streak routes to the account owner; an approaching renewal on a red account gets a senior touch well before the date.</p></div>
-        <div class="card p-6"><p class="badge mb-2" style="color:var(--s3)">Learn</p><p class="text-sm leading-relaxed" style="color:var(--text-secondary)">Interventions get logged with their outcome, so over time the team can see which plays actually help which kinds of accounts — and lean on evidence rather than instinct.</p></div>
+        <div class="card p-6"><p class="badge mb-2" style="color:var(--s3)">Learn</p><p class="text-sm leading-relaxed" style="color:var(--text-secondary)">Interventions get logged with their outcome, so over time the team can see which plays actually help which kinds of accounts and lean on evidence rather than instinct.</p></div>
       </div>
     </section>
   </main>
 
   <footer class="border-t mt-12" style="border-color:var(--line)">
     <div class="max-w-6xl mx-auto px-6 py-8 text-sm flex flex-wrap gap-2 justify-between" style="color:var(--text-secondary)">
-      <span>Portfolio project — client success &amp; retention</span>
+      <span>Portfolio project, client success &amp; retention</span>
       <span class="flex gap-4"><a href="https://www.linkedin.com/in/sanemlegresley/" target="_blank" rel="noopener" class="underline">Sanem Le Gresley · LinkedIn</a><a href="../index.html" class="underline">Back to all projects</a></span>
     </div>
   </footer>
@@ -160,14 +160,14 @@
   <script>
   // ---- Accounts ------------------------------------------------------------
   const ACCTS = [
-    { name:"Account A — Health clinic", arr:"$28k", health:3.4, trend:-0.9, renew:"32d", play:"Exec save call booked", risk:true },
-    { name:"Account B — Prof. services", arr:"$19k", health:4.1, trend:-0.5, renew:"54d", play:"Re-onboarding workshop", risk:true },
-    { name:"Account C — Physio group", arr:"$9k", health:4.8, trend:-0.3, renew:"71d", play:"Adoption nudge sequence", risk:true },
-    { name:"Account D — Legal firm", arr:"$46k", health:5.2, trend:-0.2, renew:"120d", play:"Champion re-engagement", risk:true },
-    { name:"Account E — Dental", arr:"$14k", health:6.9, trend:+0.2, renew:"88d", play:"Feature deep-dive", risk:false },
-    { name:"Account F — Advisory", arr:"$33k", health:8.1, trend:+0.4, renew:"210d", play:"Expansion: add seats", risk:false },
-    { name:"Account G — Wellness", arr:"$11k", health:8.6, trend:+0.1, renew:"150d", play:"Ask for referral", risk:false },
-    { name:"Account H — Accounting", arr:"$52k", health:9.2, trend:+0.3, renew:"305d", play:"Case study candidate", risk:false },
+    { name:"Account A, Health clinic", arr:"$28k", health:3.4, trend:-0.9, renew:"32d", play:"Exec save call booked", risk:true },
+    { name:"Account B, Prof. services", arr:"$19k", health:4.1, trend:-0.5, renew:"54d", play:"Re-onboarding workshop", risk:true },
+    { name:"Account C, Physio group", arr:"$9k", health:4.8, trend:-0.3, renew:"71d", play:"Adoption nudge sequence", risk:true },
+    { name:"Account D, Legal firm", arr:"$46k", health:5.2, trend:-0.2, renew:"120d", play:"Champion re-engagement", risk:true },
+    { name:"Account E, Dental", arr:"$14k", health:6.9, trend:+0.2, renew:"88d", play:"Feature deep-dive", risk:false },
+    { name:"Account F, Advisory", arr:"$33k", health:8.1, trend:+0.4, renew:"210d", play:"Expansion: add seats", risk:false },
+    { name:"Account G, Wellness", arr:"$11k", health:8.6, trend:+0.1, renew:"150d", play:"Ask for referral", risk:false },
+    { name:"Account H, Accounting", arr:"$52k", health:9.2, trend:+0.3, renew:"305d", play:"Case study candidate", risk:false },
   ];
   function band(h){ return h<5.0 ? {t:"At risk",c:"var(--crit)"} : h<7.5 ? {t:"Watch",c:"var(--warn)"} : {t:"Healthy",c:"var(--good)"}; }
   function renderTable(filter){

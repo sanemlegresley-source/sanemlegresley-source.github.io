@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI Email Triage Console — Portfolio Project</title>
-  <meta name="description" content="An interactive AI email triage console that classifies, prioritises, and drafts replies to inbound mail — reclaiming operator hours. Built by an AI &amp; innovation operations leader.">
+  <title>AI Email Triage Console, Portfolio Project</title>
+  <meta name="description" content="An interactive AI email triage console that classifies, prioritises and drafts replies to inbound mail, reclaiming operator hours. Built by an AI &amp; innovation operations leader.">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -62,8 +62,7 @@
       <p class="text-lg max-w-2xl leading-relaxed" style="color:var(--text-secondary)">
         A small in-browser sketch of an LLM-assisted triage layer: it reads a message, assigns
         <strong style="color:var(--text-primary)">priority</strong>, <strong style="color:var(--text-primary)">category</strong> and
-        <strong style="color:var(--text-primary)">sentiment</strong>, routes it to the right queue, and drafts a first-pass reply —
-        the idea being that a team touches only what genuinely needs a person. It runs entirely in your browser.
+        <strong style="color:var(--text-primary)">sentiment</strong>, routes it to the right queue and drafts a first-pass reply,         the idea being that a team touches only what genuinely needs a person. It runs entirely in your browser.
       </p>
     </section>
 
@@ -96,7 +95,7 @@
         <!-- Inbox -->
         <div class="lg:col-span-2 card overflow-hidden">
           <div class="px-4 py-3 border-b flex items-center justify-between" style="border-color:var(--line)">
-            <span class="badge" style="color:var(--text-secondary)">Inbox — 6 unread</span>
+            <span class="badge" style="color:var(--text-secondary)">Inbox, 6 unread</span>
           </div>
           <ul id="inbox" class="divide-y" style="border-color:var(--line)"></ul>
         </div>
@@ -110,7 +109,7 @@
       <!-- Composer -->
       <div class="card p-5 mt-6">
         <label for="composer" class="badge block mb-2" style="color:var(--text-secondary)">Try your own message</label>
-        <textarea id="composer" rows="3" class="w-full p-3 text-sm bg-transparent border" style="border-color:var(--line);color:var(--text-primary)" placeholder="e.g. Our whole team is locked out and we have a client demo in an hour — please help!"></textarea>
+        <textarea id="composer" rows="3" class="w-full p-3 text-sm bg-transparent border" style="border-color:var(--line);color:var(--text-primary)" placeholder="e.g. Our whole team is locked out and we have a client demo in an hour, please help!"></textarea>
         <button id="triageBtn" class="mt-3 px-5 py-2 text-sm font-semibold" style="background:var(--gold,#a31f34);color:#ffffff">Triage message</button>
       </div>
     </section>
@@ -118,7 +117,7 @@
     <!-- Volume chart -->
     <section class="mb-16">
       <h2 class="font-headline text-2xl font-semibold mb-1 flex items-center gap-3">Where the volume goes <span class="badge px-2 py-0.5" style="background:var(--surface-2);border:1px solid var(--line);color:var(--text-secondary)">Sample data</span></h2>
-      <p class="text-sm mb-6" style="color:var(--text-secondary)">Illustrative 30-day distribution of triaged mail by routed category. Direct-labelled — the model's routing at a glance.</p>
+      <p class="text-sm mb-6" style="color:var(--text-secondary)">Illustrative 30-day distribution of triaged mail by routed category. Direct-labelled, the model's routing at a glance.</p>
       <div class="card p-6 overflow-x-auto">
         <div id="volChart"></div>
       </div>
@@ -130,7 +129,7 @@
       <div class="grid md:grid-cols-3 gap-6">
         <div class="card p-6">
           <p class="badge mb-2" style="color:var(--s1)">1 · Classify</p>
-          <p class="text-sm leading-relaxed" style="color:var(--text-secondary)">A structured prompt sends each message to an LLM that returns strict JSON — category, priority, sentiment, entities, and a confidence score — validated against a schema before anything downstream trusts it.</p>
+          <p class="text-sm leading-relaxed" style="color:var(--text-secondary)">A structured prompt sends each message to an LLM that returns strict JSON, category, priority, sentiment, entities and a confidence score, validated against a schema before anything downstream trusts it.</p>
         </div>
         <div class="card p-6">
           <p class="badge mb-2" style="color:var(--s2)">2 · Route</p>
@@ -149,7 +148,7 @@
 
   <footer class="border-t mt-8" style="border-color:var(--line)">
     <div class="max-w-6xl mx-auto px-6 py-8 text-sm flex flex-wrap gap-2 justify-between" style="color:var(--text-secondary)">
-      <span>Portfolio project — AI &amp; innovation in operations</span>
+      <span>Portfolio project, AI &amp; innovation in operations</span>
       <span class="flex gap-4"><a href="https://www.linkedin.com/in/sanemlegresley/" target="_blank" rel="noopener" class="underline">Sanem Le Gresley · LinkedIn</a><a href="../index.html" class="underline">Back to all projects</a></span>
     </div>
   </footer>
@@ -157,11 +156,11 @@
   <script>
   // ---- Sample inbox --------------------------------------------------------
   const MESSAGES = [
-    { from: "Dana R. — Meridian Legal", subj: "URGENT: firm-wide login failure before 2pm filing", body: "None of our paralegals can log in and we have a court filing deadline at 2pm. This is an emergency, please call me.", t: "8m" },
+    { from: "Dana R., Meridian Legal", subj: "URGENT: firm-wide login failure before 2pm filing", body: "None of our paralegals can log in and we have a court filing deadline at 2pm. This is an emergency, please call me.", t: "8m" },
     { from: "billing@stripe", subj: "Your invoice #4821 payment failed", body: "We were unable to process your payment of $499. Please update your card to avoid interruption.", t: "26m" },
-    { from: "Priya M.", subj: "Loving the new automation — quick question", body: "The intake automation is fantastic, saved us a whole afternoon. One question: can we add a Spanish template?", t: "1h" },
+    { from: "Priya M.", subj: "Loving the new automation, quick question", body: "The intake automation is fantastic, saved us a whole afternoon. One question: can we add a Spanish template?", t: "1h" },
     { from: "noreply@newsletter", subj: "10 AI trends you can't ignore in 2026", body: "Read our latest roundup of the AI tools reshaping professional services this year. Sponsored content inside.", t: "2h" },
-    { from: "Tomás V. — Harborview Clinic", subj: "Considering cancelling our plan", body: "We are not seeing the value we expected and are thinking about cancelling before renewal next month. Can we talk?", t: "3h" },
+    { from: "Tomás V., Harborview Clinic", subj: "Considering cancelling our plan", body: "We are not seeing the value we expected and are thinking about cancelling before renewal next month. Can we talk?", t: "3h" },
     { from: "Recruiter", subj: "Exciting opportunity for a Director of Operations", body: "I came across your profile and think you'd be perfect for a role I'm hiring for. Are you open to a chat?", t: "5h" },
   ];
 
@@ -187,19 +186,19 @@
     if (has("cancel", "cancelling", "churn", "not seeing the value", "refund")) {
       category = "Churn risk"; priority = "High"; sentiment = "Negative";
       action = "Escalate to Client Success owner within 1 hour";
-      reply = "Thank you for the honest note — I don't want you leaving before we've shown the value you signed up for. I'm blocking 20 minutes this week to walk through your goals and what's getting in the way. Would tomorrow at 10am work?";
+      reply = "Thank you for the honest note, I don't want you leaving before we've shown the value you signed up for. I'm blocking 20 minutes this week to walk through your goals and what's getting in the way. Would tomorrow at 10am work?";
     } else if (has("urgent", "emergency", "asap", "locked out", "can't log", "cannot log", "login failure", "deadline", "immediately", "broken", "not working", "doesn't work", "not loading", "down", "outage", "error", "crash", "freaking out", "panic")) {
       category = "Critical support"; priority = "Urgent"; sentiment = "Negative";
       action = "Page on-call now · auto-acknowledge in <30s";
-      reply = "I'm on this right now and treating it as urgent. I've flagged our on-call engineer and will have an update to you within 15 minutes — replying here so you have it in writing.";
+      reply = "I'm on this right now and treating it as urgent. I've flagged our on-call engineer and will have an update to you within 15 minutes, replying here so you have it in writing.";
     } else if (has("invoice", "payment failed", "billing", "card", "charge", "receipt")) {
       category = "Billing"; priority = "High"; sentiment = "Neutral";
       action = "Route to Finance queue · attach account record";
-      reply = "Thanks for the heads-up. I've routed this to our billing team and asked them to confirm the account is in good standing. You'll have a resolution note shortly — no service interruption in the meantime.";
+      reply = "Thanks for the heads-up. I've routed this to our billing team and asked them to confirm the account is in good standing. You'll have a resolution note shortly, no service interruption in the meantime.";
     } else if (has("question", "how do", "can we", "can you add", "help with", "feature")) {
       category = "Product question"; priority = "Normal";
       action = "Route to Support · draft grounded reply for agent review";
-      reply = "Great question — and thank you for the kind words. Yes, that's supported: I'll send over the steps and a template you can drop in. Let me know if you'd like me to set the first one up with you.";
+      reply = "Great question and thank you for the kind words. Yes, that's supported: I'll send over the steps and a template you can drop in. Let me know if you'd like me to set the first one up with you.";
     } else if (has("opportunity", "hiring", "recruiter", "role", "position")) {
       category = "Recruiting"; priority = "Low"; sentiment = "Neutral";
       action = "Route to personal folder · no auto-reply";
@@ -209,7 +208,7 @@
       action = "Archive · no human touch";
       reply = "";
     } else {
-      reply = "Thanks for reaching out — I've received your message and routed it to the right person. You'll hear back shortly.";
+      reply = "Thanks for reaching out, I've received your message and routed it to the right person. You'll hear back shortly.";
     }
     const confidence = Math.min(0.98, 0.62 + (text.length > 40 ? 0.2 : 0) + (category !== "General" ? 0.14 : 0));
     return { category, priority, sentiment, action, reply, confidence };
@@ -241,7 +240,7 @@
       ${r.reply ? `<div>
         <p class="badge mb-2" style="color:var(--text-secondary)">Suggested reply (agent edits before send)</p>
         <p class="text-sm leading-relaxed p-3" style="background:var(--surface-2);border:1px dashed var(--line)">${r.reply}</p>
-      </div>` : `<p class="text-sm italic" style="color:var(--text-secondary)">No auto-reply — routed for human attention only.</p>`}
+      </div>` : `<p class="text-sm italic" style="color:var(--text-secondary)">No auto-reply, routed for human attention only.</p>`}
     </div>`;
   }
 

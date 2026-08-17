@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Foil Right-of-Way Trainer — a fencing aside</title>
-  <meta name="description" content="A playful interactive trainer for foil right-of-way: read the exchange, call the touch, and learn why. Plus a valid-target diagram and a quick glossary. Built by a foilist.">
+  <title>Foil Right-of-Way Trainer, a fencing aside</title>
+  <meta name="description" content="A playful interactive trainer for foil right-of-way: read the exchange, call the touch and learn why. Plus a valid-target diagram and a quick glossary. Built by a foilist.">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = { darkMode: "media", theme: { extend: {
@@ -57,9 +57,9 @@
       <p class="badge mb-3" style="color:var(--gold)">Project 06 · Off the clock</p>
       <h1 class="font-headline text-4xl md:text-5xl font-bold leading-tight mb-4">Foil right-of-way trainer <span aria-hidden="true">🤺</span></h1>
       <p class="text-lg max-w-2xl leading-relaxed" style="color:var(--text-secondary)">
-        A foilist's aside. In foil both fencers can land at once and only <em>one</em> light counts — the referee decides who had
+        A foilist's aside. In foil both fencers can land at once and only <em>one</em> light counts, the referee decides who had
         <strong style="color:var(--text-primary)">right of way</strong>. It's the rule newcomers find maddening and the reason foil
-        looks like an argument with swords. So: read the exchange, call the touch, and see if the referee agrees.
+        looks like an argument with swords. So: read the exchange, call the touch and see if the referee agrees.
       </p>
     </section>
 
@@ -75,11 +75,11 @@
 
       <div class="card p-6 md:p-8">
         <p class="badge mb-2" style="color:var(--text-secondary)"><span id="qnum">Phrase 1</span></p>
-        <p class="text-lg leading-relaxed mb-6" id="scenario" style="min-height:3.5rem">—</p>
+        <p class="text-lg leading-relaxed mb-6" id="scenario" style="min-height:3.5rem">…</p>
 
         <div class="grid grid-cols-3 gap-3" id="picks">
           <button class="pick p-4 text-sm font-semibold" data-pick="green"><span style="color:var(--green)">◀ Green</span><span class="block text-xs font-normal mt-1" style="color:var(--text-secondary)">left fencer</span></button>
-          <button class="pick p-4 text-sm font-semibold" data-pick="sim">Simultaneous<span class="block text-xs font-normal mt-1" style="color:var(--text-secondary)">no touch — replay</span></button>
+          <button class="pick p-4 text-sm font-semibold" data-pick="sim">Simultaneous<span class="block text-xs font-normal mt-1" style="color:var(--text-secondary)">no touch, replay</span></button>
           <button class="pick p-4 text-sm font-semibold" data-pick="red"><span style="color:var(--red)">Red ▶</span><span class="block text-xs font-normal mt-1" style="color:var(--text-secondary)">right fencer</span></button>
         </div>
 
@@ -92,14 +92,14 @@
 
     <!-- Valid target -->
     <section class="mb-16">
-      <h2 class="font-headline text-2xl font-semibold mb-1">What even counts — the target</h2>
+      <h2 class="font-headline text-2xl font-semibold mb-1">What even counts, the target</h2>
       <p class="text-sm mb-6" style="color:var(--text-secondary)">Foil is a torso-only weapon. Hit an arm, leg, or the mask and it simply doesn't score (in épée it's the whole body; in sabre, everything above the waist).</p>
       <div class="card p-6 grid md:grid-cols-2 gap-8 items-center">
         <div id="figure" class="flex flex-col items-center justify-center"></div>
         <div class="text-sm leading-relaxed" style="color:var(--text-secondary)">
-          <p class="flex items-center gap-3 mb-3"><span style="width:14px;height:14px;background:var(--gold);display:inline-block;border-radius:2px"></span><strong style="color:var(--text-primary)">Valid target</strong> — the trunk, front and back, from the collar to the groin lines. This is the area covered by the metallic <em>lamé</em>.</p>
-          <p class="flex items-center gap-3 mb-4"><span style="width:14px;height:14px;background:var(--text-secondary);opacity:.5;display:inline-block;border-radius:2px"></span><strong style="color:var(--text-primary)">Off target</strong> — head, arms, and legs. A hit here stops nothing and scores nothing.</p>
-          <p>Because the target is small and shared, foil rewards a clean, deliberate phrase over a fast flail — which is exactly what makes right of way the heart of the game.</p>
+          <p class="flex items-center gap-3 mb-3"><span style="width:14px;height:14px;background:var(--gold);display:inline-block;border-radius:2px"></span><strong style="color:var(--text-primary)">Valid target</strong>, the trunk, front and back, from the collar to the groin lines. This is the area covered by the metallic <em>lamé</em>.</p>
+          <p class="flex items-center gap-3 mb-4"><span style="width:14px;height:14px;background:var(--text-secondary);opacity:.5;display:inline-block;border-radius:2px"></span><strong style="color:var(--text-primary)">Off target</strong>, head, arms and legs. A hit here stops nothing and scores nothing.</p>
+          <p>Because the target is small and shared, foil rewards a clean, deliberate phrase over a fast flail, which is exactly what makes right of way the heart of the game.</p>
         </div>
       </div>
     </section>
@@ -108,11 +108,11 @@
     <section class="mb-16">
       <h2 class="font-headline text-2xl font-semibold mb-6">A little French</h2>
       <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
-        <div class="card p-4"><p class="font-semibold text-sm">Attaque</p><p class="text-sm" style="color:var(--text-secondary)">The initial offensive action — extend and threaten. Whoever starts one correctly first holds priority.</p></div>
+        <div class="card p-4"><p class="font-semibold text-sm">Attaque</p><p class="text-sm" style="color:var(--text-secondary)">The initial offensive action, extend and threaten. Whoever starts one correctly first holds priority.</p></div>
         <div class="card p-4"><p class="font-semibold text-sm">Parade &amp; riposte</p><p class="text-sm" style="color:var(--text-secondary)">Deflect the incoming blade, then answer. A found parry hands priority to the defender.</p></div>
         <div class="card p-4"><p class="font-semibold text-sm">Contre-attaque</p><p class="text-sm" style="color:var(--text-secondary)">Hitting into the attack without parrying first. Brave, but it has no right of way.</p></div>
         <div class="card p-4"><p class="font-semibold text-sm">Pointe en ligne</p><p class="text-sm" style="color:var(--text-secondary)">Point-in-line: arm straight, point on target, established early. Must be removed before attacking.</p></div>
-        <div class="card p-4"><p class="font-semibold text-sm">Remise</p><p class="text-sm" style="color:var(--text-secondary)">Re-hitting after your attack was parried or missed — usually loses to a proper riposte.</p></div>
+        <div class="card p-4"><p class="font-semibold text-sm">Remise</p><p class="text-sm" style="color:var(--text-secondary)">Re-hitting after your attack was parried or missed, usually loses to a proper riposte.</p></div>
         <div class="card p-4"><p class="font-semibold text-sm">Simultané &amp; touché</p><p class="text-sm" style="color:var(--text-secondary)">Same-tempo attacks (no touch, replay); and the classic acknowledgement of a hit landed.</p></div>
       </div>
     </section>
@@ -123,7 +123,7 @@
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
         <div class="card p-5"><p class="text-3xl font-headline font-bold mono" style="color:var(--s1)">14 m</p><p class="text-sm mt-1" style="color:var(--text-secondary)">Length of the piste</p></div>
         <div class="card p-5"><p class="text-3xl font-headline font-bold mono" style="color:var(--s3)">&lt;500 g</p><p class="text-sm mt-1" style="color:var(--text-secondary)">Weight of a foil</p></div>
-        <div class="card p-5"><p class="text-3xl font-headline font-bold mono" style="color:var(--s4)">5 / 15</p><p class="text-sm mt-1" style="color:var(--text-secondary)">Touches to win — pool / direct-elimination bout</p></div>
+        <div class="card p-5"><p class="text-3xl font-headline font-bold mono" style="color:var(--s4)">5 / 15</p><p class="text-sm mt-1" style="color:var(--text-secondary)">Touches to win, pool / direct-elimination bout</p></div>
         <div class="card p-5"><p class="text-3xl font-headline font-bold mono" style="color:var(--gold)">≈ 300 ms</p><p class="text-sm mt-1" style="color:var(--text-secondary)">Lock-out window between the two lights</p></div>
       </div>
     </section>
@@ -131,7 +131,7 @@
 
   <footer class="border-t mt-12" style="border-color:var(--line)">
     <div class="max-w-6xl mx-auto px-6 py-8 text-sm flex flex-wrap gap-2 justify-between" style="color:var(--text-secondary)">
-      <span>Portfolio project — a fencing aside 🤺</span>
+      <span>Portfolio project, a fencing aside 🤺</span>
       <span class="flex gap-4"><a href="https://www.linkedin.com/in/sanemlegresley/" target="_blank" rel="noopener" class="underline">Sanem Le Gresley · LinkedIn</a><a href="../index.html" class="underline">Back to all projects</a></span>
     </div>
   </footer>
@@ -139,16 +139,16 @@
   <script>
   // ---- Scenarios (all correct foil right-of-way calls) ---------------------
   const PHRASES = [
-    { t:"Green launches a clean attack, arm extending toward target. Red doesn't parry — she extends and hits at the same instant. Both lights.",
-      a:"green", why:"An attack beats a counter-attack. Red hit <em>into</em> the attack without first taking the blade, so she earns no right of way — the point is Green's." },
+    { t:"Green launches a clean attack, arm extending toward target. Red doesn't parry, she extends and hits at the same instant. Both lights.",
+      a:"green", why:"An attack beats a counter-attack. Red hit <em>into</em> the attack without first taking the blade, so she earns no right of way, the point is Green's." },
     { t:"Green attacks. Red catches the blade with a crisp parry and immediately ripostes. Both lights.",
       a:"red", why:"A parry that finds the blade, followed by an immediate riposte, takes priority away from the attacker. Red's touch counts." },
-    { t:"Both fencers step and launch in the same tempo, and both land cleanly.",
-      a:"sim", why:"Simultaneous attacks — neither had clear priority first. No touch is awarded and the phrase is replayed." },
+    { t:"Both fencers step and launch in the same tempo and both land cleanly.",
+      a:"sim", why:"Simultaneous attacks, neither had clear priority first. No touch is awarded and the phrase is replayed." },
     { t:"Green's attack falls short and misses. Red then attacks and lands; Green tries to remise and also lands.",
       a:"red", why:"Once Green's attack misses, the right of way is up for grabs. Red's fresh attack outranks Green's remise." },
-    { t:"Before Green moves, Red fully straightens her arm with the point threatening target — a point in line. Green attacks without deflecting it; both land.",
-      a:"red", why:"A point-in-line established first holds priority. Green needed to beat or parry the blade before attacking — she didn't, so the line wins." },
+    { t:"Before Green moves, Red fully straightens her arm with the point threatening target, a point in line. Green attacks without deflecting it; both land.",
+      a:"red", why:"A point-in-line established first holds priority. Green needed to beat or parry the blade before attacking, she didn't, so the line wins." },
     { t:"Green attacks. Red reaches for a parry but misses the blade entirely; Green's attack continues and lands. Red lands too.",
       a:"green", why:"A parry only transfers priority if it actually finds the blade. Red's missed, so Green's original attack still has right of way." },
     { t:"Red holds a point in line. Green beats the blade firmly, removing it, then attacks and lands. Red also lands.",
@@ -158,7 +158,7 @@
   ];
 
   const COL = { green:"var(--green)", red:"var(--red)", sim:"var(--text-secondary)" };
-  const NAME = { green:"Green", red:"Red", sim:"Simultaneous — no touch" };
+  const NAME = { green:"Green", red:"Red", sim:"Simultaneous, no touch" };
   let order = [...PHRASES.keys()].sort(()=>Math.random()-0.5), idx=0, correct=0, answered=0;
 
   const $=id=>document.getElementById(id);
@@ -195,7 +195,7 @@
   });
   load();
 
-  // ---- Valid-target figure (SVG) — head wears a fencing mask ----------------
+  // ---- Valid-target figure (SVG), head wears a fencing mask ----------------
   (function(){
     const off="var(--text-secondary)";
     const svg=`<svg viewBox="0 0 160 270" width="150" role="img" aria-label="Foil valid target: the torso. The head wears a fencing mask with a Caltech bib.">
@@ -221,7 +221,7 @@
         <line x1="54" y1="42" x2="106" y2="42"/><line x1="54" y1="50" x2="106" y2="50"/>
       </g>
     </svg>
-    <p class="text-xs italic mt-3 text-center" style="color:var(--text-secondary)">The head's off-target anyway — nothing personal, Caltech.</p>`;
+    <p class="text-xs italic mt-3 text-center" style="color:var(--text-secondary)">The head's off-target anyway, nothing personal, Caltech.</p>`;
     document.getElementById("figure").innerHTML=svg;
   })();
   </script>
