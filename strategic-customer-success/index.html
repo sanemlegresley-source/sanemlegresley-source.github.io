@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Strategic Customer Success, an operating model</title>
+  <meta name="description" content="An operating model for high-touch strategic customer success on a multi-product suite: segmentation, lifecycle playbooks, an NRR calculator with a revenue waterfall, QBR framework, risk-trigger save plays, the metrics that matter and how AI augments the CSM.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: "media", theme: { extend: {
+      fontFamily: { headline: ["Noto Serif","Georgia","serif"], body: ["Inter","system-ui","sans-serif"] },
+      borderRadius: { DEFAULT: "2px" }
+    } } };
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --surface-1:#ffffff; --surface-2:#f4f4f5; --line:#d6d6d8;
+      --text-primary:#161616; --text-secondary:#5f6062; --gold:#a31f34;
+      --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a; --s4:#eda100;
+      --good:#12805a; --warn:#b26b00; --crit:#c0392b;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --surface-1:#1c1c1e; --surface-2:#161618; --line:#37373a;
+        --text-primary:#f1f1f2; --text-secondary:#a6a6aa; --gold:#e2566a;
+        --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500;
+        --good:#3aa981; --warn:#d79a2b; --crit:#e57368;
+      }
+    }
+    body { background:var(--surface-2); color:var(--text-primary); }
+    .card { background:var(--surface-1); border:1px solid var(--line); }
+    .mono { font-variant-numeric: tabular-nums; }
+    .badge { font-size:.68rem; letter-spacing:.04em; text-transform:uppercase; font-weight:600; }
+    .eyebrow { font-size:.72rem; letter-spacing:.08em; text-transform:uppercase; font-weight:700; color:var(--gold); }
+    h2.sec { font-family:"Noto Serif",Georgia,serif; font-weight:700; }
+    table.grid { width:100%; border-collapse:collapse; font-size:.86rem; }
+    table.grid th, table.grid td { border:1px solid var(--line); padding:.55rem .7rem; vertical-align:top; text-align:left; }
+    table.grid th { background:var(--surface-2); font-weight:600; }
+    label.f { display:block; font-size:.8rem; color:var(--text-secondary); margin-bottom:.25rem; }
+    input.f { width:100%; padding:.5rem .6rem; background:transparent; border:1px solid var(--line); color:var(--text-primary); font-size:.9rem; }
+  </style>
+</head>
+<body class="font-body antialiased">
+
+  <header class="border-b" style="border-color:var(--line); background:var(--surface-1);">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="../index.html" class="flex items-center gap-2 text-sm" style="color:var(--text-secondary)"><span aria-hidden="true">←</span> Portfolio</a>
+      <span class="badge px-2 py-1" style="background:var(--surface-2);border:1px solid var(--line);color:var(--text-secondary)">Customer Success · Strategy</span>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-6 py-12">
+
+    <!-- Hero -->
+    <section class="mb-14">
+      <p class="eyebrow mb-3">Case study · Customer Success leadership</p>
+      <h1 class="font-headline text-4xl md:text-5xl font-bold leading-tight mb-4">A strategic customer success operating model</h1>
+      <p class="text-lg max-w-3xl leading-relaxed" style="color:var(--text-secondary)">
+        How I'd stand up a high-touch success motion for a company's most strategic accounts on a multi-product suite: the coverage model,
+        the lifecycle playbooks, the review that turns a CSM into an executive partner, the metrics that hold the team accountable and the
+        commercial engine underneath it all. Figures are illustrative. The frameworks are the ones I actually run.
+      </p>
+      <div class="flex flex-wrap gap-2 mt-6 text-sm" style="color:var(--text-secondary)">
+        <span class="px-3 py-1" style="border:1px solid var(--line);border-radius:999px">Segmentation &amp; coverage</span>
+        <span class="px-3 py-1" style="border:1px solid var(--line);border-radius:999px">Lifecycle playbooks</span>
+        <span class="px-3 py-1" style="border:1px solid var(--line);border-radius:999px">NRR &amp; expansion</span>
+        <span class="px-3 py-1" style="border:1px solid var(--line);border-radius:999px">QBR framework</span>
+        <span class="px-3 py-1" style="border:1px solid var(--line);border-radius:999px">Risk triggers</span>
+        <span class="px-3 py-1" style="border:1px solid var(--line);border-radius:999px">AI-augmented CS</span>
+      </div>
+      <p class="text-sm mt-5" style="color:var(--text-secondary)">Pairs with the <a href="../client-success/index.html" class="underline" style="color:var(--s1)">Account Health &amp; Retention</a> project, which covers the health-score model and the call-sentiment churn automation this motion runs on.</p>
+    </section>
+
+    <!-- Leadership band -->
+    <section class="mb-16">
+      <div class="card p-6 md:p-8" style="border-color:var(--gold)">
+        <p class="eyebrow mb-2">Leadership · Building the team</p>
+        <h2 class="sec text-2xl font-semibold mb-3">The mission is the team, not the accounts</h2>
+        <p class="text-sm leading-relaxed mb-6 max-w-3xl" style="color:var(--text-secondary)">
+          When the playbooks for a new multi-product motion are still being written, the leader's job is not to manage accounts. It is
+          to build the team that does and to define what great looks like before anyone has. Here is how I build and develop that team.
+        </p>
+        <div class="grid md:grid-cols-3 gap-5">
+          <div><p class="text-sm font-semibold mb-1" style="color:var(--gold)">Hire for consultative instinct</p><p class="text-sm" style="color:var(--text-secondary)">A high, intentional bar. I hire people who uncover a customer's real goals and ask the better question, not people who simply keep accounts warm.</p></div>
+          <div><p class="text-sm font-semibold mb-1" style="color:var(--gold)">Coach to consultative depth</p><p class="text-sm" style="color:var(--text-secondary)">I develop CSMs into partners who set accurate expectations, run change management and help customers rethink how they work when a deeply embedded tool is being displaced.</p></div>
+          <div><p class="text-sm font-semibold mb-1" style="color:var(--gold)">A scorecard everyone can see</p><p class="text-sm" style="color:var(--text-secondary)">A performance framework built on outcomes, account health, adoption, retention and expansion, with clear paths for recognition, development and remediation.</p></div>
+          <div><p class="text-sm font-semibold mb-1" style="color:var(--gold)">A predictable operating cadence</p><p class="text-sm" style="color:var(--text-secondary)">1:1s, account and forecast reviews, save reviews and enablement on a rhythm. Cadence is what turns good intentions into accountability.</p></div>
+          <div><p class="text-sm font-semibold mb-1" style="color:var(--gold)">Develop people on purpose</p><p class="text-sm" style="color:var(--text-secondary)">Direct feedback, real growth plans and the conditions for each CSM to do the best work of their career. Demanding and developmental are the same thing done well.</p></div>
+          <div><p class="text-sm font-semibold mb-1" style="color:var(--gold)">Experiment, then codify</p><p class="text-sm" style="color:var(--text-secondary)">Test new ways to deliver strategic CS, document what works and turn it into a repeatable motion that scales past the strategic tier. The team is where the standard gets set.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 01 Coverage model -->
+    <section class="mb-16">
+      <p class="eyebrow mb-2">01 · Segmentation &amp; coverage</p>
+      <h2 class="sec text-2xl font-semibold mb-1">Spend the high-touch hours where they compound</h2>
+      <p class="text-sm mb-6" style="color:var(--text-secondary)">Coverage is a portfolio decision, not a headcount default. Tier by strategic value (ARR, logo, expansion ceiling, reference power), then match the motion.</p>
+      <div class="card overflow-x-auto">
+        <table class="grid" style="min-width:640px">
+          <thead><tr><th>Tier</th><th>Who</th><th>Motion</th><th>Ratio</th><th>Cadence</th></tr></thead>
+          <tbody>
+            <tr><td style="color:var(--gold);font-weight:600">Strategic</td><td>Top ARR, board-visible, high expansion ceiling</td><td>Named CSM + exec sponsor, success plan, QBRs</td><td>~10:1</td><td>Weekly to monthly</td></tr>
+            <tr><td style="font-weight:600">Scale</td><td>Solid ARR, growing, multi-team</td><td>Pooled CSM, milestone-triggered outreach</td><td>~40:1</td><td>Lifecycle-triggered</td></tr>
+            <tr><td style="font-weight:600">Tech-touch</td><td>Long tail, self-serve fit</td><td>In-product guidance, digital programs, community</td><td>1:many</td><td>Automated</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs mt-3" style="color:var(--text-secondary)">The point is not to give everyone more attention. It is to make the strategic tier genuinely high-touch by not diluting it across accounts that a great digital program serves better.</p>
+    </section>
+
+    <!-- 02 NRR calculator -->
+    <section class="mb-16">
+      <p class="eyebrow mb-2">02 · The commercial engine</p>
+      <h2 class="sec text-2xl font-semibold mb-1">Net revenue retention, on a waterfall</h2>
+      <p class="text-sm mb-6" style="color:var(--text-secondary)">NRR is the number a strategic CS team lives or dies by. Move the inputs to see how gross churn, contraction and expansion combine. Above 100% means the book grows before a single new logo.</p>
+      <div class="grid lg:grid-cols-5 gap-6">
+        <div class="card p-6 lg:col-span-2">
+          <div class="space-y-4">
+            <div><label class="f" for="arr">Starting ARR ($)</label><input class="f mono" id="arr" type="number" value="2400000" step="100000" min="1"></div>
+            <div><label class="f" for="churn">Gross $ churn (%)</label><input class="f mono" id="churn" type="number" value="6" step="0.5" min="0" max="100"></div>
+            <div><label class="f" for="contraction">Contraction / downgrades (%)</label><input class="f mono" id="contraction" type="number" value="4" step="0.5" min="0" max="100"></div>
+            <div><label class="f" for="expansion">Expansion (upsell + cross-sell) (%)</label><input class="f mono" id="expansion" type="number" value="22" step="0.5" min="0" max="300"></div>
+          </div>
+          <div class="grid grid-cols-2 gap-3 mt-5">
+            <div class="p-4" style="background:var(--surface-2)"><p class="badge" style="color:var(--text-secondary)">NRR</p><p class="text-3xl font-headline font-bold mono" id="nrr" style="color:var(--good)">, </p></div>
+            <div class="p-4" style="background:var(--surface-2)"><p class="badge" style="color:var(--text-secondary)">GRR</p><p class="text-3xl font-headline font-bold mono" id="grr">, </p></div>
+          </div>
+          <p class="text-xs mt-3" id="nrrNote" style="color:var(--text-secondary)"></p>
+        </div>
+        <div class="card p-6 lg:col-span-3">
+          <h3 class="text-sm font-semibold mb-1">Revenue waterfall</h3>
+          <p class="text-xs mb-4" style="color:var(--text-secondary)">Start, minus churn, minus contraction, plus expansion, equals ending ARR.</p>
+          <div id="waterfall"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 Lifecycle playbooks -->
+    <section class="mb-16">
+      <p class="eyebrow mb-2">03 · Lifecycle playbooks</p>
+      <h2 class="sec text-2xl font-semibold mb-1">One motion, five plays</h2>
+      <p class="text-sm mb-6" style="color:var(--text-secondary)">Every strategic account runs the same lifecycle so coaching, forecasting and hand-offs are consistent. Each stage has an objective, a signal that it is working and the play when it is not.</p>
+      <div class="card overflow-x-auto">
+        <table class="grid" style="min-width:720px">
+          <thead><tr><th>Stage</th><th>Objective</th><th>Leading signal</th><th>Play if off-track</th></tr></thead>
+          <tbody>
+            <tr><td style="font-weight:600">Onboard</td><td>Fast, credible first value</td><td>Time-to-first-value inside target</td><td>Re-scope kickoff, assign a technical partner</td></tr>
+            <tr><td style="font-weight:600">Adopt</td><td>Depth and breadth across the suite</td><td>Active seats and multi-product usage rising</td><td>Enablement sprint, role-based use cases</td></tr>
+            <tr><td style="font-weight:600">Realise value</td><td>Outcomes the exec sponsor can point to</td><td>Documented business results at the QBR</td><td>Value-realisation workshop, reset success plan</td></tr>
+            <tr><td style="font-weight:600">Renew</td><td>Renewal as a formality, not a fire drill</td><td>Health green 90 days out</td><td>Executive alignment, risk mitigation plan</td></tr>
+            <tr><td style="color:var(--gold);font-weight:600">Expand</td><td>Grow seats, teams and products</td><td>New use cases and champions surfacing</td><td>Land-and-expand plan, exec business case</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 04 Risk triggers -->
+    <section class="mb-16">
+      <p class="eyebrow mb-2">04 · Risk triggers &amp; save plays</p>
+      <h2 class="sec text-2xl font-semibold mb-1">Catch the slide before renewal, not at it</h2>
+      <p class="text-sm mb-6" style="color:var(--text-secondary)">Health is a composite of usage, sentiment, support load, sponsor engagement and payment reliability. Each trigger has a named owner and a clock.</p>
+      <div class="card overflow-x-auto">
+        <table class="grid" style="min-width:680px">
+          <thead><tr><th>Signal</th><th>Reads as</th><th>Play</th><th>Owner · SLA</th></tr></thead>
+          <tbody>
+            <tr><td>Two-week usage drop on a strategic account</td><td style="color:var(--warn)">Slipping</td><td>Check-in, surface a fresh use case</td><td>CSM · 3 days</td></tr>
+            <tr><td>Champion leaves or goes quiet</td><td style="color:var(--crit)">At risk</td><td>Multi-thread, rebuild sponsorship</td><td>CSM + manager · 1 week</td></tr>
+            <tr><td>Negative call sentiment streak</td><td style="color:var(--crit)">At risk</td><td>Escalate, exec-to-exec touch</td><td>Manager · 48 hours</td></tr>
+            <tr><td>Renewal &lt; 90 days, health amber</td><td style="color:var(--warn)">Watch</td><td>Risk plan, value recap, pricing review</td><td>CSM + AE · immediate</td></tr>
+            <tr><td>Support backlog on a strategic account</td><td style="color:var(--warn)">Watch</td><td>Coordinate a resolution owner, set expectations</td><td>CSM + Support · 2 days</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 05 QBR -->
+    <section class="mb-16">
+      <p class="eyebrow mb-2">05 · Executive business review</p>
+      <h2 class="sec text-2xl font-semibold mb-1">The QBR that earns a seat at the table</h2>
+      <p class="text-sm mb-6" style="color:var(--text-secondary)">A strategic review is not a usage report. It is a business conversation the sponsor wants on their calendar. The frame I coach CSMs to run:</p>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="card p-6"><p class="badge mb-2" style="color:var(--s1)">Look back</p><p class="text-sm leading-relaxed" style="color:var(--text-secondary)">Outcomes against the goals we set, in the sponsor's language and units. Adoption depth across the suite. What we learned together.</p></div>
+        <div class="card p-6"><p class="badge mb-2" style="color:var(--s3)">Look around</p><p class="text-sm leading-relaxed" style="color:var(--text-secondary)">Benchmarks against peers, where value is leaking, the one or two risks we are actively managing and the honest health call.</p></div>
+        <div class="card p-6"><p class="badge mb-2" style="color:var(--s2)">Look forward</p><p class="text-sm leading-relaxed" style="color:var(--text-secondary)">Next quarter's goals, the roadmap that matters to them and a clear expansion business case with a mutual action plan.</p></div>
+      </div>
+    </section>
+
+    <!-- Voice of customer band -->
+    <section class="mb-16">
+      <p class="eyebrow mb-2">Product partnership · Voice of customer</p>
+      <h2 class="sec text-2xl font-semibold mb-1">The team is the product's sharpest instrument</h2>
+      <p class="text-sm mb-6 max-w-3xl" style="color:var(--text-secondary)">Strategic CSMs sit closest to the customers who matter most, so the team is the primary voice for what those customers need next. My job is to turn that into signal the product can act on.</p>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="card p-6"><p class="badge mb-2" style="color:var(--s1)">Synthesise, don't relay</p><p class="text-sm leading-relaxed" style="color:var(--text-secondary)">Account-level adoption, health and qualitative feedback become one clear, prioritised point of view, the pattern across the portfolio rather than the loudest anecdote.</p></div>
+        <div class="card p-6"><p class="badge mb-2" style="color:var(--s3)">Aim it at what's new</p><p class="text-sm leading-relaxed" style="color:var(--text-secondary)">The newest AI surfaces need the sharpest feedback loop. I make sure what strategic customers hit first shapes the roadmap while it still can.</p></div>
+        <div class="card p-6"><p class="badge mb-2" style="color:var(--s2)">One unified experience</p><p class="text-sm leading-relaxed" style="color:var(--text-secondary)">Partner across Sales, Solutions Engineering, Product and Partnerships so an account feels one company from pre-sale through expansion and so friction gets removed, not routed around.</p></div>
+      </div>
+    </section>
+
+    <!-- 06 Metrics -->
+    <section class="mb-16">
+      <p class="eyebrow mb-2">06 · Metrics that matter</p>
+      <h2 class="sec text-2xl font-semibold mb-1">What I hold the team to</h2>
+      <div class="card overflow-x-auto">
+        <table class="grid" style="min-width:640px">
+          <thead><tr><th>Metric</th><th>Why it matters</th><th>Type</th></tr></thead>
+          <tbody>
+            <tr><td>Net revenue retention (NRR)</td><td>The single best proxy for durable value on a multi-product suite</td><td>North star</td></tr>
+            <tr><td>Gross revenue retention (GRR)</td><td>The floor: are we keeping what we won</td><td>Primary</td></tr>
+            <tr><td>Multi-product adoption</td><td>Breadth predicts stickiness and expansion headroom</td><td>Primary</td></tr>
+            <tr><td>Time-to-first-value</td><td>Early value sets the whole trajectory</td><td>Primary</td></tr>
+            <tr><td>Health score coverage &amp; accuracy</td><td>A forecast is only as good as the health signal behind it</td><td>Leading</td></tr>
+            <tr><td>Expansion pipeline &amp; win rate</td><td>Growth from the base, run like a pipeline</td><td>Leading</td></tr>
+            <tr><td>CSAT on strategic accounts</td><td>Guardrail: never trade trust for a number</td><td>Guardrail</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs mt-3" style="color:var(--text-secondary)">Instrumented in a CS platform (Gainsight / Salesforce / ChurnZero-class) so health, usage trends and renewal risk are one shared source of truth, not a spreadsheet per CSM.</p>
+    </section>
+
+    <!-- 07 AI POV -->
+    <section>
+      <p class="eyebrow mb-2">07 · Point of view</p>
+      <h2 class="sec text-2xl font-semibold mb-4">How AI changes strategic customer success</h2>
+      <div class="grid md:grid-cols-2 gap-6 text-sm leading-relaxed" style="color:var(--text-secondary)">
+        <p>AI does not replace the strategic CSM. It removes the reasons they were spread thin. Agentic monitoring watches every account's usage, sentiment and support signals continuously, so the human shows up already briefed instead of spending the week assembling a picture. Call sentiment becomes a live health input rather than a quarterly survey. Notes, follow-ups and QBR prep get drafted, so the CSM's scarce hours go to the conversation, the judgement and the relationship.</p>
+        <p>For a company whose product <em>is</em> AI productivity, the CS motion should be the proof case: run the team on the same leverage we sell. My take is that the winning strategic CS org will look less like a queue of accounts and more like a small number of trusted advisors, each amplified by agents, each spending their time exactly where a human still changes the outcome. That is the team I want to build.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t mt-14" style="border-color:var(--line)">
+    <div class="max-w-6xl mx-auto px-6 py-8 text-sm flex flex-wrap gap-2 justify-between" style="color:var(--text-secondary)">
+      <span>Portfolio project, customer success strategy</span>
+      <span class="flex gap-4"><a href="https://www.linkedin.com/in/sanemlegresley/" target="_blank" rel="noopener" class="underline">Sanem Le Gresley · LinkedIn</a><a href="../index.html" class="underline">Back to all projects</a></span>
+    </div>
+  </footer>
+
+  <script>
+  const $=id=>document.getElementById(id);
+  const fmt=n=> "$"+Math.round(n).toLocaleString();
+  function update(){
+    const arr=Math.max(0,+$("arr").value||0);
+    const ch=Math.max(0,+$("churn").value||0)/100;
+    const co=Math.max(0,+$("contraction").value||0)/100;
+    const ex=Math.max(0,+$("expansion").value||0)/100;
+    const churn$=arr*ch, contr$=arr*co, exp$=arr*ex;
+    const end=arr-churn$-contr$+exp$;
+    const nrr= arr>0 ? (end/arr*100) : 0;
+    const grr= arr>0 ? ((arr-churn$-contr$)/arr*100) : 0;
+    $("nrr").textContent=nrr.toFixed(0)+"%";
+    $("nrr").style.color = nrr>=100 ? "var(--good)" : "var(--crit)";
+    $("grr").textContent=grr.toFixed(0)+"%";
+    $("nrrNote").innerHTML = nrr>=100
+      ? `The base grows <b style="color:var(--text-primary)">${(nrr-100).toFixed(0)}%</b> before any new logo. Expansion of ${fmt(exp$)} outweighs ${fmt(churn$+contr$)} lost.`
+      : `The base shrinks <b style="color:var(--text-primary)">${(100-nrr).toFixed(0)}%</b> before new logos. Expansion of ${fmt(exp$)} does not cover ${fmt(churn$+contr$)} lost.`;
+    drawWaterfall(arr,churn$,contr$,exp$,end);
+  }
+  function drawWaterfall(start,churn,contr,exp,end){
+    const steps=[
+      {l:"Start", v:start, base:0, c:"var(--s1)"},
+      {l:"Churn", v:-churn, base:start-churn, c:"var(--crit)"},
+      {l:"Contract", v:-contr, base:start-churn-contr, c:"var(--warn)"},
+      {l:"Expand", v:exp, base:start-churn-contr, c:"var(--good)"},
+      {l:"End", v:end, base:0, c:"var(--s1)"}
+    ];
+    const W=540,H=260,padL=8,padR=8,padT=14,padB=42,iw=W-padL-padR,ih=H-padT-padB;
+    const maxV=Math.max(start,end,start-churn-contr+exp,1);
+    const bw=iw/steps.length*0.62, gap=iw/steps.length;
+    const y=v=> padT+ih-(v/maxV)*ih;
+    let bars="";
+    steps.forEach((s,i)=>{
+      const x=padL+i*gap+(gap-bw)/2;
+      const top=s.v>=0? s.base+s.v : s.base+Math.abs(s.v);
+      const yTop=y(top), yBot=y(s.base);
+      const h=Math.max(2,Math.abs(yBot-yTop));
+      const label = (s.l==="Start"||s.l==="End") ? fmt(Math.abs(s.v)) : (s.v>=0?"+":"−")+fmt(Math.abs(s.v)).replace("$","$");
+      bars+=`<rect x="${x.toFixed(1)}" y="${Math.min(yTop,yBot).toFixed(1)}" width="${bw.toFixed(1)}" height="${h.toFixed(1)}" rx="3" fill="${s.c}"/>`;
+      bars+=`<text x="${(x+bw/2).toFixed(1)}" y="${(Math.min(yTop,yBot)-5).toFixed(1)}" text-anchor="middle" font-size="10.5" font-weight="700" fill="var(--text-primary)" class="mono">${label}</text>`;
+      bars+=`<text x="${(x+bw/2).toFixed(1)}" y="${H-24}" text-anchor="middle" font-size="11" fill="var(--text-secondary)">${s.l}</text>`;
+      // connector
+      if(i<steps.length-1 && s.l!=="End"){ const cy=y(s.l==="Start"?start:(s.v>=0?s.base+s.v:s.base)); }
+    });
+    $("waterfall").innerHTML=`<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="Revenue waterfall from starting ARR to ending ARR">${bars}</svg>`;
+  }
+  ["arr","churn","contraction","expansion"].forEach(id=>$(id).addEventListener("input",update));
+  update();
+  </script>
+</body>
+</html>
