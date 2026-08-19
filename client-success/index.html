@@ -139,6 +139,40 @@
       </div>
     </section>
 
+    <!-- Reproducible on public data -->
+    <section class="mb-16">
+      <div class="card p-6 md:p-8">
+        <div class="flex items-center gap-3 mb-3 flex-wrap">
+          <span class="badge px-2 py-1" style="background:var(--surface-2);border:1px solid var(--line);color:var(--text-secondary)">Reproducible</span>
+          <h2 class="font-headline text-2xl font-semibold">The method, on public data</h2>
+        </div>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="text-sm leading-relaxed" style="color:var(--text-secondary)">
+            <p class="mb-3">The production model runs on confidential call data, so to make the approach inspectable I rebuilt it openly on the public <a href="https://www.kaggle.com/datasets/blastchar/telco-customer-churn" target="_blank" rel="noopener" class="underline" style="color:var(--s1)">Telco Customer Churn</a> benchmark. The Kaggle notebook runs the whole thing end to end:</p>
+            <ul class="space-y-1 mb-4">
+              <li>• EDA then a leakage-safe preprocessing pipeline</li>
+              <li>• Logistic regression vs gradient boosting, compared on ROC-AUC and PR-AUC</li>
+              <li>• ROC curve, confusion matrix and permutation feature importance</li>
+              <li>• Predicted probabilities turned into Low / Watch / High risk tiers</li>
+            </ul>
+            <a id="kaggleLink" href="https://www.kaggle.com/datasets/blastchar/telco-customer-churn" target="_blank" rel="noopener" class="inline-block px-5 py-2 text-sm font-semibold" style="background:var(--gold);color:#ffffff">Open on Kaggle →</a>
+          </div>
+          <div class="card p-5" style="background:var(--surface-2)">
+            <p class="badge mb-3" style="color:var(--text-secondary)">Risk-tier lift (illustrative run)</p>
+            <table class="w-full text-sm mono">
+              <thead style="color:var(--text-secondary)"><tr><th class="text-left pb-2">Tier</th><th class="text-right pb-2">Accounts</th><th class="text-right pb-2">Actual churn</th></tr></thead>
+              <tbody>
+                <tr><td class="py-1"><span class="inline-flex items-center gap-2"><span style="width:8px;height:8px;border-radius:50%;background:var(--good);display:inline-block"></span>Low</span></td><td class="text-right">193</td><td class="text-right">5%</td></tr>
+                <tr><td class="py-1"><span class="inline-flex items-center gap-2"><span style="width:8px;height:8px;border-radius:50%;background:var(--warn);display:inline-block"></span>Watch</span></td><td class="text-right">177</td><td class="text-right">20%</td></tr>
+                <tr><td class="py-1"><span class="inline-flex items-center gap-2"><span style="width:8px;height:8px;border-radius:50%;background:var(--crit);display:inline-block"></span>High</span></td><td class="text-right">180</td><td class="text-right">50%</td></tr>
+              </tbody>
+            </table>
+            <p class="text-xs mt-3" style="color:var(--text-secondary)">Actual churn climbs sharply across the tiers. That separation is what makes the score worth acting on.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Methodology -->
     <section>
       <h2 class="font-headline text-2xl font-semibold mb-6">How the approach fits together</h2>
