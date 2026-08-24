@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Client Growth Strategy, whitespace to incremental revenue</title>
+  <meta name="description" content="A strategic account-growth case study in pharma patient engagement: the stakeholder map, a whitespace opportunity map, prioritised recommendations, an interactive whitespace-to-revenue model and the executive narrative to win the expansion.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: "media", theme: { extend: {
+      fontFamily: { headline: ["Noto Serif","Georgia","serif"], body: ["Inter","system-ui","sans-serif"] },
+      borderRadius: { DEFAULT: "2px" }
+    } } };
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --surface-1:#ffffff; --surface-2:#f4f4f5; --line:#d6d6d8;
+      --text-primary:#161616; --text-secondary:#5f6062; --gold:#a31f34;
+      --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a; --s4:#eda100;
+      --good:#12805a; --warn:#b26b00; --crit:#c0392b;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --surface-1:#1c1c1e; --surface-2:#161618; --line:#37373a;
+        --text-primary:#f1f1f2; --text-secondary:#a6a6aa; --gold:#e2566a;
+        --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500;
+        --good:#3aa981; --warn:#d79a2b; --crit:#e57368;
+      }
+    }
+    body { background:var(--surface-2); color:var(--text-primary); }
+    .card { background:var(--surface-1); border:1px solid var(--line); }
+    .mono { font-variant-numeric: tabular-nums; }
+    .badge { font-size:.68rem; letter-spacing:.04em; text-transform:uppercase; font-weight:600; }
+    .eyebrow { font-size:.72rem; letter-spacing:.08em; text-transform:uppercase; font-weight:700; color:var(--gold); }
+    h2.sec { font-family:"Noto Serif",Georgia,serif; font-weight:700; }
+    table.grid { width:100%; border-collapse:collapse; font-size:.86rem; }
+    table.grid th, table.grid td { border:1px solid var(--line); padding:.55rem .7rem; vertical-align:top; text-align:left; }
+    table.grid th { background:var(--surface-2); font-weight:600; }
+    input.f { width:100%; padding:.4rem .5rem; background:transparent; border:1px solid var(--line); color:var(--text-primary); font-size:.85rem; }
+    .dot { display:inline-block; width:9px; height:9px; border-radius:50%; }
+  </style>
+</head>
+<body class="font-body antialiased">
+
+  <header class="border-b" style="border-color:var(--line); background:var(--surface-1);">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="../index.html" class="flex items-center gap-2 text-sm" style="color:var(--text-secondary)"><span aria-hidden="true">←</span> Portfolio</a>
+      <span class="badge px-2 py-1" style="background:var(--surface-2);border:1px solid var(--line);color:var(--text-secondary)">Strategy &amp; Growth · Healthcare</span>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-6 py-12">
+
+    <!-- Hero -->
+    <section class="mb-14">
+      <p class="eyebrow mb-3">Case study · Client strategy &amp; growth (Healthcare)</p>
+      <h1 class="font-headline text-4xl md:text-5xl font-bold leading-tight mb-4">Turning account whitespace into growth</h1>
+      <p class="text-lg max-w-3xl leading-relaxed" style="color:var(--text-secondary)">
+        How I grow an existing account by finding what a client has not asked for yet. A worked case for a confidential
+        <strong style="color:var(--text-primary)">pharma patient-engagement</strong> relationship: read the brand and the organisation, map the
+        whitespace, size it, then convert it into strategic recommendations and incremental revenue. This is expansion, not renewal.
+        <span class="block mt-2 text-sm">Client anonymised under NDA. Figures are illustrative. The approach is the real thing.</span>
+      </p>
+      <div class="flex flex-wrap gap-2 mt-6 text-sm" style="color:var(--text-secondary)">
+        <span class="px-3 py-1" style="border:1px solid var(--line);border-radius:999px">Stakeholder mapping</span>
+        <span class="px-3 py-1" style="border:1px solid var(--line);border-radius:999px">Whitespace analysis</span>
+        <span class="px-3 py-1" style="border:1px solid var(--line);border-radius:999px">Patient engagement</span>
+        <span class="px-3 py-1" style="border:1px solid var(--line);border-radius:999px">Business case</span>
+        <span class="px-3 py-1" style="border:1px solid var(--line);border-radius:999px">Pipeline &amp; CRM</span>
+      </div>
+    </section>
+
+    <!-- 01 Stakeholders -->
+    <section class="mb-16">
+      <p class="eyebrow mb-2">01 · Read the organisation</p>
+      <h2 class="sec text-2xl font-semibold mb-1">Whitespace hides between stakeholders</h2>
+      <p class="text-sm mb-6" style="color:var(--text-secondary)">A pharma brand is not one client. It is medical, patient engagement, marketing and commercial, each with its own mandate, budget and MLR reality. The best organic growth solves for two of them at once, in a way none of them would have scoped alone.</p>
+      <div class="card overflow-x-auto">
+        <table class="grid" style="min-width:720px">
+          <thead><tr><th>Stakeholder</th><th>Owns</th><th>What keeps them up</th><th>Buys patient engagement when</th></tr></thead>
+          <tbody>
+            <tr><td style="font-weight:600">Medical Affairs (MSLs)</td><td>Scientific accuracy, disease education, KOL and HCP trust</td><td>Non-promotional guardrails, health literacy, adherence evidence</td><td>It is credible, unbranded and improves outcomes</td></tr>
+            <tr><td style="font-weight:600">Patient Advocacy / Engagement</td><td>Patient voice, lived experience, community</td><td>Access, equity, caregiver burden, representation</td><td>It genuinely serves patients, not just the funnel</td></tr>
+            <tr><td style="font-weight:600">Brand / Marketing</td><td>Awareness, HCP and DTC demand, differentiation</td><td>Launch uptake, share of voice, fair balance</td><td>It moves a metric and clears MLR fast</td></tr>
+            <tr><td style="font-weight:600">Market Access / Commercial</td><td>Payer coverage, pull-through, persistence, revenue</td><td>Adherence and persistence, field effectiveness</td><td>It protects revenue by keeping patients on therapy</td></tr>
+            <tr><td style="color:var(--gold);font-weight:600">MLR / Regulatory</td><td>Medical-legal-regulatory review</td><td>Risk, claims, fair balance, ISI</td><td>Content is modular and pre-cleared, not bespoke every time</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 02 Whitespace map -->
+    <section class="mb-16">
+      <p class="eyebrow mb-2">02 · Map the whitespace</p>
+      <h2 class="sec text-2xl font-semibold mb-1">Where the unmet need and the revenue overlap</h2>
+      <p class="text-sm mb-6" style="color:var(--text-secondary)">Each opportunity is scored on patient need, strategic fit to the brand's stage and how cleanly it converts to incremental scope. The winners sit where all three are high.</p>
+      <div class="card overflow-x-auto">
+        <table class="grid" style="min-width:720px">
+          <thead><tr><th>Whitespace opportunity</th><th>Patient need</th><th>Strategic fit</th><th>Ease to convert</th><th>Call</th></tr></thead>
+          <tbody>
+            <tr><td style="font-weight:600">Onboarding &amp; adherence program</td><td>High</td><td>High</td><td>High</td><td><span style="color:var(--good);font-weight:600">Lead</span></td></tr>
+            <tr><td style="font-weight:600">Omnichannel measurement retainer</td><td>Medium</td><td>High</td><td>High</td><td><span style="color:var(--good);font-weight:600">Lead</span></td></tr>
+            <tr><td style="font-weight:600">Health-equity outreach</td><td>High</td><td>High</td><td>Medium</td><td><span style="color:var(--s1);font-weight:600">Build</span></td></tr>
+            <tr><td style="font-weight:600">Caregiver support track</td><td>High</td><td>Medium</td><td>Medium</td><td><span style="color:var(--s1);font-weight:600">Build</span></td></tr>
+            <tr><td style="font-weight:600">HCP-patient shared-decision content</td><td>Medium</td><td>Medium</td><td>High</td><td><span style="color:var(--warn);font-weight:600">Watch</span></td></tr>
+            <tr><td style="font-weight:600">Patient ambassador / storytelling</td><td>Medium</td><td>Medium</td><td>Medium</td><td><span style="color:var(--warn);font-weight:600">Watch</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 03 Recommendations -->
+    <section class="mb-16">
+      <p class="eyebrow mb-2">03 · Recommend</p>
+      <h2 class="sec text-2xl font-semibold mb-1">From opportunity to a solution they will buy</h2>
+      <p class="text-sm mb-6" style="color:var(--text-secondary)">Each recommendation names the underlying business problem, not the surface ask and shows which stakeholders it serves. Solving for more than one is what unlocks a bigger budget.</p>
+      <div class="card overflow-x-auto">
+        <table class="grid" style="min-width:760px">
+          <thead><tr><th>Program</th><th>Underlying business problem</th><th>Patient-engagement solution</th><th>Serves</th></tr></thead>
+          <tbody>
+            <tr><td style="font-weight:600">Onboarding &amp; adherence</td><td>Early drop-off is eroding persistence and revenue after launch</td><td>Guided onboarding, refill and adherence nudges, health-literacy content</td><td>Commercial, Medical</td></tr>
+            <tr><td style="font-weight:600">Caregiver support track</td><td>Caregivers make decisions but are unsupported, hurting persistence</td><td>Caregiver hub, toolkits, community, respite resources</td><td>Advocacy, Commercial</td></tr>
+            <tr><td style="font-weight:600">Health-equity outreach</td><td>Underserved populations are underdiagnosed and under-treated</td><td>Community partnerships, culturally-tailored, multilingual content</td><td>Advocacy, Marketing</td></tr>
+            <tr><td style="font-weight:600">Omnichannel measurement</td><td>Programs run without a shared read on what actually moves behaviour</td><td>Journey orchestration, measurement framework, always-on optimisation</td><td>Marketing, Commercial</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 04 Business case -->
+    <section class="mb-16">
+      <p class="eyebrow mb-2">04 · Size it</p>
+      <h2 class="sec text-2xl font-semibold mb-1">The whitespace-to-revenue model</h2>
+      <p class="text-sm mb-6" style="color:var(--text-secondary)">A leader converts insight into a number an SVP can defend. Set each opportunity's annual value and win probability to see the identified whitespace, the probability-weighted pipeline and the projected account value. Editable.</p>
+      <div class="grid lg:grid-cols-5 gap-6">
+        <div class="card p-6 lg:col-span-2">
+          <div class="mb-4"><label class="badge block mb-1" style="color:var(--text-secondary)">Current annual account value ($)</label><input class="f mono" id="current" type="number" value="1200000" step="50000" min="0"></div>
+          <table class="w-full text-sm">
+            <thead><tr class="badge" style="color:var(--text-secondary)"><th class="text-left pb-1">Opportunity</th><th class="text-right pb-1">Value $</th><th class="text-right pb-1">Win %</th></tr></thead>
+            <tbody id="oppRows"></tbody>
+          </table>
+          <div class="grid grid-cols-3 gap-2 mt-5 text-center">
+            <div class="p-3" style="background:var(--surface-2)"><p class="badge" style="color:var(--text-secondary)">Identified</p><p class="text-lg font-headline font-bold mono" id="identified">, </p></div>
+            <div class="p-3" style="background:var(--surface-2)"><p class="badge" style="color:var(--text-secondary)">Weighted</p><p class="text-lg font-headline font-bold mono" id="weighted" style="color:var(--s3)">, </p></div>
+            <div class="p-3" style="background:var(--surface-2)"><p class="badge" style="color:var(--text-secondary)">Growth</p><p class="text-lg font-headline font-bold mono" id="growth" style="color:var(--gold)">, </p></div>
+          </div>
+        </div>
+        <div class="card p-6 lg:col-span-3">
+          <h3 class="text-sm font-semibold mb-1">Account expansion waterfall</h3>
+          <p class="text-xs mb-4" style="color:var(--text-secondary)">Current value plus each probability-weighted opportunity equals projected account value.</p>
+          <div id="waterfall"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 Stakeholder intersection -->
+    <section class="mb-16">
+      <p class="eyebrow mb-2">05 · The intersection</p>
+      <h2 class="sec text-2xl font-semibold mb-1">One program, four stakeholders served</h2>
+      <p class="text-sm mb-6" style="color:var(--text-secondary)">The reason this grows the account: a well-designed patient-engagement program advances medical, patient, marketing and commercial goals at the same time. That is what turns a line item into a strategic partnership.</p>
+      <div class="card overflow-x-auto">
+        <table class="grid" style="min-width:720px">
+          <thead><tr><th>The adherence program gives...</th><th>Medical</th><th>Patient</th><th>Marketing</th><th>Commercial</th></tr></thead>
+          <tbody>
+            <tr><td>Health-literacy content, credible and unbranded</td><td><span class="dot" style="background:var(--good)"></span></td><td><span class="dot" style="background:var(--good)"></span></td><td></td><td></td></tr>
+            <tr><td>A better, guided patient experience</td><td></td><td><span class="dot" style="background:var(--good)"></span></td><td><span class="dot" style="background:var(--good)"></span></td><td></td></tr>
+            <tr><td>Persistence, so patients stay on therapy</td><td></td><td><span class="dot" style="background:var(--good)"></span></td><td></td><td><span class="dot" style="background:var(--good)"></span></td></tr>
+            <tr><td>Measured behaviour change to optimise spend</td><td></td><td></td><td><span class="dot" style="background:var(--good)"></span></td><td><span class="dot" style="background:var(--good)"></span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 06 Narrative -->
+    <section class="mb-16">
+      <p class="eyebrow mb-2">06 · Win the room</p>
+      <h2 class="sec text-2xl font-semibold mb-4">The narrative I would bring to the SVP</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="card p-6"><p class="badge mb-2" style="color:var(--s1)">The challenge, reframed</p><p class="text-sm leading-relaxed" style="color:var(--text-secondary)">"You asked for a campaign refresh. The data says your real problem is persistence: a third of patients lapse in the first 90 days and that is where the revenue is leaking."</p></div>
+        <div class="card p-6"><p class="badge mb-2" style="color:var(--s3)">The insight</p><p class="text-sm leading-relaxed" style="color:var(--text-secondary)">"The moment that matters is onboarding, not acquisition. Patients and caregivers make the stay-or-lapse decision early and no one is designing for it across medical and commercial together."</p></div>
+        <div class="card p-6"><p class="badge mb-2" style="color:var(--s2)">The ask</p><p class="text-sm leading-relaxed" style="color:var(--text-secondary)">"Here is a phased program, the stakeholders it aligns, an MLR-efficient content model and the revenue it protects. Start with a pilot, prove the lift, scale from there."</p></div>
+      </div>
+      <div class="mt-6 text-sm p-4 max-w-3xl" style="background:var(--surface-1);border:1px solid var(--line);color:var(--text-secondary)">
+        <strong style="color:var(--text-primary)">Landscape read:</strong> patient centricity is now a commercial mandate, not a nice-to-have. Access is uneven, caregivers are underserved, MLR is the real bottleneck to speed and measurement is the currency that earns the next budget. A partner who names those dynamics before the client does becomes a trusted advisor, not a vendor.
+      </div>
+    </section>
+
+    <!-- 07 Pipeline -->
+    <section>
+      <p class="eyebrow mb-2">07 · Run it like a pipeline</p>
+      <h2 class="sec text-2xl font-semibold mb-1">Discipline behind the story</h2>
+      <p class="text-sm mb-6" style="color:var(--text-secondary)">Organic growth is a pipeline, not a hope. Each opportunity moves through stages with a probability, a next step and a date, kept honest in the CRM and reported to leadership.</p>
+      <div class="flex flex-wrap items-center gap-2 text-sm">
+        <span class="px-3 py-2" style="background:var(--surface-2);border:1px solid var(--line)">Identified</span>
+        <span style="color:var(--text-secondary)">→</span>
+        <span class="px-3 py-2" style="background:var(--surface-2);border:1px solid var(--line)">Qualified (need confirmed)</span>
+        <span style="color:var(--text-secondary)">→</span>
+        <span class="px-3 py-2" style="background:var(--surface-2);border:1px solid var(--line)">POV shared</span>
+        <span style="color:var(--text-secondary)">→</span>
+        <span class="px-3 py-2" style="background:var(--surface-2);border:1px solid var(--line)">Proposed</span>
+        <span style="color:var(--text-secondary)">→</span>
+        <span class="px-3 py-2" style="background:color-mix(in srgb, var(--gold) 12%, transparent);border:1px solid var(--gold)">Won, incremental revenue</span>
+      </div>
+      <p class="text-xs mt-4" style="color:var(--text-secondary)">Weighted pipeline feeds the forecast. Stalled opportunities get a reason and an owner. Nothing sits in "identified" forever.</p>
+    </section>
+  </main>
+
+  <footer class="border-t mt-14" style="border-color:var(--line)">
+    <div class="max-w-6xl mx-auto px-6 py-8 text-sm flex flex-wrap gap-2 justify-between" style="color:var(--text-secondary)">
+      <span>Portfolio project, client strategy &amp; growth</span>
+      <span class="flex gap-4"><a href="https://www.linkedin.com/in/sanemlegresley/" target="_blank" rel="noopener" class="underline">Sanem Le Gresley · LinkedIn</a><a href="../index.html" class="underline">Back to all projects</a></span>
+    </div>
+  </footer>
+
+  <script>
+  const OPPS = [
+    { k:"adh", label:"Onboarding & adherence", value:420000, prob:70 },
+    { k:"omni", label:"Omnichannel measurement", value:300000, prob:60 },
+    { k:"equity", label:"Health-equity outreach", value:260000, prob:45 },
+    { k:"care", label:"Caregiver support", value:180000, prob:55 },
+  ];
+  const $=id=>document.getElementById(id);
+  const fmt=n=> "$"+(Math.round(n/1000)).toLocaleString()+"k";
+  // build rows
+  $("oppRows").innerHTML = OPPS.map(o=>`<tr>
+    <td class="py-1 pr-2" style="color:var(--text-secondary)">${o.label}</td>
+    <td class="py-1"><input class="f mono text-right" id="${o.k}v" type="number" value="${o.value}" step="20000" min="0"></td>
+    <td class="py-1 pl-2" style="width:70px"><input class="f mono text-right" id="${o.k}p" type="number" value="${o.prob}" step="5" min="0" max="100"></td>
+  </tr>`).join("");
+
+  function update(){
+    const current=Math.max(0,+$("current").value||0);
+    let identified=0, weighted=0; const wparts=[];
+    OPPS.forEach(o=>{
+      const v=Math.max(0,+$(o.k+"v").value||0);
+      const p=Math.min(100,Math.max(0,+$(o.k+"p").value||0))/100;
+      identified+=v; weighted+=v*p; wparts.push({label:o.label, w:v*p});
+    });
+    const projected=current+weighted;
+    const growth = current>0 ? weighted/current*100 : 0;
+    $("identified").textContent=fmt(identified);
+    $("weighted").textContent=fmt(weighted);
+    $("growth").textContent="+"+growth.toFixed(0)+"%";
+    drawWaterfall(current, wparts, projected);
+  }
+  function drawWaterfall(current, parts, projected){
+    const steps=[{l:"Current", v:current, base:0, c:"var(--s1)"}];
+    let run=current;
+    parts.forEach(p=>{ steps.push({l:p.label.split(" ")[0], v:p.w, base:run, c:"var(--s3)"}); run+=p.w; });
+    steps.push({l:"Projected", v:projected, base:0, c:"var(--gold)"});
+    const W=560,H=280,padL=8,padR=8,padT=16,padB=52,iw=W-padL-padR,ih=H-padT-padB;
+    const maxV=Math.max(projected,1);
+    const gap=iw/steps.length, bw=gap*0.6;
+    const y=v=> padT+ih-(v/maxV)*ih;
+    let out="";
+    steps.forEach((s,i)=>{
+      const x=padL+i*gap+(gap-bw)/2;
+      const top=s.base+s.v, yTop=y(top), yBot=y(s.base), h=Math.max(2,Math.abs(yBot-yTop));
+      out+=`<rect x="${x.toFixed(1)}" y="${Math.min(yTop,yBot).toFixed(1)}" width="${bw.toFixed(1)}" height="${h.toFixed(1)}" rx="3" fill="${s.c}"/>`;
+      const lab=(s.l==="Current"||s.l==="Projected")? fmt(s.v) : "+"+fmt(s.v);
+      out+=`<text x="${(x+bw/2).toFixed(1)}" y="${(Math.min(yTop,yBot)-5).toFixed(1)}" text-anchor="middle" font-size="10.5" font-weight="700" fill="var(--text-primary)" class="mono">${lab}</text>`;
+      out+=`<text x="${(x+bw/2).toFixed(1)}" y="${H-30}" text-anchor="middle" font-size="10" fill="var(--text-secondary)">${s.l}</text>`;
+    });
+    $("waterfall").innerHTML=`<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="Account expansion waterfall from current to projected value">${out}</svg>`;
+  }
+  ["current",...OPPS.flatMap(o=>[o.k+"v",o.k+"p"])].forEach(id=>$(id).addEventListener("input",update));
+  update();
+  </script>
+</body>
+</html>
