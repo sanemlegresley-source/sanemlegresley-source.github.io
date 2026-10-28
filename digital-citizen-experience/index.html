@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Citizen Experience</title>
+  <meta name="description" content="A real digital citizen experience engagement delivered with a Fortune 500 consulting company for a public-sector client: simple, human and secure services designed around people, with task-based architecture, plain-language notices, accessibility, a design system, responsible AI and phased delivery.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: "media", theme: { extend: {
+      fontFamily: { headline: ["Noto Serif","Georgia","serif"], body: ["Inter","system-ui","sans-serif"] },
+      borderRadius: { DEFAULT: "2px" }
+    } } };
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --surface-1:#ffffff; --surface-2:#f4f4f5; --line:#d6d6d8;
+      --text-primary:#161616; --text-secondary:#5f6062; --gold:#a31f34;
+      --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a; --s4:#eda100;
+      --good:#12805a; --warn:#b26b00; --crit:#c0392b;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --surface-1:#1c1c1e; --surface-2:#161618; --line:#37373a;
+        --text-primary:#f1f1f2; --text-secondary:#a6a6aa; --gold:#e2566a;
+        --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500;
+        --good:#3aa981; --warn:#d79a2b; --crit:#e57368;
+      }
+    }
+    body { background:var(--surface-2); color:var(--text-primary); }
+    .card { background:var(--surface-1); border:1px solid var(--line); }
+    .mono { font-variant-numeric: tabular-nums; }
+    .badge { font-size:.68rem; letter-spacing:.04em; text-transform:uppercase; font-weight:600; }
+    .eyebrow { font-size:.72rem; letter-spacing:.08em; text-transform:uppercase; font-weight:700; color:var(--gold); }
+    h2.sec { font-family:"Noto Serif",Georgia,serif; font-weight:700; }
+    table.grid { width:100%; border-collapse:collapse; font-size:.86rem; }
+    table.grid th, table.grid td { border:1px solid var(--line); padding:.55rem .7rem; vertical-align:top; text-align:left; }
+    table.grid th { background:var(--surface-2); font-weight:600; }
+    .tick::before { content:"✓ "; color:var(--good); font-weight:700; }
+  </style>
+</head>
+<body class="font-body antialiased">
+
+  <header class="border-b" style="border-color:var(--line); background:var(--surface-1);">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="../index.html" class="flex items-center gap-2 text-sm" style="color:var(--text-secondary)"><span aria-hidden="true">←</span> Portfolio</a>
+      <span class="badge px-2 py-1" style="background:var(--surface-2);border:1px solid var(--line);color:var(--text-secondary)">Digital Experience · Public sector</span>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-6 py-12">
+
+    <!-- Hero -->
+    <section class="mb-14">
+      <div class="flex items-center gap-3 mb-3 flex-wrap">
+        <span class="badge px-2 py-1" style="background:var(--gold);color:#ffffff">From real work</span>
+        <p class="eyebrow">Digital citizen experience</p>
+      </div>
+      <h1 class="font-headline text-4xl md:text-5xl font-bold leading-tight mb-4">Designing public services around people</h1>
+      <p class="text-lg max-w-3xl leading-relaxed" style="color:var(--text-secondary)">
+        A digital citizen experience engagement I delivered with a <strong style="color:var(--text-primary)">Fortune 500 consulting company</strong>
+        for a public-sector client: modernising how citizens find and complete the services they need, built on a simple idea, that a service
+        should be designed for <strong style="color:var(--text-primary)">people, not agencies</strong>. The goal was confidence in government,
+        earned through experiences that are simple, human and secure.
+        <span class="block mt-2 text-sm">Client and firm are confidential. The engagement, the approach and my role are real.</span>
+      </p>
+      <div class="flex flex-wrap gap-2 mt-6 text-sm" style="color:var(--text-secondary)">
+        <span class="px-3 py-1" style="border:1px solid var(--line);border-radius:999px">Service design</span>
+        <span class="px-3 py-1" style="border:1px solid var(--line);border-radius:999px">Life-event journeys</span>
+        <span class="px-3 py-1" style="border:1px solid var(--line);border-radius:999px">Plain-language content</span>
+        <span class="px-3 py-1" style="border:1px solid var(--line);border-radius:999px">WCAG 2.2 AA</span>
+        <span class="px-3 py-1" style="border:1px solid var(--line);border-radius:999px">Design system</span>
+        <span class="px-3 py-1" style="border:1px solid var(--line);border-radius:999px">Responsible AI</span>
+        <span class="px-3 py-1" style="border:1px solid var(--line);border-radius:999px">Change management</span>
+      </div>
+    </section>
+
+    <!-- 01 Mandate -->
+    <section class="mb-16">
+      <p class="eyebrow mb-2">01 · The mandate</p>
+      <h2 class="sec text-2xl font-semibold mb-1">Simple, human and secure</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="text-sm leading-relaxed" style="color:var(--text-secondary)">
+          <p class="mb-3"><strong style="color:var(--text-primary)">The real problem:</strong> citizens found the service hard to navigate, wrote in plan language they did not understand and fell back to the phone or the counter for tasks that should have been simple online. Low trust and high effort, on both sides of the desk.</p>
+          <p><strong style="color:var(--text-primary)">The frame we used:</strong> design around how people actually live, not how government is organised. A simpler experience that still feels human, kept secure and reaches everyone, is how a public service earns confidence back.</p>
+        </div>
+        <div class="card p-5">
+          <p class="badge mb-3" style="color:var(--text-secondary)">The three principles we held to</p>
+          <ul class="text-sm space-y-2" style="color:var(--text-secondary)">
+            <li><strong style="color:var(--text-primary)">Simple.</strong> Make it easy to get the outcome a citizen needs, in as few steps as possible.</li>
+            <li><strong style="color:var(--text-primary)">Human.</strong> Balance digital and in-person and serve with empathy. Digital-first is not digital-only.</li>
+            <li><strong style="color:var(--text-primary)">Secure.</strong> Protect people's data and identity, because trust is the whole point.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 Who we serve -->
+    <section class="mb-16">
+      <p class="eyebrow mb-2">02 · Who we served</p>
+      <h2 class="sec text-2xl font-semibold mb-6">Citizens in the changing context of their lives</h2>
+      <p class="text-sm mb-6" style="color:var(--text-secondary)">We designed around life events, the moments when people actually meet government and we designed for the public servants who serve them.</p>
+      <div class="grid md:grid-cols-4 gap-5">
+        <div class="card p-5">
+          <p class="font-headline text-base font-semibold">Newcomer</p>
+          <p class="text-xs mb-2" style="color:var(--text-secondary)">New to the country, new to the system</p>
+          <p class="text-sm" style="color:var(--text-secondary)">Needs to access services without knowing which agency owns what, often in a second language.</p>
+        </div>
+        <div class="card p-5">
+          <p class="font-headline text-base font-semibold">In transition</p>
+          <p class="text-xs mb-2" style="color:var(--text-secondary)">A job loss, a new child, a loss in the family</p>
+          <p class="text-sm" style="color:var(--text-secondary)">A stressful life event that touches several programs at once and cannot wait on a queue.</p>
+        </div>
+        <div class="card p-5">
+          <p class="font-headline text-base font-semibold">Everyday citizen</p>
+          <p class="text-xs mb-2" style="color:var(--text-secondary)">Digital-native, time-poor</p>
+          <p class="text-sm" style="color:var(--text-secondary)">Expects a renewal or an application to take minutes on a phone, or they disengage.</p>
+        </div>
+        <div class="card p-5">
+          <p class="font-headline text-base font-semibold">Public servant</p>
+          <p class="text-xs mb-2" style="color:var(--text-secondary)">Serving at the counter and the phone</p>
+          <p class="text-sm" style="color:var(--text-secondary)">Needs tools and confidence to help, not a system that fights them while a citizen waits.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 Evidence -->
+    <section class="mb-16">
+      <p class="eyebrow mb-2">03 · Understanding, not assumptions</p>
+      <h2 class="sec text-2xl font-semibold mb-1">We brought the public into the design</h2>
+      <p class="text-sm mb-6" style="color:var(--text-secondary)">Nothing was designed on a hunch. We grounded the work in research with real citizens and frontline staff and in the service's own data, then prioritised against it.</p>
+      <div class="card overflow-x-auto">
+        <table class="grid" style="min-width:680px">
+          <thead><tr><th>Evidence source</th><th>Question it answered</th><th>How it steered the work</th></tr></thead>
+          <tbody>
+            <tr><td>Citizen research &amp; usability testing</td><td>Can people actually finish the task</td><td>Task success became the bar a release had to clear</td></tr>
+            <tr><td>Frontline staff interviews</td><td>Why do people fall back to phone and counter</td><td>Each top reason got a simpler online path</td></tr>
+            <tr><td>Service analytics &amp; drop-off</td><td>Where does the journey break</td><td>The hardest steps were redesigned and retested first</td></tr>
+            <tr><td>Equity &amp; accessibility review</td><td>Who is the service failing</td><td>Barriers were treated as defects, not edge cases</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 04 IA -->
+    <section class="mb-16">
+      <p class="eyebrow mb-2">04 · Organise around life</p>
+      <h2 class="sec text-2xl font-semibold mb-1">Journeys built on how people live, not how government is structured</h2>
+      <p class="text-sm mb-6" style="color:var(--text-secondary)">We reorganised the experience around life events that cross agency boundaries, with the personal, secure work behind one trusted sign-in and a verified digital identity.</p>
+      <div class="card p-6 overflow-x-auto">
+        <ul class="text-sm mono" style="color:var(--text-secondary); line-height:1.9; min-width:560px">
+          <li>Start here <span style="color:var(--text-secondary)">(leads with the top life events)</span></li>
+          <li>├─ Starting out <span style="color:var(--text-secondary)">(new to the country, first job, first home)</span></li>
+          <li>├─ A change in life <span style="color:var(--text-secondary)">(job loss, new child, caring for someone)</span></li>
+          <li>├─ Everyday services <span style="color:var(--text-secondary)">(renewals, applications, payments)</span></li>
+          <li>├─ Get help <span style="color:var(--text-secondary)">(plain-language guidance, human support)</span></li>
+          <li>└─ <span style="color:var(--gold);font-weight:700">My account (secure)</span>
+            <ul style="margin-left:1.4rem">
+              <li>├─ Verified digital identity</li>
+              <li>├─ My applications &amp; status</li>
+              <li>└─ My documents &amp; notices</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 05 Notices & forms -->
+    <section class="mb-16">
+      <p class="eyebrow mb-2">05 · Notices &amp; forms</p>
+      <h2 class="sec text-2xl font-semibold mb-1">A letter a citizen can read once and act on</h2>
+      <p class="text-sm mb-6" style="color:var(--text-secondary)">Government notices are where complexity does the most damage. We rewrote them as structured, plain-language content: a clear reason, a clear next step and a date, accessible by default and authored once so a policy change updates every notice cleanly.</p>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="card p-5">
+          <p class="badge mb-2" style="color:var(--crit)">Before</p>
+          <p class="text-sm leading-relaxed" style="color:var(--text-secondary)">"Pursuant to the aforementioned application, the Ministry requires further substantiating documentation in order to adjudicate your eligibility for the benefit in question."</p>
+        </div>
+        <div class="card p-5" style="border-color:var(--good)">
+          <p class="badge mb-2" style="color:var(--good)">After</p>
+          <p class="text-sm leading-relaxed" style="color:var(--text-primary)">"We need one more document to finish your application. Please send proof of address by 15 March. Here is how and here is what happens next."</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 Accessibility -->
+    <section class="mb-16">
+      <p class="eyebrow mb-2">06 · Accessible &amp; equitable</p>
+      <h2 class="sec text-2xl font-semibold mb-1">Equitable access and reach, by design</h2>
+      <p class="text-sm mb-6" style="color:var(--text-secondary)">A public service has to work for everyone, which means accessibility is a design principle and in-person stays a first-class channel, not a fallback.</p>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="card p-6 text-sm" style="color:var(--text-secondary)">
+          <p class="badge mb-2" style="color:var(--s1)">Designed in</p>
+          <ul class="space-y-1">
+            <li class="tick">WCAG 2.2 AA as the baseline for web, services, forms and notices.</li>
+            <li class="tick">Plain language and a readability target on every page.</li>
+            <li class="tick">Keyboard, screen-reader and reflow checks built into components.</li>
+            <li class="tick">Multilingual and low-literacy paths, not an afterthought.</li>
+          </ul>
+        </div>
+        <div class="card p-6 text-sm" style="color:var(--text-secondary)">
+          <p class="badge mb-2" style="color:var(--s3)">Channels kept open</p>
+          <ul class="space-y-1">
+            <li class="tick">Digital-first, never digital-only. The counter and the phone stay for those who need them.</li>
+            <li class="tick">Assisted digital, so staff can help a citizen through the online path.</li>
+            <li class="tick">Consistency across channels, so the service feels like one government.</li>
+            <li class="tick">Accessibility measured and reported, not assumed.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07 Design system -->
+    <section class="mb-16">
+      <p class="eyebrow mb-2">07 · Design system &amp; content</p>
+      <h2 class="sec text-2xl font-semibold mb-1">Quality that scales because it is built once</h2>
+      <p class="text-sm mb-6" style="color:var(--text-secondary)">A design system and a shared content model let many teams across many agencies ship consistent, accessible services. Every component carried its accessibility and its plain-language patterns, so each new page started compliant.</p>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="card p-6"><p class="badge mb-2" style="color:var(--s1)">Design system</p><p class="text-sm" style="color:var(--text-secondary)">Accessible, tested components and tokens. One pattern for a form, a status, an identity check, reused across services.</p></div>
+        <div class="card p-6"><p class="badge mb-2" style="color:var(--s3)">Content model</p><p class="text-sm" style="color:var(--text-secondary)">Structured, reusable content for guides, forms and notices, authored once and published everywhere, plain language baked in.</p></div>
+        <div class="card p-6"><p class="badge mb-2" style="color:var(--s4)">Governance</p><p class="text-sm" style="color:var(--text-secondary)">Clear standards, review and quality gates, so consistency, security and accessibility hold as the service grows.</p></div>
+      </div>
+    </section>
+
+    <!-- 08 Responsible AI & identity -->
+    <section class="mb-16">
+      <p class="eyebrow mb-2">08 · Responsible AI &amp; identity</p>
+      <h2 class="sec text-2xl font-semibold mb-1">Technology deployed with intention</h2>
+      <p class="text-sm mb-6" style="color:var(--text-secondary)">Digital tools earned a place only where they made a citizen's task easier or a public servant's work lighter, never at the cost of trust.</p>
+      <div class="grid md:grid-cols-2 gap-6 text-sm leading-relaxed" style="color:var(--text-secondary)">
+        <p><strong style="color:var(--text-primary)">Digital identity:</strong> a verified, reusable credential in a secure vault, so a citizen proves who they are once and moves between services without starting over. Security and consent are the design, not a disclaimer.</p>
+        <p><strong style="color:var(--text-primary)">Responsible AI:</strong> grounded assistance that answers from approved, plain-language policy and hands off to a person for anything sensitive or specific to a citizen's case. Behind the scenes, drafting and triage that free staff for the human work. Always reviewed, always governed.</p>
+      </div>
+    </section>
+
+    <!-- 09 Delivery -->
+    <section class="mb-16">
+      <p class="eyebrow mb-2">09 · Delivered in phases</p>
+      <h2 class="sec text-2xl font-semibold mb-1">Phased delivery, with people carried through the change</h2>
+      <p class="text-sm mb-6" style="color:var(--text-secondary)">A transformation this size succeeds in phases that each ship real value, with change management and workforce enablement so staff, partners and citizens adopt it.</p>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="card p-6">
+          <p class="badge mb-2" style="color:var(--good)">Phase 1 · Foundations</p>
+          <ul class="text-sm space-y-2" style="color:var(--text-secondary)">
+            <li>• Design system and content model</li>
+            <li>• Top life-event journeys, rebuilt and accessible</li>
+            <li>• Plain-language standard for notices and forms</li>
+          </ul>
+        </div>
+        <div class="card p-6">
+          <p class="badge mb-2" style="color:var(--s1)">Phase 2 · Services</p>
+          <ul class="text-sm space-y-2" style="color:var(--text-secondary)">
+            <li>• Secure sign-in and verified digital identity</li>
+            <li>• Apply, track and renew online</li>
+            <li>• Notices modernised and connected</li>
+          </ul>
+        </div>
+        <div class="card p-6">
+          <p class="badge mb-2" style="color:var(--s2)">Phase 3 · Whole-of-government</p>
+          <ul class="text-sm space-y-2" style="color:var(--text-secondary)">
+            <li>• Services joined across agencies</li>
+            <li>• Grounded citizen assistance</li>
+            <li>• Proactive, personalised help</li>
+          </ul>
+        </div>
+      </div>
+      <div class="mt-6 text-sm p-4" style="background:var(--surface-1);border:1px solid var(--line);color:var(--text-secondary)">
+        <strong style="color:var(--text-primary)">Change management:</strong> every phase shipped with enablement for frontline staff, clear communication to citizens, partner and vendor alignment and a read on adoption. Confidence in the workforce was treated as part of the outcome, not a side effect.
+      </div>
+    </section>
+
+    <!-- 10 Measures -->
+    <section class="mb-16">
+      <p class="eyebrow mb-2">10 · Measures of success</p>
+      <h2 class="sec text-2xl font-semibold mb-1">What we held the work to</h2>
+      <p class="text-sm mb-6" style="color:var(--text-secondary)">The work answered to outcomes a citizen and a minister both care about. Specific figures are confidential, these are the measures that mattered.</p>
+      <div class="card overflow-x-auto">
+        <table class="grid" style="min-width:640px">
+          <thead><tr><th>Measure</th><th>Why it mattered</th></tr></thead>
+          <tbody>
+            <tr><td>Confidence &amp; trust in the service</td><td>The real goal: people believing government can help them</td></tr>
+            <tr><td>Task success rate</td><td>Citizens actually finishing what they came to do</td></tr>
+            <tr><td>Digital-first adoption</td><td>Routine tasks moving online, freeing staff for complex help</td></tr>
+            <tr><td>Equitable reach</td><td>The service working across audiences, not just on average</td></tr>
+            <tr><td>Accessibility conformance</td><td>Everyone able to use it, measured not assumed</td></tr>
+            <tr><td>Effort &amp; satisfaction</td><td>A simpler experience, in citizens' own words</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-sm mt-3" style="color:var(--text-secondary)">A companion view of how I track this kind of service is in the <a href="../member-experience-scorecard/index.html" class="underline" style="color:var(--s1)">Experience Scorecard</a>, with an interactive channel-shift model.</p>
+    </section>
+
+    <!-- 11 My role -->
+    <section>
+      <p class="eyebrow mb-2">11 · My part in it</p>
+      <h2 class="sec text-2xl font-semibold mb-4">What I brought and where it transfers</h2>
+      <div class="grid md:grid-cols-3 gap-6 text-sm leading-relaxed" style="color:var(--text-secondary)">
+        <div><p class="font-headline text-lg font-semibold mb-1" style="color:var(--text-primary)">Strategy to delivery</p><p>I worked across the engagement from the experience strategy to the delivery of real services, keeping the simple, human, secure principles intact as the work scaled across teams.</p></div>
+        <div><p class="font-headline text-lg font-semibold mb-1" style="color:var(--text-primary)">Evidence and accessibility</p><p>I pushed decisions onto research and data and held accessibility and equity as non-negotiable, because a public service that fails one group has failed.</p></div>
+        <div><p class="font-headline text-lg font-semibold mb-1" style="color:var(--text-primary)">It transfers directly</p><p>Citizen experience and member experience are the same discipline: complex, regulated, high-trust services that have to feel simple. The approach here is the one I would bring to modernising a member experience.</p></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t mt-14" style="border-color:var(--line)">
+    <div class="max-w-6xl mx-auto px-6 py-8 text-sm flex flex-wrap gap-2 justify-between" style="color:var(--text-secondary)">
+      <span>Portfolio project, digital citizen experience</span>
+      <span class="flex gap-4"><a href="https://www.linkedin.com/in/sanemlegresley/" target="_blank" rel="noopener" class="underline">Sanem Le Gresley · LinkedIn</a><a href="../index.html" class="underline">Back to all projects</a></span>
+    </div>
+  </footer>
+</body>
+</html>
