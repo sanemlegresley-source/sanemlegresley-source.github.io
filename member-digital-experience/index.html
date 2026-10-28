@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Member Digital Experience, a pension website modernization</title>
+  <meta name="description" content="A member digital experience and website modernization case study for a public-sector pension plan: engagement strategy, task-based IA, plain-language forms and correspondence, WCAG 2.2 accessibility, a design system, responsible AI, phased delivery and change management.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: "media", theme: { extend: {
+      fontFamily: { headline: ["Noto Serif","Georgia","serif"], body: ["Inter","system-ui","sans-serif"] },
+      borderRadius: { DEFAULT: "2px" }
+    } } };
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --surface-1:#ffffff; --surface-2:#f4f4f5; --line:#d6d6d8;
+      --text-primary:#161616; --text-secondary:#5f6062; --gold:#a31f34;
+      --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a; --s4:#eda100;
+      --good:#12805a; --warn:#b26b00; --crit:#c0392b;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --surface-1:#1c1c1e; --surface-2:#161618; --line:#37373a;
+        --text-primary:#f1f1f2; --text-secondary:#a6a6aa; --gold:#e2566a;
+        --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500;
+        --good:#3aa981; --warn:#d79a2b; --crit:#e57368;
+      }
+    }
+    body { background:var(--surface-2); color:var(--text-primary); }
+    .card { background:var(--surface-1); border:1px solid var(--line); }
+    .mono { font-variant-numeric: tabular-nums; }
+    .badge { font-size:.68rem; letter-spacing:.04em; text-transform:uppercase; font-weight:600; }
+    .eyebrow { font-size:.72rem; letter-spacing:.08em; text-transform:uppercase; font-weight:700; color:var(--gold); }
+    h2.sec { font-family:"Noto Serif",Georgia,serif; font-weight:700; }
+    table.grid { width:100%; border-collapse:collapse; font-size:.86rem; }
+    table.grid th, table.grid td { border:1px solid var(--line); padding:.55rem .7rem; vertical-align:top; text-align:left; }
+    table.grid th { background:var(--surface-2); font-weight:600; }
+    .tick::before { content:"✓ "; color:var(--good); font-weight:700; }
+  </style>
+</head>
+<body class="font-body antialiased">
+
+  <header class="border-b" style="border-color:var(--line); background:var(--surface-1);">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="../index.html" class="flex items-center gap-2 text-sm" style="color:var(--text-secondary)"><span aria-hidden="true">←</span> Portfolio</a>
+      <span class="badge px-2 py-1" style="background:var(--surface-2);border:1px solid var(--line);color:var(--text-secondary)">Digital Experience · Public sector</span>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-6 py-12">
+
+    <!-- Hero -->
+    <section class="mb-14">
+      <p class="eyebrow mb-3">Case study · Member digital experience</p>
+      <h1 class="font-headline text-4xl md:text-5xl font-bold leading-tight mb-4">Modernising the member digital experience</h1>
+      <p class="text-lg max-w-3xl leading-relaxed" style="color:var(--text-secondary)">
+        How I would lead the digital experience for a public-sector pension plan: a website modernisation and a member engagement
+        strategy that make a complex benefit feel simple. Task-based architecture, plain-language forms and letters, accessibility built
+        in, a design system that scales quality, the responsible use of AI, all delivered in waves with the team carried through the change.
+        <span class="block mt-2 text-sm">A worked, illustrative case for a public-sector pension context. The approach is the real thing.</span>
+      </p>
+      <div class="flex flex-wrap gap-2 mt-6 text-sm" style="color:var(--text-secondary)">
+        <span class="px-3 py-1" style="border:1px solid var(--line);border-radius:999px">Engagement strategy</span>
+        <span class="px-3 py-1" style="border:1px solid var(--line);border-radius:999px">Website modernisation</span>
+        <span class="px-3 py-1" style="border:1px solid var(--line);border-radius:999px">Forms &amp; correspondence</span>
+        <span class="px-3 py-1" style="border:1px solid var(--line);border-radius:999px">WCAG 2.2 AA</span>
+        <span class="px-3 py-1" style="border:1px solid var(--line);border-radius:999px">Design system</span>
+        <span class="px-3 py-1" style="border:1px solid var(--line);border-radius:999px">Responsible AI</span>
+        <span class="px-3 py-1" style="border:1px solid var(--line);border-radius:999px">Change management</span>
+      </div>
+    </section>
+
+    <!-- 01 Mandate -->
+    <section class="mb-16">
+      <p class="eyebrow mb-2">01 · The mandate</p>
+      <h2 class="sec text-2xl font-semibold mb-1">A simple experience for a genuinely complex benefit</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="text-sm leading-relaxed" style="color:var(--text-secondary)">
+          <p class="mb-3"><strong style="color:var(--text-primary)">The strategy:</strong> a digital-first, member-centred experience across every channel. Members should be able to understand their pension and complete the task they came for without a phone call and employers should be able to self-serve with confidence.</p>
+          <p><strong style="color:var(--text-primary)">My frame:</strong> modernisation is not a redesign of pages. It is a redesign of tasks, content and letters around what members actually need, governed so quality holds as the site and the plans evolve.</p>
+        </div>
+        <div class="card p-5">
+          <p class="badge mb-3" style="color:var(--text-secondary)">What a quick audit tends to surface</p>
+          <ul class="text-sm space-y-2" style="color:var(--text-secondary)">
+            <li>• Members call because the site answers "what is it" but not "what do I do".</li>
+            <li>• Forms and letters are written in plan language, not plain language.</li>
+            <li>• Self-service exists but stalls partway through the hardest tasks.</li>
+            <li>• Accessibility is tested at the end, not designed in from the start.</li>
+            <li>• Content lives in many templates with no single source of truth.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 Who we serve -->
+    <section class="mb-16">
+      <p class="eyebrow mb-2">02 · Who we serve</p>
+      <h2 class="sec text-2xl font-semibold mb-6">Members and employers, across every channel</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="card p-6">
+          <p class="font-headline text-lg font-semibold">Priya, approaching retirement</p>
+          <p class="text-xs mb-3" style="color:var(--text-secondary)">High stakes, low tolerance for jargon</p>
+          <p class="text-sm" style="color:var(--text-secondary)">Wants to understand her options and estimate her pension with confidence, then start the application without fear of a mistake.</p>
+        </div>
+        <div class="card p-6">
+          <p class="font-headline text-lg font-semibold">Marcus, early career</p>
+          <p class="text-xs mb-3" style="color:var(--text-secondary)">Digital-native, time-poor</p>
+          <p class="text-sm" style="color:var(--text-secondary)">Wants a quick answer on contributions and a reason to care now. Will self-serve on mobile or not at all.</p>
+        </div>
+        <div class="card p-6">
+          <p class="font-headline text-lg font-semibold">Dana, employer plan admin</p>
+          <p class="text-xs mb-3" style="color:var(--text-secondary)">Accountable, needs accuracy</p>
+          <p class="text-sm" style="color:var(--text-secondary)">Wants to submit records and find policy answers through the Employer Portal without waiting on support.</p>
+        </div>
+      </div>
+      <p class="text-sm mt-4" style="color:var(--text-secondary)">Channels to keep consistent: plan websites, secure portals (My Account, Employer Portal), the contact centre, letters and forms, webinars and e-learning. The experience should feel like one organisation across all of them.</p>
+    </section>
+
+    <!-- 03 Evidence -->
+    <section class="mb-16">
+      <p class="eyebrow mb-2">03 · Grounded in evidence</p>
+      <h2 class="sec text-2xl font-semibold mb-1">Decisions follow research and data, not opinion</h2>
+      <p class="text-sm mb-6" style="color:var(--text-secondary)">Before anything is designed, the work is grounded: top member tasks, why members call, where self-service drops off and what the analytics and usability testing say. The modernisation is prioritised against that evidence.</p>
+      <div class="card overflow-x-auto">
+        <table class="grid" style="min-width:680px">
+          <thead><tr><th>Evidence source</th><th>Question it answers</th><th>How it steers the work</th></tr></thead>
+          <tbody>
+            <tr><td>Top-tasks analysis</td><td>What do members come to do</td><td>The IA and homepage lead with the few tasks that matter</td></tr>
+            <tr><td>Contact-centre drivers</td><td>Why do members call</td><td>Each top call reason gets a self-service answer</td></tr>
+            <tr><td>Funnel &amp; analytics</td><td>Where does self-service stall</td><td>The hardest steps get redesigned and retested first</td></tr>
+            <tr><td>Usability testing</td><td>Can members actually finish</td><td>Task success becomes the bar a release has to clear</td></tr>
+            <tr><td>Accessibility audit</td><td>Can everyone use it</td><td>Barriers are fixed as defects, not deferred</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 04 IA -->
+    <section class="mb-16">
+      <p class="eyebrow mb-2">04 · Task-based architecture</p>
+      <h2 class="sec text-2xl font-semibold mb-1">Organise around tasks, not the org chart</h2>
+      <p class="text-sm mb-6" style="color:var(--text-secondary)">A pension site drifts toward naming itself after internal departments. Members think in tasks. The modernised IA leads with them and puts the secure, personalised work behind one clear sign-in.</p>
+      <div class="card p-6 overflow-x-auto">
+        <ul class="text-sm mono" style="color:var(--text-secondary); line-height:1.9; min-width:560px">
+          <li>Home <span style="color:var(--text-secondary)">(leads with the top member tasks)</span></li>
+          <li>├─ Plan my retirement <span style="color:var(--text-secondary)">(estimate, options, apply)</span></li>
+          <li>├─ Understand my pension <span style="color:var(--text-secondary)">(plain-language guides)</span></li>
+          <li>├─ Life changes <span style="color:var(--text-secondary)">(new job, leaving, marriage, death)</span></li>
+          <li>├─ Forms &amp; documents <span style="color:var(--text-secondary)">(structured, accessible)</span></li>
+          <li>└─ <span style="color:var(--gold);font-weight:700">My Account (secure)</span>
+            <ul style="margin-left:1.4rem">
+              <li>├─ Estimate &amp; apply</li>
+              <li>├─ Update my details</li>
+              <li>└─ My letters &amp; documents</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 05 Forms & correspondence -->
+    <section class="mb-16">
+      <p class="eyebrow mb-2">05 · Forms &amp; correspondence</p>
+      <h2 class="sec text-2xl font-semibold mb-1">Letters a member can read once and understand</h2>
+      <p class="text-sm mb-6" style="color:var(--text-secondary)">Correspondence and forms are where trust is won or lost. I treat them as structured content: plain language, a clear next step, accessible by default, authored once and reused, so a change to policy updates every letter cleanly.</p>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="card p-5">
+          <p class="badge mb-2" style="color:var(--crit)">Before</p>
+          <p class="text-sm leading-relaxed" style="color:var(--text-secondary)">"Further to your recent correspondence regarding the commencement of your pension entitlement, please be advised that additional documentation is required in order for the Corporation to adjudicate your request."</p>
+        </div>
+        <div class="card p-5" style="border-color:var(--good)">
+          <p class="badge mb-2" style="color:var(--good)">After</p>
+          <p class="text-sm leading-relaxed" style="color:var(--text-primary)">"We need one more document to start your pension. Please send us your birth certificate by 15 March. Here is how and here is what happens next."</p>
+        </div>
+      </div>
+      <p class="text-xs mt-3" style="color:var(--text-secondary)">Structured content means the plain-language rewrite, the reading level, the accessibility and the policy accuracy are governed in one place, not re-litigated letter by letter.</p>
+    </section>
+
+    <!-- 06 Accessibility -->
+    <section class="mb-16">
+      <p class="eyebrow mb-2">06 · Accessibility</p>
+      <h2 class="sec text-2xl font-semibold mb-1">Accessible by default, not by audit</h2>
+      <p class="text-sm mb-6" style="color:var(--text-secondary)">For a public service, accessibility is an obligation and a design principle. I build it in and govern it, rather than testing for it at the end and hoping.</p>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="card p-6 text-sm" style="color:var(--text-secondary)">
+          <p class="badge mb-2" style="color:var(--s1)">Designed in</p>
+          <ul class="space-y-1">
+            <li class="tick">WCAG 2.2 AA as the baseline for web, portals, forms and documents.</li>
+            <li class="tick">Plain language and a readability target on every member-facing page.</li>
+            <li class="tick">Keyboard, screen-reader and reflow checks in the component itself.</li>
+            <li class="tick">Accessible PDFs and letters, not just accessible web pages.</li>
+          </ul>
+        </div>
+        <div class="card p-6 text-sm" style="color:var(--text-secondary)">
+          <p class="badge mb-2" style="color:var(--s3)">Governed</p>
+          <ul class="space-y-1">
+            <li class="tick">Accessibility acceptance criteria on every story, checked before release.</li>
+            <li class="tick">A conformance measure reported alongside delivery, not buried.</li>
+            <li class="tick">A clear channel for members to request an accommodation, honoured quickly.</li>
+            <li class="tick">Regular audits treated as defects to fix, with owners and dates.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07 Design system -->
+    <section class="mb-16">
+      <p class="eyebrow mb-2">07 · Design system &amp; governance</p>
+      <h2 class="sec text-2xl font-semibold mb-1">Quality that scales because it is built once</h2>
+      <p class="text-sm mb-6" style="color:var(--text-secondary)">A design system and a content model are how a small team keeps a large estate consistent and accessible. Components carry their accessibility and their plain-language patterns with them, so every new page starts compliant.</p>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="card p-6"><p class="badge mb-2" style="color:var(--s1)">Design system</p><p class="text-sm" style="color:var(--text-secondary)">Accessible, tested components and tokens. One button, one form field, one set of states, reused across web and portals.</p></div>
+        <div class="card p-6"><p class="badge mb-2" style="color:var(--s3)">Content model</p><p class="text-sm" style="color:var(--text-secondary)">Structured, reusable content for guides, forms and letters, authored once and published everywhere, with plain-language standards baked in.</p></div>
+        <div class="card p-6"><p class="badge mb-2" style="color:var(--s4)">Governance</p><p class="text-sm" style="color:var(--text-secondary)">Clear standards, review and quality gates, so consistency and accessibility survive growth and staff change.</p></div>
+      </div>
+    </section>
+
+    <!-- 08 Responsible AI -->
+    <section class="mb-16">
+      <p class="eyebrow mb-2">08 · Responsible AI &amp; automation</p>
+      <h2 class="sec text-2xl font-semibold mb-1">AI where it helps a member, with guardrails</h2>
+      <p class="text-sm mb-6" style="color:var(--text-secondary)">AI earns a place when it makes a member's task easier and a team's work lighter, never at the cost of accuracy or trust in a regulated benefit.</p>
+      <div class="grid md:grid-cols-2 gap-6 text-sm leading-relaxed" style="color:var(--text-secondary)">
+        <p><strong style="color:var(--text-primary)">Member-facing:</strong> a grounded assistant that answers pension questions from approved, plain-language content and policy, cites what it is based on and hands off to a person for anything it is not confident about or that touches a member's specific entitlement.</p>
+        <p><strong style="color:var(--text-primary)">Behind the scenes:</strong> drafting and triage that free staff for the complex, human work: proposing plain-language rewrites for review, summarising a member's history for the contact centre and routing correspondence. Always reviewed, always governed, never the final word on a benefit.</p>
+      </div>
+    </section>
+
+    <!-- 09 Waves -->
+    <section class="mb-16">
+      <p class="eyebrow mb-2">09 · Delivered in waves</p>
+      <h2 class="sec text-2xl font-semibold mb-1">Phased delivery, with the team carried through it</h2>
+      <p class="text-sm mb-6" style="color:var(--text-secondary)">Modernisation this size succeeds in waves that each ship real value, not a single risky launch. Each wave is paired with change management so staff, partners and members adopt it.</p>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="card p-6">
+          <p class="badge mb-2" style="color:var(--good)">Wave 1 · Foundations</p>
+          <ul class="text-sm space-y-2" style="color:var(--text-secondary)">
+            <li>• Design system and content model v1</li>
+            <li>• Top member tasks, rebuilt and accessible</li>
+            <li>• Plain-language standard for forms and letters</li>
+          </ul>
+        </div>
+        <div class="card p-6">
+          <p class="badge mb-2" style="color:var(--s1)">Wave 2 · Self-service</p>
+          <ul class="text-sm space-y-2" style="color:var(--text-secondary)">
+            <li>• Estimate and apply in My Account</li>
+            <li>• Employer Portal improvements</li>
+            <li>• Correspondence modernised and automated</li>
+          </ul>
+        </div>
+        <div class="card p-6">
+          <p class="badge mb-2" style="color:var(--s2)">Wave 3 · Personalised</p>
+          <ul class="text-sm space-y-2" style="color:var(--text-secondary)">
+            <li>• New plan websites, fully modernised</li>
+            <li>• Grounded member assistant</li>
+            <li>• Proactive, personalised guidance</li>
+          </ul>
+        </div>
+      </div>
+      <div class="mt-6 text-sm p-4" style="background:var(--surface-1);border:1px solid var(--line);color:var(--text-secondary)">
+        <strong style="color:var(--text-primary)">Change management:</strong> every wave ships with enablement for staff, clear communication to members and employers, partner and vendor alignment and a read on adoption. The reliability of today's service is protected while tomorrow's is built.
+      </div>
+    </section>
+
+    <!-- 10 Measures -->
+    <section class="mb-16">
+      <p class="eyebrow mb-2">10 · Measures of success</p>
+      <h2 class="sec text-2xl font-semibold mb-1">Evidence that it worked</h2>
+      <p class="text-sm mb-6" style="color:var(--text-secondary)">The work is held to outcomes a member and a board both care about. These are tracked and reported, not assumed.</p>
+      <div class="card overflow-x-auto">
+        <table class="grid" style="min-width:640px">
+          <thead><tr><th>Measure</th><th>Why it matters</th></tr></thead>
+          <tbody>
+            <tr><td>Digital-first adoption</td><td>Members choosing self-service over the phone for routine tasks</td></tr>
+            <tr><td>Task success rate</td><td>Members actually finishing what they came to do</td></tr>
+            <tr><td>Self-service completion</td><td>Fewer stalls in the hardest flows</td></tr>
+            <tr><td>Accessibility conformance</td><td>Everyone can use the service, measured not assumed</td></tr>
+            <tr><td>Member ease / satisfaction</td><td>The experience feels simpler, in members' own words</td></tr>
+            <tr><td>Correspondence turnaround</td><td>Letters and forms resolved faster and understood</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-sm mt-3" style="color:var(--text-secondary)">The live version of this is in the <a href="../member-experience-scorecard/index.html" class="underline" style="color:var(--s1)">Member Experience Scorecard</a>, with an interactive channel-shift model.</p>
+    </section>
+
+    <!-- 11 Leadership -->
+    <section>
+      <p class="eyebrow mb-2">11 · Leading the function</p>
+      <h2 class="sec text-2xl font-semibold mb-4">How I lead a digital experience team</h2>
+      <div class="grid md:grid-cols-3 gap-6 text-sm leading-relaxed" style="color:var(--text-secondary)">
+        <div><p class="font-headline text-lg font-semibold mb-1" style="color:var(--text-primary)">Empower the experts</p><p>I lead managers and professional staff across digital products, UX, content, education, forms and correspondence by setting clear direction and priorities, then creating the conditions for them to do their best work.</p></div>
+        <div><p class="font-headline text-lg font-semibold mb-1" style="color:var(--text-primary)">Balance ambition and reliability</p><p>I push modernisation and the responsible use of AI while protecting service quality, accessibility, governance and risk. Innovation that breaks today's service is not innovation.</p></div>
+        <div><p class="font-headline text-lg font-semibold mb-1" style="color:var(--text-primary)">Decide on evidence</p><p>I set performance measures, read the quantitative and qualitative evidence together and make sound calls in a complex, changing environment, with partners and vendors aligned behind them.</p></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t mt-14" style="border-color:var(--line)">
+    <div class="max-w-6xl mx-auto px-6 py-8 text-sm flex flex-wrap gap-2 justify-between" style="color:var(--text-secondary)">
+      <span>Portfolio project, member digital experience</span>
+      <span class="flex gap-4"><a href="https://www.linkedin.com/in/sanemlegresley/" target="_blank" rel="noopener" class="underline">Sanem Le Gresley · LinkedIn</a><a href="../index.html" class="underline">Back to all projects</a></span>
+    </div>
+  </footer>
+</body>
+</html>
