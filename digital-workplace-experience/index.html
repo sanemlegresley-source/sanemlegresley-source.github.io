@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Workplace &amp; Employee Experience</title>
+  <meta name="description" content="Treating the internal digital experience as a business enabler: digital employee experience measurement, self-service and an AI copilot for IT, modern endpoint management and an interactive ticket-deflection and automation ROI model.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: "media", theme: { extend: {
+      fontFamily: { headline: ["Noto Serif","Georgia","serif"], body: ["Inter","system-ui","sans-serif"] },
+      borderRadius: { DEFAULT: "2px" }
+    } } };
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --surface-1:#ffffff; --surface-2:#f4f4f5; --line:#d6d6d8;
+      --text-primary:#161616; --text-secondary:#5f6062; --gold:#a31f34;
+      --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a; --s4:#eda100;
+      --good:#12805a; --warn:#b26b00; --crit:#c0392b;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --surface-1:#1c1c1e; --surface-2:#161618; --line:#37373a;
+        --text-primary:#f1f1f2; --text-secondary:#a6a6aa; --gold:#e2566a;
+        --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500;
+        --good:#3aa981; --warn:#d79a2b; --crit:#e57368;
+      }
+    }
+    body { background:var(--surface-2); color:var(--text-primary); }
+    .card { background:var(--surface-1); border:1px solid var(--line); }
+    .mono { font-variant-numeric: tabular-nums; }
+    .badge { font-size:.68rem; letter-spacing:.04em; text-transform:uppercase; font-weight:600; }
+    .eyebrow { font-size:.72rem; letter-spacing:.08em; text-transform:uppercase; font-weight:700; color:var(--gold); }
+    label.f { display:block; font-size:.8rem; color:var(--text-secondary); margin-bottom:.25rem; }
+    input.f { width:100%; padding:.5rem .6rem; background:transparent; border:1px solid var(--line); color:var(--text-primary); font-size:.9rem; }
+    .pill { display:inline-block; font-size:.7rem; font-weight:600; padding:.15rem .5rem; border:1px solid var(--line); border-radius:999px; color:var(--text-secondary); }
+  </style>
+</head>
+<body class="font-body antialiased">
+
+  <header class="border-b" style="border-color:var(--line); background:var(--surface-1);">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="../index.html" class="flex items-center gap-2 text-sm" style="color:var(--text-secondary)"><span aria-hidden="true">←</span> Portfolio</a>
+      <span class="badge px-2 py-1" style="background:var(--surface-2);border:1px solid var(--line);color:var(--text-secondary)">Digital Workplace · Employee Experience</span>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-6 py-12">
+
+    <!-- Hero -->
+    <section class="mb-12">
+      <p class="eyebrow mb-3">Case study · The workplace employees actually want to use</p>
+      <h1 class="font-headline text-4xl md:text-5xl font-bold leading-tight mb-4">Digital workplace and employee experience</h1>
+      <p class="text-lg max-w-3xl leading-relaxed mb-5" style="color:var(--text-secondary)">
+        The experience employees have with their own technology is a business enabler, not a back-office cost. When the everyday
+        tools are fast, frictionless and secure, people do their best work and the Service Desk gets its time back for the problems
+        that need a human. This is how I run the digital workplace as a product. Numbers are edited for confidentiality, the approach
+        is the one I use.
+      </p>
+      <div class="flex flex-wrap gap-2">
+        <span class="pill">Digital employee experience</span>
+        <span class="pill">Self-service &amp; AI copilot</span>
+        <span class="pill">Modern endpoint management</span>
+        <span class="pill">Automation ROI</span>
+        <span class="pill">Security as experience</span>
+      </div>
+    </section>
+
+    <!-- KPI tiles -->
+    <section class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-14">
+      <div class="card p-5"><p class="badge" style="color:var(--text-secondary)">Digital employee experience</p><p class="text-3xl font-headline font-bold mono mt-1" style="color:var(--s3)">82<span class="text-xl">/100</span></p><p class="text-xs mt-1" style="color:var(--text-secondary)">DEX index, device and app health</p></div>
+      <div class="card p-5"><p class="badge" style="color:var(--text-secondary)">Self-service deflection</p><p class="text-3xl font-headline font-bold mono mt-1" style="color:var(--s1)">41%</p><p class="text-xs mt-1" style="color:var(--text-secondary)">Resolved before a ticket is raised</p></div>
+      <div class="card p-5"><p class="badge" style="color:var(--text-secondary)">Copilot first-response</p><p class="text-3xl font-headline font-bold mono mt-1" style="color:var(--s4)">&lt; 10<span class="text-xl"> sec</span></p><p class="text-xs mt-1" style="color:var(--text-secondary)">AI assistant, grounded in policy</p></div>
+      <div class="card p-5"><p class="badge" style="color:var(--text-secondary)">Zero-touch provisioning</p><p class="text-3xl font-headline font-bold mono mt-1" style="color:var(--good)">96%</p><p class="text-xs mt-1" style="color:var(--text-secondary)">New devices ready with no hands-on build</p></div>
+      <div class="card p-5"><p class="badge" style="color:var(--text-secondary)">Time to productive, day one</p><p class="text-3xl font-headline font-bold mono mt-1">&lt; 2<span class="text-xl"> hrs</span></p><p class="text-xs mt-1" style="color:var(--text-secondary)">New joiner signed in and working</p></div>
+      <div class="card p-5"><p class="badge" style="color:var(--text-secondary)">Employee technology NPS</p><p class="text-3xl font-headline font-bold mono mt-1" style="color:var(--s2)">+44</p><p class="text-xs mt-1" style="color:var(--text-secondary)">Would recommend their own tools</p></div>
+    </section>
+
+    <!-- 01 DEX principles -->
+    <section class="mb-16">
+      <p class="eyebrow mb-2">01 · The principle</p>
+      <h2 class="font-headline text-2xl font-semibold mb-1">User experience, pointed inward</h2>
+      <p class="text-sm mb-6 max-w-3xl" style="color:var(--text-secondary)">
+        We spend real effort making the experience excellent for customers. The internal experience deserves the same craft. A
+        login that fails, a laptop that crawls or a request that takes a week is friction multiplied across every employee, every
+        day. Design thinking does not stop at the firewall.
+      </p>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="card p-6"><p class="badge mb-2" style="color:var(--s1)">Frictionless</p><p class="text-sm" style="color:var(--text-secondary)">The common task should take seconds and no training. If people need a workaround, the design is the problem, not the user.</p></div>
+        <div class="card p-6"><p class="badge mb-2" style="color:var(--s3)">Measured like a product</p><p class="text-sm" style="color:var(--text-secondary)">Device performance, app health, login success and sentiment, watched together. You cannot improve an experience you do not measure.</p></div>
+        <div class="card p-6"><p class="badge mb-2" style="color:var(--s4)">Secure by default</p><p class="text-sm" style="color:var(--text-secondary)">The safe path is the easy path. Good security is felt as less friction, not more, so people do not route around it.</p></div>
+      </div>
+    </section>
+
+    <!-- 02 DEX measurement -->
+    <section class="mb-16">
+      <p class="eyebrow mb-2">02 · Measuring the experience</p>
+      <h2 class="font-headline text-2xl font-semibold mb-1">A score that reflects a real day</h2>
+      <p class="text-sm mb-6 max-w-3xl" style="color:var(--text-secondary)">
+        Digital employee experience combines what the devices tell us with what people tell us. Hard telemetry keeps it honest,
+        sentiment keeps it human. I read the two together, because a fast laptop that still frustrates people is a problem the
+        dashboard alone will miss.
+      </p>
+      <div class="grid lg:grid-cols-5 gap-6">
+        <div class="card p-6 lg:col-span-3">
+          <h3 class="text-sm font-semibold mb-1">DEX index, trailing eight quarters</h3>
+          <p class="text-xs mb-4" style="color:var(--text-secondary)">Composite of device performance, app reliability, login success and employee sentiment.</p>
+          <div id="dexChart"></div>
+        </div>
+        <div class="card p-6 lg:col-span-2">
+          <div class="space-y-4 text-sm">
+            <div><p class="font-semibold mb-1">Device &amp; app telemetry</p><p style="color:var(--text-secondary)">Boot and login times, crash rates, battery and performance health, measured on the endpoint, not guessed at.</p></div>
+            <div><p class="font-semibold mb-1">Experience sentiment</p><p style="color:var(--text-secondary)">Short, in-context pulse surveys that catch the frustration a green metric can hide.</p></div>
+            <div><p class="font-semibold mb-1">Proactive, not reactive</p><p style="color:var(--text-secondary)">A degrading device is fixed before the person notices, turning support from a queue into a quiet background service.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 Self-service & copilot -->
+    <section class="mb-16">
+      <p class="eyebrow mb-2">03 · Self-service &amp; the AI copilot</p>
+      <h2 class="font-headline text-2xl font-semibold mb-1">Shift the routine left, keep people for the hard part</h2>
+      <p class="text-sm mb-6 max-w-3xl" style="color:var(--text-secondary)">
+        Most requests are variations on a handful of known questions. A good knowledge base, self-service actions and an AI copilot
+        grounded in current policy resolve those in seconds, any hour of the day. That is better for the employee and it frees the
+        Service Desk for the issues that genuinely need a person.
+      </p>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="card p-6"><p class="badge mb-2" style="color:var(--s1)">Grounded answers</p><p class="text-sm" style="color:var(--text-secondary)">The copilot answers from approved knowledge and current policy, with a clear path to a human when it is unsure. No confident guessing.</p></div>
+        <div class="card p-6"><p class="badge mb-2" style="color:var(--s3)">Actions, not just answers</p><p class="text-sm" style="color:var(--text-secondary)">Reset access, request software, unlock an account. Self-service that completes the task, not a chatbot that files a ticket for you.</p></div>
+        <div class="card p-6"><p class="badge mb-2" style="color:var(--s4)">Human-in-the-loop</p><p class="text-sm" style="color:var(--text-secondary)">Routine resolves itself, judgement escalates cleanly with full context, so the handover never makes the employee start over.</p></div>
+      </div>
+    </section>
+
+    <!-- 04 Automation ROI (interactive) -->
+    <section class="mb-16">
+      <p class="eyebrow mb-2">04 · What deflection is worth</p>
+      <h2 class="font-headline text-2xl font-semibold mb-1">The business case for self-service</h2>
+      <p class="text-sm mb-6 max-w-3xl" style="color:var(--text-secondary)">
+        Deflection is an experience win and a budget argument at once. Move the inputs to see the annual support cost before and
+        after, the capacity it returns to the team and the money it frees. The point is not fewer people, it is people spent on
+        better work. Editable.
+      </p>
+      <div class="grid lg:grid-cols-5 gap-6">
+        <div class="card p-6 lg:col-span-2">
+          <div class="space-y-4">
+            <div><label class="f" for="tickets">Tickets per year</label><input class="f mono" id="tickets" type="number" value="120000" step="5000" min="0"></div>
+            <div class="grid grid-cols-2 gap-3">
+              <div><label class="f" for="share">Deflectable share (%)</label><input class="f mono" id="share" type="number" value="35" step="1" min="0" max="100"></div>
+              <div><label class="f" for="mins">Minutes / ticket</label><input class="f mono" id="mins" type="number" value="15" step="1" min="0"></div>
+            </div>
+            <div class="grid grid-cols-2 gap-3">
+              <div><label class="f" for="assisted">Cost / assisted ($)</label><input class="f mono" id="assisted" type="number" value="22" step="1" min="0"></div>
+              <div><label class="f" for="selfserve">Cost / self-service ($)</label><input class="f mono" id="selfserve" type="number" value="1.5" step="0.5" min="0"></div>
+            </div>
+          </div>
+          <div class="mt-5 p-4" style="background:var(--surface-2)">
+            <p class="badge" style="color:var(--text-secondary)">Annual saving from deflection</p>
+            <p class="text-3xl font-headline font-bold mono" id="saving" style="color:var(--good)">…</p>
+            <p class="text-sm mt-1" id="hoursNote" style="color:var(--text-secondary)"></p>
+          </div>
+        </div>
+        <div class="card p-6 lg:col-span-3">
+          <h3 class="text-sm font-semibold mb-1">Annual support cost</h3>
+          <p class="text-xs mb-4" style="color:var(--text-secondary)">Everything through the desk, versus the deflectable share served by self-service and the copilot.</p>
+          <div id="costChart"></div>
+        </div>
+      </div>
+      <p class="text-xs mt-3" style="color:var(--text-secondary)">Capacity returned is the real prize. The hours deflection gives back are hours the team spends on proactive work, on the complex issues and on improving the experience, which is what lowers ticket volume in the first place.</p>
+    </section>
+
+    <!-- 05 Modern endpoint -->
+    <section class="mb-16">
+      <p class="eyebrow mb-2">05 · Modern endpoint &amp; workplace</p>
+      <h2 class="font-headline text-2xl font-semibold mb-1">The device is ready before the person arrives</h2>
+      <p class="text-sm mb-6 max-w-3xl" style="color:var(--text-secondary)">
+        A modern workplace is cloud-managed, zero-touch and consistent wherever people work. The win people feel is the first one:
+        a new laptop that signs in and is ready, with no imaging bench and no week of waiting.
+      </p>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="card p-5"><p class="badge" style="color:var(--text-secondary)">Zero-touch provisioning</p><p class="text-2xl font-headline font-bold mono mt-1" style="color:var(--good)">96%</p></div>
+        <div class="card p-5"><p class="badge" style="color:var(--text-secondary)">Patch compliance</p><p class="text-2xl font-headline font-bold mono mt-1" style="color:var(--s3)">98%</p></div>
+        <div class="card p-5"><p class="badge" style="color:var(--text-secondary)">Mean boot-to-work</p><p class="text-2xl font-headline font-bold mono mt-1" style="color:var(--s1)">54<span class="text-base"> sec</span></p></div>
+        <div class="card p-5"><p class="badge" style="color:var(--text-secondary)">Hardware-driven tickets</p><p class="text-2xl font-headline font-bold mono mt-1" style="color:var(--s2)">-31%</p></div>
+      </div>
+    </section>
+
+    <!-- 06 Security as experience -->
+    <section class="mb-16">
+      <p class="eyebrow mb-2">06 · Security as experience</p>
+      <h2 class="font-headline text-2xl font-semibold mb-1">Safe and seamless are the same goal</h2>
+      <p class="text-sm mb-6 max-w-3xl" style="color:var(--text-secondary)">
+        In a regulated environment security is non-negotiable and the way to make it stick is to make it effortless. When the
+        secure path is also the smooth one, people stay on it. Friction is what pushes them to the workaround that actually creates
+        the risk.
+      </p>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="card p-6"><p class="badge mb-2" style="color:var(--s1)">Seamless sign-in</p><p class="text-sm" style="color:var(--text-secondary)">Single sign-on and passwordless, so strong authentication is also the fastest way in.</p></div>
+        <div class="card p-6"><p class="badge mb-2" style="color:var(--s3)">Zero-trust, quietly</p><p class="text-sm" style="color:var(--text-secondary)">Device and identity posture checked in the background. Trust is verified without making people feel policed.</p></div>
+        <div class="card p-6"><p class="badge mb-2" style="color:var(--s4)">Guardrails, not gates</p><p class="text-sm" style="color:var(--text-secondary)">Controls that shape the safe path rather than block the work, so compliance and productivity pull the same way.</p></div>
+      </div>
+    </section>
+
+    <!-- 07 Leadership -->
+    <section>
+      <p class="eyebrow mb-2">07 · Why it is a differentiator</p>
+      <h2 class="font-headline text-2xl font-semibold mb-1">Experience thinking, applied to the inside of the company</h2>
+      <p class="text-sm mb-6 max-w-3xl" style="color:var(--text-secondary)">
+        The digital workplace is where my product and experience background meets technology operations. I run internal services
+        with the same discipline a good team brings to a customer product: understand the journey, measure what people feel, remove
+        friction and treat the employee as the user whose time is worth protecting.
+      </p>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="card p-6"><p class="badge mb-2" style="color:var(--s1)">The employee is the user</p><p class="text-sm" style="color:var(--text-secondary)">Every internal service has a journey worth mapping and friction worth removing. I run it that way.</p></div>
+        <div class="card p-6"><p class="badge mb-2" style="color:var(--s3)">Enabler, not overhead</p><p class="text-sm" style="color:var(--text-secondary)">A great digital workplace is a productivity multiplier and a retention factor, which is how I make its case to the business.</p></div>
+        <div class="card p-6"><p class="badge mb-2" style="color:var(--s4)">AI with judgement</p><p class="text-sm" style="color:var(--text-secondary)">I bring AI in where it clearly helps the employee, with guardrails and a human path, not because it is the thing to do.</p></div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="border-t mt-14" style="border-color:var(--line)">
+    <div class="max-w-6xl mx-auto px-6 py-8 text-sm flex flex-wrap gap-2 justify-between" style="color:var(--text-secondary)">
+      <span>Portfolio project, digital workplace and employee experience</span>
+      <span class="flex gap-4"><a href="https://www.linkedin.com/in/sanemlegresley/" target="_blank" rel="noopener" class="underline">Sanem Le Gresley · LinkedIn</a><a href="../index.html" class="underline">Back to all projects</a></span>
+    </div>
+  </footer>
+
+  <script>
+  const $=id=>document.getElementById(id);
+  const money=n=> n>=1e6 ? "$"+(n/1e6).toFixed(2)+"M" : "$"+Math.round(n/1000)+"k";
+
+  // ---- DEX index trend -----------------------------------------------------
+  (function(){
+    const dex=[61,64,67,70,73,76,79,82];
+    const labels=["Q1","Q2","Q3","Q4","Q1","Q2","Q3","Q4"];
+    const W=720,H=240,padL=36,padR=14,padT=16,padB=28,iw=W-padL-padR,ih=H-padT-padB;
+    const min=40,max=100;
+    const x=i=>padL+(i/(dex.length-1))*iw, y=v=>padT+(1-(v-min)/(max-min))*ih;
+    let grid="";
+    [40,55,70,85,100].forEach(g=>{grid+=`<line x1="${padL}" y1="${y(g)}" x2="${W-padR}" y2="${y(g)}" stroke="var(--line)"/><text x="${padL-6}" y="${y(g)+4}" text-anchor="end" font-size="10" fill="var(--text-secondary)">${g}</text>`;});
+    labels.forEach((l,i)=>{grid+=`<text x="${x(i)}" y="${H-10}" text-anchor="middle" font-size="10" fill="var(--text-secondary)">${l}</text>`;});
+    const d=dex.map((v,i)=>`${x(i)},${y(v)}`).join(" ");
+    const dots=dex.map((v,i)=>`<circle cx="${x(i)}" cy="${y(v)}" r="2.8" fill="var(--s3)"/>`).join("");
+    const lastLbl=`<text x="${x(7)}" y="${y(82)-10}" text-anchor="middle" font-size="12" font-weight="700" fill="var(--text-primary)" class="mono">82</text>`;
+    $("dexChart").innerHTML=`<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="Digital employee experience index rising from 61 to 82 over eight quarters">${grid}<polyline points="${d}" fill="none" stroke="var(--s3)" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>${dots}${lastLbl}</svg>`;
+  })();
+
+  // ---- automation ROI ------------------------------------------------------
+  function update(){
+    const tickets=Math.max(0,+$("tickets").value||0);
+    const share=Math.min(100,Math.max(0,+$("share").value||0))/100;
+    const mins=Math.max(0,+$("mins").value||0);
+    const assisted=Math.max(0,+$("assisted").value||0);
+    const selfserve=Math.max(0,+$("selfserve").value||0);
+    const deflected=tickets*share;
+    const costNow=tickets*assisted;
+    const costAfter=(tickets-deflected)*assisted + deflected*selfserve;
+    const saving=Math.max(0,costNow-costAfter);
+    const hours=deflected*mins/60;
+    const fte=hours/1800;
+    $("saving").textContent=money(saving);
+    $("hoursNote").innerHTML=`${Math.round(hours).toLocaleString()} support hours returned, about ${fte.toFixed(1)} full-time equivalents freed for better work.`;
+    drawCost(costNow,costAfter);
+  }
+  function drawCost(now, after){
+    const data=[{l:"All through the desk", v:now, c:"var(--s1)"},{l:"With deflection", v:after, c:"var(--good)"}];
+    const max=Math.max(now,after,1), W=460,H=210,padL=8,padR=8,padT=16,padB=40,iw=W-padL-padR,ih=H-padT-padB;
+    const gap=iw/data.length, bw=gap*0.5;
+    const y=v=>padT+ih-(v/max)*ih;
+    let out="";
+    data.forEach((d,i)=>{const x=padL+i*gap+(gap-bw)/2, yy=y(d.v), h=Math.max(2,padT+ih-yy);
+      out+=`<rect x="${x.toFixed(1)}" y="${yy.toFixed(1)}" width="${bw.toFixed(1)}" height="${h.toFixed(1)}" rx="3" fill="${d.c}"/>`;
+      out+=`<text x="${(x+bw/2).toFixed(1)}" y="${(yy-6).toFixed(1)}" text-anchor="middle" font-size="12" font-weight="700" fill="var(--text-primary)" class="mono">${money(d.v)}</text>`;
+      out+=`<text x="${(x+bw/2).toFixed(1)}" y="${H-14}" text-anchor="middle" font-size="11" fill="var(--text-secondary)">${d.l}</text>`;});
+    $("costChart").innerHTML=`<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="Annual support cost, all through the desk versus with deflection">${out}</svg>`;
+  }
+  ["tickets","share","mins","assisted","selfserve"].forEach(id=>$(id).addEventListener("input",update));
+  update();
+  </script>
+</body>
+</html>
