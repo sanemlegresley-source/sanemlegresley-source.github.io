@@ -1,0 +1,19 @@
+rules_version = '2';
+
+// KidSafe uses "secret link" security: each family lives under a random
+// 24-character ID that only appears in your setup code. These rules let
+// anyone who knows that exact ID read and write it, but nobody can list
+// families or guess IDs, and nothing can be deleted.
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /families/{familyId} {
+      allow get, create, update: if familyId.size() >= 20;
+      allow list, delete: if false;
+
+      match /usage/{day} {
+        allow get, list, create, update: if familyId.size() >= 20 && day.size() == 10;
+        allow delete: if false;
+      }
+    }
+  }
+}

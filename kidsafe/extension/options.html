@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>KidSafe Parent Settings</title>
+  <link rel="stylesheet" href="pages.css">
+</head>
+<body>
+  <main class="card-page">
+    <!-- PIN gate -->
+    <div class="card" id="gate" hidden>
+      <div class="big-emoji">🔒</div>
+      <h1>Parents only</h1>
+      <p>Enter the parent PIN to change settings.</p>
+      <label for="gate-pin">PIN</label>
+      <input id="gate-pin" type="password" inputmode="numeric" autocomplete="off">
+      <div class="row"><button class="btn" id="gate-go">Unlock</button><a class="btn ghost" href="newtab.html">Back</a></div>
+      <p class="note bad" id="gate-msg"></p>
+    </div>
+
+    <!-- Settings -->
+    <div class="card" id="settings" hidden>
+      <div class="big-emoji">🛡️</div>
+      <h1>KidSafe parent settings</h1>
+      <p>Paste the <b>setup code</b> from your parent dashboard. It links this browser to your family so you can see usage and add websites remotely.</p>
+
+      <label for="code">Setup code</label>
+      <textarea id="code" rows="3" placeholder="KS1...."></textarea>
+
+      <label for="pin">Parent PIN (protects this page)</label>
+      <input id="pin" type="password" inputmode="numeric" autocomplete="new-password" placeholder="Leave blank to keep the current PIN">
+
+      <div class="row">
+        <button class="btn" id="save">Save & connect</button>
+        <button class="btn ghost" id="sync">Sync now</button>
+      </div>
+      <p class="note" id="status"></p>
+    </div>
+  </main>
+  <script type="module" src="options.js"></script>
+</body>
+</html>

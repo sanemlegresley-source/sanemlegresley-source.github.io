@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>KidSafe Parent</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">🛡️ KidSafe <span>Parent</span></div>
+    <div class="seen" id="seen"></div>
+  </header>
+
+  <!-- ========== Setup ========== -->
+  <main class="wrap" id="setup" hidden>
+    <section class="panel narrow">
+      <h1>Connect your family</h1>
+      <p class="muted">You need a free Firebase project (see the setup guide in the README). Enter its details once; they are saved only in this browser.</p>
+
+      <div class="tabs small" role="tablist">
+        <button class="tab active" data-setup="new">Create new family</button>
+        <button class="tab" data-setup="join">I have a setup code</button>
+      </div>
+
+      <form id="form-new" class="stack">
+        <label>Firebase project ID <input name="projectId" required placeholder="kidsafe-12345"></label>
+        <label>Firebase Web API key <input name="apiKey" required placeholder="AIza..."></label>
+        <label>Kid's first name <input name="kidName" placeholder="Optional, shown on the welcome page"></label>
+        <button class="btn" type="submit">Create family</button>
+      </form>
+
+      <form id="form-join" class="stack" hidden>
+        <label>Setup code <textarea name="code" rows="3" required placeholder="KS1...."></textarea></label>
+        <button class="btn" type="submit">Connect</button>
+      </form>
+      <p class="msg" id="setup-msg"></p>
+    </section>
+  </main>
+
+  <!-- ========== App ========== -->
+  <main class="wrap" id="app" hidden>
+    <nav class="tabs" role="tablist">
+      <button class="tab active" data-view="usage">📊 Usage</button>
+      <button class="tab" data-view="activity">🕒 Activity</button>
+      <button class="tab" data-view="requests">🙋 Requests <span class="pill" id="req-count" hidden></span></button>
+      <button class="tab" data-view="sites">🌐 Allowed sites</button>
+      <button class="tab" data-view="settings">⚙️ Settings</button>
+    </nav>
+
+    <!-- Usage -->
+    <section class="view" data-view="usage">
+      <div class="toolbar">
+        <label class="inline">Day <select id="day"></select></label>
+        <button class="btn ghost" id="refresh">↻ Refresh</button>
+      </div>
+      <div class="stats">
+        <div class="stat"><div class="stat-label">Time online</div><div class="stat-value" id="s-total">-</div></div>
+        <div class="stat"><div class="stat-label">Websites used</div><div class="stat-value" id="s-sites">-</div></div>
+        <div class="stat"><div class="stat-label">Blocked attempts</div><div class="stat-value" id="s-blocked">-</div></div>
+      </div>
+      <div class="panel">
+        <h2>Time per website</h2>
+        <div id="site-bars" class="bars"></div>
+      </div>
+      <div class="panel">
+        <h2>Last 7 days</h2>
+        <div id="week" class="week"></div>
+      </div>
+    </section>
+
+    <!-- Activity -->
+    <section class="view" data-view="activity" hidden>
+      <div class="panel">
+        <h2>Visits on <span id="act-day"></span></h2>
+        <p class="muted">Each row is a stretch of time with that website open and in front. Newest first.</p>
+        <div class="table-wrap">
+          <table class="table">
+            <thead><tr><th>Started</th><th>Website</th><th>Page</th><th class="num">Time</th></tr></thead>
+            <tbody id="sessions"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Requests -->
+    <section class="view" data-view="requests" hidden>
+      <div class="panel">
+        <h2>Blocked sites & requests</h2>
+        <p class="muted">Sites your kid tried to open in the last 7 days that aren't allowed. "Asked" means they pressed the ask button.</p>
+        <div id="requests" class="list"></div>
+      </div>
+    </section>
+
+    <!-- Sites -->
+    <section class="view" data-view="sites" hidden>
+      <div class="panel">
+        <h2 id="site-form-title">Add a website</h2>
+        <form id="site-form" class="grid-form">
+          <input type="hidden" name="id">
+          <label>Name <input name="name" required placeholder="e.g. Scratch"></label>
+          <label>Web address <input name="url" required placeholder="scratch.mit.edu"></label>
+          <label>Section <select name="category" id="cat-select"></select></label>
+          <label>Icon <input name="icon" placeholder="Emoji or image URL (optional)"></label>
+          <label class="wide">Also allow these domains <input name="domains" placeholder="Optional, comma separated, e.g. accounts.google.com, cdn.scratch.mit.edu"></label>
+          <label class="check wide"><input type="checkbox" name="markNew" checked> Show in the "New" section for 7 days</label>
+          <div class="wide row">
+            <button class="btn" type="submit" id="site-submit">Add website</button>
+            <button class="btn ghost" type="button" id="site-cancel" hidden>Cancel</button>
+          </div>
+        </form>
+        <p class="msg" id="site-msg"></p>
+      </div>
+      <div id="site-list"></div>
+    </section>
+
+    <!-- Settings -->
+    <section class="view" data-view="settings" hidden>
+      <div class="panel">
+        <h2>Welcome page</h2>
+        <form id="settings-form" class="stack">
+          <label>Kid's first name <input name="kidName"></label>
+          <label class="check"><input type="checkbox" name="blockUnlisted"> Block every website that is not on the allowed list</label>
+          <button class="btn" type="submit">Save</button>
+        </form>
+        <p class="msg" id="settings-msg"></p>
+      </div>
+      <div class="panel">
+        <h2>Setup code for the extension</h2>
+        <p class="muted">Paste this into <b>KidSafe parent settings</b> on your kid's Chrome. Keep it private: anyone with it can see and change this family's data.</p>
+        <textarea id="setup-code" rows="3" readonly></textarea>
+        <div class="row"><button class="btn ghost" id="copy-code">Copy</button></div>
+      </div>
+      <div class="panel">
+        <h2>This browser</h2>
+        <p class="muted">Disconnecting only forgets the family on this device. Nothing is deleted.</p>
+        <button class="btn danger" id="disconnect">Disconnect</button>
+      </div>
+    </section>
+  </main>
+
+  <div class="tooltip" id="tooltip" hidden></div>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

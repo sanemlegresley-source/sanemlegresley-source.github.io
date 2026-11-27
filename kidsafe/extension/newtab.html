@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Start Page</title>
+  <link rel="stylesheet" href="pages.css">
+</head>
+<body>
+  <main class="wrap">
+    <header class="hello">
+      <div>
+        <h1 id="greeting">Hi there!</h1>
+        <p id="sub">Pick a website to get started.</p>
+      </div>
+      <div class="clock" id="clock"></div>
+    </header>
+
+    <input class="find" id="find" type="search" placeholder="🔎  Find a website..." aria-label="Find a website" autocomplete="off">
+
+    <div id="sections"></div>
+
+    <footer class="footer">
+      <span id="screen-time"></span>
+      <a href="options.html">Parent settings</a>
+    </footer>
+  </main>
+  <script type="module" src="newtab.js"></script>
+</body>
+</html>
